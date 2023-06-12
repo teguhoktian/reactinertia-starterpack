@@ -1,0 +1,19 @@
+#menu li > a.active, li.active p {
+    @apply text-white font-medium;
+}
+
+#menu ul li > a.active {
+    @apply bg-none;
+}
+
+li > a > svg {
+    @apply w-6 h-6 group-hover:text-gray-400
+}
+
+li > a.active > svg, li.active > svg {
+    @apply text-indigo-400;
+}
+
+#menu .link, button.link {
+    @apply flex items-center px-4 py-2 text-sm text-gray-300 font-normal rounded-sm gap-6 cursor-pointer;
+}
