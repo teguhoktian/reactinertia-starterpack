@@ -26,7 +26,7 @@ function AuthLayout({ user, header, children }) {
                 className={sidebarStatus ? "" : "mobile"}
             />
 
-            <div className="flex flex-1 flex-col overflow-x-hidden overflow-y-scroll  mx-auto">
+            <div className="flex flex-1 flex-col overflow-x-hidden overflow-y-scroll no-scrollbar mx-auto">
                 <TopNavbar user={user} header={header} toggle={sidebarToggle} />
                 <div className="mb-auto md:px-6 lg:px-8 pb-6 pt-5 md:py-6">
                     {children}
