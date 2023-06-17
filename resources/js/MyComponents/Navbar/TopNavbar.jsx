@@ -2,12 +2,11 @@ import Dropdown from "@/Components/Dropdown";
 import { ExpandMore, Menu, WebAsset } from "@mui/icons-material";
 import React from "react";
 import AvatarLetter from "./AvatarLetter";
-import TextInput from "@/Components/TextInput";
 
 function TopNavbar({ user, header, ...props }) {
     return (
         <>
-            <div className="text-sm w-full flex items-center justify-between bg-white lg:p-8 p-4 h-16 border-b border-gray-200 space-x-2 shadow-sm">
+            <div className="text-sm sticky w-full flex items-center justify-between bg-white lg:p-8 p-4 h-16 border-b border-gray-200 space-x-2 shadow-sm">
                 <div className="flex flex-row items-center gap-2">
                     <span
                         className="md:hidden text-gray-500 hover:text-gray-700 cursor-pointer"

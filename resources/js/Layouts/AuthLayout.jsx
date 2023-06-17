@@ -3,6 +3,7 @@ import TopNavbar from "@/MyComponents/Navbar/TopNavbar";
 import Sidebar from "@/MyComponents/Sidebar/Sidebar";
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { sidebarToggle } from "@/utils/toggler";
+import { motion } from "framer-motion";
 
 function AuthLayout({ user, header, children }) {
     const isDesktop = () => document.body.clientWidth > 768;
@@ -28,9 +29,20 @@ function AuthLayout({ user, header, children }) {
 
             <div className="flex flex-1 flex-col overflow-x-hidden overflow-y-scroll no-scrollbar mx-auto">
                 <TopNavbar user={user} header={header} toggle={sidebarToggle} />
-                <div className="mb-auto md:px-6 lg:px-8 pb-6 pt-5 md:py-6">
+                <motion.div
+                    variants={{
+                        initial: { opacity: 0 },
+                        animate: { opacity: 1 },
+                        exit: { opacity: 0 },
+                    }}
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                    transition={{ duration: 0.5 }}
+                    className="mb-auto md:px-6 lg:px-8 pb-6 pt-5"
+                >
                     {children}
-                </div>
+                </motion.div>
                 <Footer />
             </div>
         </div>
