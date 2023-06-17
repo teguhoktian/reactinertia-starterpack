@@ -1,4 +1,4 @@
-const menus = [
+const headerTable = [
     {
         key: "firstname",
         label: "First Name",
@@ -29,4 +29,4 @@ const menus = [
     },
 ];
 
-export default menus;
+export default headerTable;
