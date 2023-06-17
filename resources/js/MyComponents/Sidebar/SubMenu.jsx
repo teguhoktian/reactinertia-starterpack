@@ -4,9 +4,8 @@ import { ExpandMore } from "@mui/icons-material";
 import { Link } from "@inertiajs/react";
 
 function SubMenu({ menu, ...props }) {
-    const pathname = route().current();
     const [subMenuOpen, setSubMenuOpen] = useState(
-        pathname.includes(menu.path)
+        route().current().startsWith(menu.route)
     );
     return (
         <>
@@ -14,7 +13,7 @@ function SubMenu({ menu, ...props }) {
                 <li
                     key={menu.label}
                     className={`link ${
-                        pathname.includes(menu.path) ? "active" : ""
+                        route().current().startsWith(menu.route) ? "active" : ""
                     } `}
                     onClick={() => setSubMenuOpen(!subMenuOpen)}
                 >
@@ -42,7 +41,10 @@ function SubMenu({ menu, ...props }) {
                         <li key={sm.label} onClick={props.props.toggle}>
                             <Link
                                 href={`${menu.path}/${sm.path}`}
-                                className="link"
+                                className={`link ${
+                                    route().current().includes(sm.route) &&
+                                    "active"
+                                }`}
                             >
                                 {sm.label}
                             </Link>

@@ -32,7 +32,9 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
 
-    Route::resource('master/user', UserController::class);
+    Route::prefix("master")->name('master.')->group(function () {
+        Route::resource('user', UserController::class);
+    });
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

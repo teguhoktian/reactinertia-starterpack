@@ -44,9 +44,9 @@ function Sidebar({ user, logout, ...props }) {
                                     onClick={props.toggle}
                                 >
                                     <Link
-                                        href={`/${menu.path}`}
+                                        href={`${menu.path}`}
                                         className={`link ${
-                                            route().current(menu.path) &&
+                                            route().current() == menu.route &&
                                             "active"
                                         }`}
                                     >

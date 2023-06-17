@@ -7,7 +7,6 @@ import Card from "@/MyComponents/Card/Card";
 import { Delete, Edit } from "@mui/icons-material";
 
 function UserIndex({ auth, users, filters }) {
-    console.log(users);
     const dataHeader = [
         {
             key: "firstname",
