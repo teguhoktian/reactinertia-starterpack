@@ -4,10 +4,11 @@ import React from "react";
 import Table from "@/MyComponents/Datatables/Table";
 import TableCell from "@/MyComponents/Datatables/TableCell";
 import Card from "@/MyComponents/Card/Card";
-import { Delete, Edit } from "@mui/icons-material";
+import { Delete, Edit, FilterAlt, Refresh, Sort } from "@mui/icons-material";
 import headerTable from "./headerTable.js";
+import PrimaryButton from "@/MyComponents/Buttons/PrimaryButton.jsx";
 
-function UserIndex({ auth, users, filters }) {
+function UserIndex({ auth, users, filters, url }) {
     return (
         <>
             <AuthLayout
@@ -20,6 +21,14 @@ function UserIndex({ auth, users, filters }) {
             >
                 <Head title="Pengguna" />
                 <Card>
+                    <div className="mb-4 justify-end flex items-center flex-row space-x-1">
+                        <Link href="/master/user">
+                            <PrimaryButton className="text-sm flex flex-row space-x-1">
+                                <Refresh sx={{ fontSize: "20px" }} />{" "}
+                                <span className="hidden md:block">Refresh</span>
+                            </PrimaryButton>
+                        </Link>
+                    </div>
                     <Table
                         header={headerTable}
                         collections={users}
