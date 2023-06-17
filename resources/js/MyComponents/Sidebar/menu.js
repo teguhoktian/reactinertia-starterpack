@@ -3,13 +3,13 @@ const menus = [
     {
         label: "Dashboard",
         icon: DashboardOutlined,
-        path: "dashboard",
+        path: "/dashboard",
         role: true,
     },
     {
         label: "Master Data",
         icon: Storage,
-        path: "master",
+        path: "/master",
         role: true,
         submenu: [
             {
@@ -25,7 +25,7 @@ const menus = [
     {
         label: "Settings",
         icon: Tune,
-        path: "setting",
+        path: "/setting",
         role: true,
     },
 ];

@@ -1,9 +1,4 @@
-import DangerButton from "@/Components/DangerButton";
-import InputError from "@/Components/InputError";
-import InputLabel from "@/Components/InputLabel";
-import TextInput from "@/Components/TextInput";
 import AuthLayout from "@/Layouts/AuthLayout";
-import Card from "@/MyComponents/Card/Card";
 import { Head } from "@inertiajs/react";
 import React from "react";
 
