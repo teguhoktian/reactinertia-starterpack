@@ -16,6 +16,7 @@ use Inertia\Response;
 
 class RegisteredUserController extends Controller
 {
+    public const DEFAULTROLE = "User";
     /**
      * Display the registration view.
      */
@@ -46,6 +47,8 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+
+        $user->assignRole(self::DEFAULTROLE);
 
         event(new Registered($user));
 
