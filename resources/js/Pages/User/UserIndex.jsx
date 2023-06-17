@@ -5,39 +5,9 @@ import Table from "@/MyComponents/Datatables/Table";
 import TableCell from "@/MyComponents/Datatables/TableCell";
 import Card from "@/MyComponents/Card/Card";
 import { Delete, Edit } from "@mui/icons-material";
+import menus from "./headerTable.js";
 
 function UserIndex({ auth, users, filters }) {
-    const dataHeader = [
-        {
-            key: "firstname",
-            label: "First Name",
-            sort: true,
-        },
-        {
-            key: "lastname",
-            label: "Last Name",
-            sort: true,
-        },
-        {
-            key: "email",
-            label: "E-Mail",
-            sort: true,
-        },
-        {
-            key: "username",
-            label: "Username",
-            sort: true,
-        },
-        {
-            key: "role",
-            label: "Roles",
-        },
-        {
-            key: "action",
-            label: "Aksi",
-        },
-    ];
-
     return (
         <>
             <AuthLayout
@@ -50,11 +20,7 @@ function UserIndex({ auth, users, filters }) {
             >
                 <Head title="Pengguna" />
                 <Card>
-                    <Table
-                        header={dataHeader}
-                        collections={users}
-                        filters={filters}
-                    >
+                    <Table header={menus} collections={users} filters={filters}>
                         {users.data?.map((user, id) => (
                             <tr
                                 key={id}
