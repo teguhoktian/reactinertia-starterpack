@@ -45,4 +45,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function getFullNameAttribute()
+    {
+        return preg_replace('/\s+/', ' ', $this->firstname . ' ' . $this->lastname);
+    }
 }

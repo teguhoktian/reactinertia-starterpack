@@ -18,7 +18,16 @@ class User extends ResourceCollection
 
         return [
             'status' => 'success',
-            'data' => $this->collection,
+            'data' => $this->collection->map(function ($user) {
+                return [
+                    'firstname' => $user->firstname,
+                    'lastname' => $user->lastname,
+                    'fullname' => $user->fullname,
+                    'email' => $user->email,
+                    'username' => $user->username,
+                    'roles' => $user->roles,
+                ];
+            }),
             'filters' => request()->all(['search', 'perpage', 'field', 'direction'])
         ];
     }
