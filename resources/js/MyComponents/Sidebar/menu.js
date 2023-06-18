@@ -17,12 +17,12 @@ const menus = [
             {
                 label: "User",
                 path: "user",
-                route: "user.index"
+                route: "user"
             },
             {
                 label: "Role & Permission",
                 path: "roles-permissions",
-                route: "role.index"
+                route: "role"
             },
         ],
     },
