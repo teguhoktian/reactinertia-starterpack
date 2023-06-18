@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RoleController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -34,6 +35,13 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix("master")->name('master.')->group(function () {
         Route::resource('user', UserController::class);
+
+        Route::get('roles-permissions', [RoleController::class, 'index'])->name('role.index');
+        Route::get('roles-permissions/add', [RoleController::class, 'create'])->name('role.create');
+        Route::post('roles-permissions', [RoleController::class, 'store'])->name('role.store');
+        Route::get('roles-permissions/{role}/edit', [RoleController::class, 'edit'])->name('role.edit');
+        Route::delete('roles-permissions/{role}', [RoleController::class, 'destroy'])->name('role.destroy');
+        Route::patch('roles-permissions/{role}', [RoleController::class, 'update'])->name('role.update');
     });
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
