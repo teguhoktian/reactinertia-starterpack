@@ -66,7 +66,7 @@ function RoleIndex({ auth, roles }) {
                                                 href={`/master/roles-permissions/${role.id}/edit`}
                                                 className="text-blue-600 font-medium"
                                             >
-                                                <Edit fontSize="inherit" />
+                                                <Edit fontSize="small" />
                                             </Link>
                                             <Link
                                                 onClick={(e) => {
@@ -75,7 +75,7 @@ function RoleIndex({ auth, roles }) {
                                                 }}
                                                 className="text-red-600 font-medium"
                                             >
-                                                <Delete fontSize="inherit" />
+                                                <Delete fontSize="small" />
                                             </Link>
                                         </div>
                                     </td>
