@@ -4,15 +4,14 @@ const menus = [
         label: "Dashboard",
         icon: DashboardOutlined,
         path: "/dashboard",
-        route: 'dashboard',
-        role: true,
+        route: 'dashboard'
     },
     {
         label: "Master Data",
         icon: Storage,
         path: "/master",
         route: "master",
-        role: true,
+        role: ['Admin'],
         submenu: [
             {
                 label: "User",
@@ -31,7 +30,7 @@ const menus = [
         icon: Tune,
         path: "/setting",
         route: "setting",
-        role: true,
+        role: ["Admin"],
     },
 ];
 

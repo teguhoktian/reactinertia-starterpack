@@ -35,14 +35,14 @@ function EditRole({ auth, permissions, role, permission_roles }) {
     return (
         <>
             <AuthLayout
-                user={auth.user}
+                auth={auth}
                 header={
                     <h2 className="font-semibold text-xl text-gray-800 leading-tight">
-                        Add Role
+                        Edit Role
                     </h2>
                 }
             >
-                <Head title="Add Role" />
+                <Head title="Edit Role" />
                 <Card>
                     <form onSubmit={submit}>
                         <div className="w-full">

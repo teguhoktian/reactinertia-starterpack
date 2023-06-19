@@ -4,8 +4,13 @@ import React from "react";
 import "./Sidebar.css";
 import SubMenu from "./SubMenu";
 import menus from "./menu.js";
+import { hasRole } from "@/utils/permissions";
 
-function Sidebar({ user, logout, ...props }) {
+function Sidebar({ auth, logout, ...props }) {
+    const showMenu = (menuRoles, userRoles) => {
+        return menuRoles?.length > 0 ? hasRole(menuRoles, userRoles) : true;
+    };
+
     return (
         <>
             <aside
@@ -36,11 +41,16 @@ function Sidebar({ user, logout, ...props }) {
                                     key={menu.label}
                                     menu={menu}
                                     props={props}
+                                    showMenu={showMenu}
+                                    auth={auth}
                                 />
                             ) : menu.path ? (
                                 <li
                                     key={menu.label}
-                                    className={`${!menu.role && "hidden"}`}
+                                    className={`${
+                                        !showMenu(menu.role, auth.roles) &&
+                                        "hidden"
+                                    }`}
                                     onClick={props.toggle}
                                 >
                                     <Link

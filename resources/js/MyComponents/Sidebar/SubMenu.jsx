@@ -3,13 +3,16 @@ import { motion } from "framer-motion";
 import { ExpandMore } from "@mui/icons-material";
 import { Link } from "@inertiajs/react";
 
-function SubMenu({ menu, ...props }) {
+function SubMenu({ menu, showMenu, auth, ...props }) {
     const [subMenuOpen, setSubMenuOpen] = useState(
         route().current().startsWith(menu.route)
     );
     return (
         <>
-            <div className={`${!menu.role && "hidden"}`} key={menu.label}>
+            <div
+                className={`${!showMenu(menu.role, auth.roles) && "hidden"}`}
+                key={menu.label}
+            >
                 <li
                     key={menu.label}
                     className={`link ${

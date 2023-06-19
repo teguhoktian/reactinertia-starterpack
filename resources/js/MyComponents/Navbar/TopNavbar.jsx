@@ -3,7 +3,7 @@ import { ExpandMore, Menu, WebAsset } from "@mui/icons-material";
 import React from "react";
 import AvatarLetter from "./AvatarLetter";
 
-function TopNavbar({ user, header, ...props }) {
+function TopNavbar({ auth, header, ...props }) {
     return (
         <>
             <div className="text-sm sticky w-full flex items-center justify-between bg-white lg:p-8 p-4 h-16 border-b border-gray-200 space-x-2 shadow-sm">
@@ -21,13 +21,17 @@ function TopNavbar({ user, header, ...props }) {
                         <Dropdown.Trigger>
                             <span className="inline-flex rounded-md">
                                 <AvatarLetter
-                                    name={user.firstname + " " + user.lastname}
+                                    name={
+                                        auth.user.firstname +
+                                        " " +
+                                        auth.user.lastname
+                                    }
                                 />
                                 <button
                                     type="button"
                                     className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
                                 >
-                                    Hi, {user.firstname}
+                                    Hi, {auth.user.firstname}
                                     <ExpandMore />
                                 </button>
                             </span>

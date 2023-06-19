@@ -5,7 +5,7 @@ import React, { useEffect, useLayoutEffect, useState } from "react";
 import { sidebarToggle } from "@/utils/toggler";
 import { motion } from "framer-motion";
 
-function AuthLayout({ user, header, children }) {
+function AuthLayout({ auth, header, children }) {
     const isDesktop = () => document.body.clientWidth > 768;
     const [sidebarStatus, setSidebarStatus] = useState("");
 
@@ -23,12 +23,13 @@ function AuthLayout({ user, header, children }) {
     return (
         <div className="flex h-screen overflow-hidden bg-slate-50">
             <Sidebar
+                auth={auth}
                 toggle={sidebarToggle}
                 className={sidebarStatus ? "" : "mobile"}
             />
 
             <div className="flex flex-1 flex-col overflow-x-hidden overflow-y-scroll no-scrollbar mx-auto">
-                <TopNavbar user={user} header={header} toggle={sidebarToggle} />
+                <TopNavbar auth={auth} header={header} toggle={sidebarToggle} />
                 <motion.div
                     variants={{
                         initial: { opacity: 0 },
