@@ -11,10 +11,14 @@ function HeaderSort({ tkey, label, field, direction, handleSort }) {
                 <span>{label}</span>
 
                 {/* DESC Icon */}
-                {field === tkey && direction === "desc" && <ExpandMore />}
+                {field === tkey && direction === "desc" && (
+                    <ExpandMore fontSize="small" />
+                )}
 
                 {/* ASC Icon */}
-                {field === tkey && direction === "asc" && <ExpandLess />}
+                {field === tkey && direction === "asc" && (
+                    <ExpandLess fontSize="small" />
+                )}
             </div>
         </>
     );

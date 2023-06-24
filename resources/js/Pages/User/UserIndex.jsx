@@ -8,6 +8,7 @@ import { Add, Delete, Edit, Refresh } from "@mui/icons-material";
 import headerTable from "./headerTable.js";
 import PrimaryButton from "@/MyComponents/Buttons/PrimaryButton.jsx";
 import SecondaryButton from "@/MyComponents/Buttons/SecondaryButton.jsx";
+import TableRow from "@/MyComponents/Datatables/TableRow.jsx";
 
 function UserIndex({ auth, users, filters }) {
     const handleDelete = (id) => {
@@ -51,16 +52,13 @@ function UserIndex({ auth, users, filters }) {
                         collections={users}
                         filters={filters}
                     >
-                        {users.data?.map((user, id) => (
-                            <tr
-                                key={id}
-                                className="bg-white border md:border-b block md:table-row rounded-md shadow-md md:rounded-none md:shadow-none mb-5"
-                            >
+                        {users.data?.map((user) => (
+                            <TableRow key={user.id}>
                                 <TableCell
                                     dataLabel="First Name"
                                     showLabel={true}
                                 >
-                                    <span className="font-medium text-sm text-gray-900">
+                                    <span className="text-sm text-gray-900">
                                         {user.firstname}
                                     </span>
                                 </TableCell>
@@ -68,12 +66,12 @@ function UserIndex({ auth, users, filters }) {
                                     dataLabel="Last Name"
                                     showLabel={true}
                                 >
-                                    <span className="font-medium text-sm text-gray-900">
+                                    <span className="text-sm text-gray-900">
                                         {user.lastname}
                                     </span>
                                 </TableCell>
                                 <TableCell dataLabel="Email" showLabel={true}>
-                                    <span className="font-medium text-sm text-gray-900">
+                                    <span className="text-sm text-gray-900">
                                         {user.email}
                                     </span>
                                 </TableCell>
@@ -81,12 +79,12 @@ function UserIndex({ auth, users, filters }) {
                                     dataLabel="Username"
                                     showLabel={true}
                                 >
-                                    <span className="font-medium text-sm text-gray-900">
+                                    <span className="text-sm text-gray-900">
                                         {user.username}
                                     </span>
                                 </TableCell>
                                 <TableCell dataLabel="Role" showLabel={true}>
-                                    <span className="font-medium text-sm text-gray-900">
+                                    <span className="text-sm text-gray-900">
                                         {user.roles?.map((role, index) => (
                                             <span
                                                 className="rounded-full py-1 px-3 text-xs font-semibold bg-emerald-200 text-green-900"
@@ -97,8 +95,8 @@ function UserIndex({ auth, users, filters }) {
                                         ))}
                                     </span>
                                 </TableCell>
-                                <TableCell dataLabel="Aksi" showLabel={true}>
-                                    <span className="font-medium text-sm text-gray-900">
+                                <TableCell showLabel={true}>
+                                    <span className="text-sm text-gray-900">
                                         <Link
                                             href={route(
                                                 "master.user.edit",
@@ -119,7 +117,7 @@ function UserIndex({ auth, users, filters }) {
                                         </Link>
                                     </span>
                                 </TableCell>
-                            </tr>
+                            </TableRow>
                         ))}
                     </Table>
                 </Card>

@@ -63,7 +63,7 @@ function Table({ collections, filters, header, children } = {}) {
                     <label>Show </label>
                     <select
                         aria-controls="example"
-                        className="border-gray-200 text-gray-700 text-sm shadow-sm rounded-lg text-xs"
+                        className="border-gray-200 text-gray-700 text-sm shadow-sm rounded-lg"
                         onChange={handlePerpage}
                         value={perpage}
                     >
@@ -74,7 +74,7 @@ function Table({ collections, filters, header, children } = {}) {
                     </select>
                     <label>entries</label>
                 </div>
-                <div className="flex items-center justify-center space-x-2">
+                <div className="flex items-center justify-center space-x-2 text-sm">
                     <label>Search: </label>
                     <SearchControl
                         search={search}
@@ -84,7 +84,7 @@ function Table({ collections, filters, header, children } = {}) {
                 </div>
             </div>
 
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto  border md:border-none p-4 md:p-0">
                 <table
                     className={`block md:table w-full text-sm text-left text-gray-500`}
                 >
@@ -94,7 +94,7 @@ function Table({ collections, filters, header, children } = {}) {
                         direction={direction}
                         field={field}
                     ></Header>
-                    <tbody className="block md:table-row-group">
+                    <tbody className="block md:table-row-group sm:grid sm:grid-cols-2 sm:gap-4">
                         {children}
                     </tbody>
                 </table>
