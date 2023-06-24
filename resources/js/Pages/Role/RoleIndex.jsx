@@ -37,30 +37,30 @@ function RoleIndex({ auth, roles }) {
                         </Link>
                     </div>
                     {/* Table Disini */}
-                    <table className="block md:table w-full text-sm text-left">
-                        <thead className="hidden bg-slate-100 md:table-header-group text-gray-600 border boder-gray-400">
+                    <table className="table w-full text-sm text-left">
+                        <thead className="bg-slate-100 table-header-group text-gray-600 border boder-gray-400">
                             <tr>
-                                <th className="py-3 px-4 block md:table-cell font-semibold text-xs uppercase">
+                                <th className="py-3 px-4 table-cell font-semibold text-xs uppercase">
                                     Role
                                 </th>
-                                <th className="py-3 px-4 block md:table-cell font-semibold text-xs uppercase">
+                                <th className="py-3 px-4 table-cell font-semibold text-xs uppercase">
                                     Guard
                                 </th>
-                                <th className="py-3 px-4 block md:table-cell font-semibold text-xs uppercase">
+                                <th className="py-3 px-4 table-cell font-semibold text-xs uppercase">
                                     Actions
                                 </th>
                             </tr>
                         </thead>
-                        <tbody className="block md:table-row-group">
+                        <tbody className="table-row-group">
                             {roles?.map((role, index) => (
                                 <tr key={index}>
-                                    <td className="border-b md:text-left block md:table-cell md:whitespace-nowrap text-slate-800 md:first:pl-4 md:last:pr-4 px-3 py-2">
+                                    <td className="border-b text-left table-cell whitespace-nowrap text-slate-800 first:pl-4 last:pr-4 px-3 py-2">
                                         {role.name}
                                     </td>
-                                    <td className="border-b md:text-left block md:table-cell md:whitespace-nowrap text-slate-800 md:first:pl-4 md:last:pr-4 px-3 py-2">
+                                    <td className="border-b text-left table-cell whitespace-nowrap text-slate-800 first:pl-4 last:pr-4 px-3 py-2">
                                         {role.guard_name}
                                     </td>
-                                    <td className="border-b md:text-left block md:table-cell md:whitespace-nowrap text-slate-800 md:first:pl-4 md:last:pr-4 px-3 py-2">
+                                    <td className="border-b text-left table-cell whitespace-nowrap text-slate-800 first:pl-4 last:pr-4 px-3 py-2">
                                         <div className="flex flex-row space-x-2">
                                             <Link
                                                 href={`/master/roles-permissions/${role.id}/edit`}
