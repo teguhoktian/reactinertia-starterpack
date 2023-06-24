@@ -1,21 +1,29 @@
 import AuthLayout from "@/Layouts/AuthLayout";
 import { Head, Link, router } from "@inertiajs/react";
-import React from "react";
+import React, { useState } from "react";
 import Table from "@/MyComponents/Datatables/Table";
 import TableCell from "@/MyComponents/Datatables/TableCell";
 import Card from "@/MyComponents/Card/Card";
-import { Add, Delete, Edit, Refresh } from "@mui/icons-material";
+import { Add, Close, Delete, Edit, Refresh } from "@mui/icons-material";
 import headerTable from "./headerTable.js";
 import PrimaryButton from "@/MyComponents/Buttons/PrimaryButton.jsx";
 import SecondaryButton from "@/MyComponents/Buttons/SecondaryButton.jsx";
 import TableRow from "@/MyComponents/Datatables/TableRow.jsx";
+import { Alert, IconButton } from "@mui/material";
+import { useEffect } from "react";
 
-function UserIndex({ auth, users, filters }) {
+function UserIndex({ auth, users, filters, flash }) {
+    const [showMessage, setShowMessage] = useState(false);
     const handleDelete = (id) => {
         if (confirm("Are you sure?")) {
             router.delete(route("master.user.destroy", id));
         }
     };
+
+    useEffect(() => {
+        setShowMessage(flash.message !== null ? true : false);
+    }, [flash]);
+
     return (
         <>
             <AuthLayout
@@ -27,7 +35,23 @@ function UserIndex({ auth, users, filters }) {
                 }
             >
                 <Head title="Pengguna" />
-                <Card>
+                {showMessage && (
+                    <Alert
+                        action={
+                            <IconButton size="small">
+                                <Close
+                                    onClick={() => {
+                                        setShowMessage(false);
+                                    }}
+                                ></Close>
+                            </IconButton>
+                        }
+                        severity="success"
+                    >
+                        {flash.message}
+                    </Alert>
+                )}
+                <Card className="mt-4">
                     <div className="mb-4 justify-start flex items-center flex-row space-x-1">
                         <PrimaryButton
                             onClick={(e) => {

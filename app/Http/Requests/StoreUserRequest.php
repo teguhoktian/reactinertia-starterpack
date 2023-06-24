@@ -26,7 +26,7 @@ class StoreUserRequest extends FormRequest
             'lastname' => ['required'],
             'role' => ['required'],
             'email' => ['required', 'email', 'unique:users,email'],
-            'username' => ['required', 'min:6', 'unique:users,username', 'alpha_dash']
+            'username' => ['required', 'min:4', 'unique:users,username', 'alpha_dash']
         ];
     }
 }

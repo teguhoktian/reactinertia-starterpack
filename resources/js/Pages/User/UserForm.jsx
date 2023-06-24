@@ -5,7 +5,6 @@ import InputSelect from "@/MyComponents/Form/InputSelect";
 import TextInput from "@/Components/TextInput";
 
 function UserForm({ data, setData, errors, roles }) {
-    console.log(data);
     return (
         <>
             <div className="grid grid-cols-2 gap-4">

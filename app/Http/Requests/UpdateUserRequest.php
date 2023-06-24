@@ -26,7 +26,7 @@ class UpdateUserRequest extends FormRequest
             'lastname' => ['required'],
             'role' => ['required'],
             'email' => ['required', 'email', 'unique:users,email,' . $this->route()->user->id],
-            'username' => ['required', 'min:6', 'unique:users,username,' . $this->route()->user->id, 'alpha_dash']
+            'username' => ['required', 'min:4', 'unique:users,username,' . $this->route()->user->id, 'alpha_dash']
         ];
     }
 }
