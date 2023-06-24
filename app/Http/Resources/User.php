@@ -20,6 +20,7 @@ class User extends ResourceCollection
             'status' => 'success',
             'data' => $this->collection->map(function ($user) {
                 return [
+                    'id' => $user->id,
                     'firstname' => $user->firstname,
                     'lastname' => $user->lastname,
                     'fullname' => $user->fullname,

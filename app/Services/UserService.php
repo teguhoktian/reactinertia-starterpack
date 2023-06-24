@@ -23,19 +23,21 @@ class UserService
         return new ResourcesUser($users);
     }
 
-    public function update($user)
+    public function store($request)
     {
-        $user->syncRoles(request()->role);
-        return $user->update(request()->all());
+        $user = User::create($request->only('username', 'firstname', 'lastname', 'email', 'password'));
+        $user->assignRole($request->role);
+        return $user;
+    }
+
+    public function update($request, $user)
+    {
+        $user->syncRoles($request->role);
+        return $user->update($request->only('username', 'firstname', 'lastname', 'email', 'password'));
     }
 
     public function delete($user)
     {
         return $user->delete();
-    }
-
-    public function allRole(string $guard = "web")
-    {
-        return Role::where('guard_name', $guard)->orderBy('name', 'ASC')->get();
     }
 }

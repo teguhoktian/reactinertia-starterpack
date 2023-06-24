@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Models\Role;
 use App\Services\UserService;
+use Illuminate\Support\Facades\Hash;
 use Inertia\Inertia;
 
 class UserController extends Controller
@@ -39,7 +41,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $roles = Role::pluck('name');
+        return Inertia::render('User/UserAdd', ['roles' => $roles]);
     }
 
     /**
@@ -47,7 +50,9 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-        //
+        $request['password'] = Hash::make('password');
+        $this->services->store($request);
+        return redirect()->back()->with(__('Data saved'));
     }
 
     /**
@@ -55,7 +60,6 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
     }
 
     /**
@@ -63,7 +67,9 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        $roles = Role::pluck('name');
+        $user->role = $user->roles->pluck('name');
+        return Inertia::render('User/UserEdit', ['roles' => $roles, 'user' => $user]);
     }
 
     /**
@@ -71,7 +77,9 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user)
     {
-        //
+        $request['password'] = $user->password;
+        $this->services->update($request, $user);
+        return redirect()->back()->with(__('Data updated'));
     }
 
     /**
@@ -79,6 +87,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $this->services->delete($user);
+        return redirect()->back()->with(__('Data deleted'));
     }
 }

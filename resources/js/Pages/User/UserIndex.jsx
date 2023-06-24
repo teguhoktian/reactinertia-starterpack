@@ -1,14 +1,20 @@
 import AuthLayout from "@/Layouts/AuthLayout";
-import { Head, Link } from "@inertiajs/react";
+import { Head, Link, router } from "@inertiajs/react";
 import React from "react";
 import Table from "@/MyComponents/Datatables/Table";
 import TableCell from "@/MyComponents/Datatables/TableCell";
 import Card from "@/MyComponents/Card/Card";
-import { Delete, Edit, FilterAlt, Refresh, Sort } from "@mui/icons-material";
+import { Add, Delete, Edit, Refresh } from "@mui/icons-material";
 import headerTable from "./headerTable.js";
 import PrimaryButton from "@/MyComponents/Buttons/PrimaryButton.jsx";
+import SecondaryButton from "@/MyComponents/Buttons/SecondaryButton.jsx";
 
-function UserIndex({ auth, users, filters, url }) {
+function UserIndex({ auth, users, filters }) {
+    const handleDelete = (id) => {
+        if (confirm("Are you sure?")) {
+            router.delete(route("master.user.destroy", id));
+        }
+    };
     return (
         <>
             <AuthLayout
@@ -21,13 +27,24 @@ function UserIndex({ auth, users, filters, url }) {
             >
                 <Head title="Pengguna" />
                 <Card>
-                    <div className="mb-4 justify-end flex items-center flex-row space-x-1">
-                        <Link href="/master/user">
-                            <PrimaryButton className="text-sm flex flex-row space-x-1">
-                                <Refresh sx={{ fontSize: "20px" }} />{" "}
-                                <span className="hidden md:block">Refresh</span>
-                            </PrimaryButton>
-                        </Link>
+                    <div className="mb-4 justify-start flex items-center flex-row space-x-1">
+                        <PrimaryButton
+                            onClick={(e) => {
+                                router.visit(route("master.user.index"));
+                            }}
+                            className="text-sm flex flex-row space-x-1"
+                        >
+                            <Refresh sx={{ fontSize: "20px" }} />
+                        </PrimaryButton>
+                        <SecondaryButton
+                            onClick={(e) => {
+                                router.visit(route("master.user.create"));
+                            }}
+                            className="text-sm flex flex-row space-x-1"
+                        >
+                            <Add sx={{ fontSize: "20px" }} />{" "}
+                            <span className="hidden md:block">Add</span>
+                        </SecondaryButton>
                     </div>
                     <Table
                         header={headerTable}
@@ -83,13 +100,19 @@ function UserIndex({ auth, users, filters, url }) {
                                 <TableCell dataLabel="Aksi" showLabel={true}>
                                     <span className="font-medium text-sm text-gray-900">
                                         <Link
-                                            href="/"
+                                            href={route(
+                                                "master.user.edit",
+                                                user.id
+                                            )}
                                             className={`text-sky-700 inline-flex py-2 px-2 rounded text-xs`}
                                         >
                                             <Edit fontSize="small" />
                                         </Link>
                                         <Link
-                                            href="/"
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                handleDelete(user.id);
+                                            }}
                                             className={`text-red-700 inline-flex py-2 px-2 rounded text-xs`}
                                         >
                                             <Delete fontSize="small" />
