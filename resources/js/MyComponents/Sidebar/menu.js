@@ -48,7 +48,7 @@ const menus = [
         label: "Logs Activity",
         icon: ReceiptLong,
         path: "/log-activity",
-        route: "log-activity",
+        route: "log.activity",
         role: ["Admin"]
     }
 

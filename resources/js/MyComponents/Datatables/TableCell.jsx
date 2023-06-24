@@ -1,6 +1,6 @@
 import React from "react";
 
-function TableCell({ dataLabel, className, children, showLabel }) {
+function TableCell({ dataLabel, className = "", children, showLabel }) {
     return (
         <>
             <td

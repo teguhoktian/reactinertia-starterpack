@@ -1,6 +1,6 @@
 import React from "react";
 
-function TableRow({ className, children, ...props }) {
+function TableRow({ className = "", children, ...props }) {
     return (
         <>
             <tr
