@@ -8,7 +8,7 @@
     <title inertia>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
-    @googlefonts('Poppins')
+    @googlefonts
 
     <!-- Scripts -->
     @routes
