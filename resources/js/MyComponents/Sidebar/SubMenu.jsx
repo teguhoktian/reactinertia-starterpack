@@ -21,7 +21,7 @@ function SubMenu({ menu, showMenu, auth, ...props }) {
                     onClick={() => setSubMenuOpen(!subMenuOpen)}
                 >
                     {menu.icon && <menu.icon />}
-                    <p>{menu.label}</p>
+                    <p className="flex-1">{menu.label}</p>
                     <ExpandMore
                         className={`${
                             subMenuOpen && "rotate-180"
