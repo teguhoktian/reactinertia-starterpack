@@ -25,6 +25,8 @@ class LogActivityController extends Controller
         if (request()->search) $activities = $activities->where('description', 'LIKE', '%' . request()->search . '%')->orWhere('properties', 'LIKE', '%' . request()->search . '%');
         if (request()->has(['field', 'direction'])) {
             $activities->orderBy(request('field'), request('direction'));
+        } else {
+            $activities->orderBy('id', 'DESC');
         }
         $activities = $activities->paginate(request()->perpage ?: 10);
 
