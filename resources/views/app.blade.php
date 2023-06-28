@@ -8,8 +8,8 @@
     <title inertia>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
-    @googlefonts
-
+    <!-- Load Google Font -->
+    @googlefonts("Poppins")
     <!-- Scripts -->
     @routes
     @viteReactRefresh
