@@ -21,7 +21,7 @@ class LogActivityController extends Controller
 
     public function getAllData()
     {
-        $activities = Activity::query();
+        $activities = Activity::select(['id', 'log_name', 'description', 'subject_type', 'subject_id', 'causer_id']);
         if (request()->search) $activities = $activities->where('description', 'LIKE', '%' . request()->search . '%')->orWhere('properties', 'LIKE', '%' . request()->search . '%');
         if (request()->has(['field', 'direction'])) {
             $activities->orderBy(request('field'), request('direction'));
