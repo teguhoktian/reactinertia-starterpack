@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\BackupController;
 use App\Http\Controllers\LogActivityController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
+use App\Http\Middleware\NonInertiaRoutes;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -43,6 +45,13 @@ Route::middleware('auth')->group(function () {
         Route::get('roles-permissions/{role}/edit', [RoleController::class, 'edit'])->name('role.edit');
         Route::delete('roles-permissions/{role}', [RoleController::class, 'destroy'])->name('role.destroy');
         Route::patch('roles-permissions/{role}', [RoleController::class, 'update'])->name('role.update');
+    });
+
+    Route::prefix("setting")->name('setting.')->group(function () {
+        Route::get('/backup', [BackupController::class, 'index'])->name('backup.index');
+        Route::delete('/backup', [BackupController::class, 'deleteFile'])->name('backup.delete');
+        Route::post('/backup', [BackupController::class, 'createBackup'])->name('backup.create');
+        Route::get('/backup/download', [BackupController::class, 'downloadBackup'])->middleware(NonInertiaRoutes::class)->name('backup.download');
     });
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -17,7 +17,7 @@ function AuthLayout({ auth, header, children }) {
     }, []);
 
     useLayoutEffect(() => {
-        console.log(sidebarStatus);
+        //console.log(sidebarStatus);
     }, []);
 
     return (
