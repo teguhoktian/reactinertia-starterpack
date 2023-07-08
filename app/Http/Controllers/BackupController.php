@@ -108,7 +108,7 @@ class BackupController extends Controller
             })
             ->delete();
 
-        return redirect()->back()->with('message', __('Data deleted'));
+        return redirect()->back()->with('message', __('File cadangan telah berhasil dihapus.'));
     }
 
     protected function validateFilePath(string $filePath)
@@ -132,7 +132,7 @@ class BackupController extends Controller
     public function createBackup(Request $request)
     {
         dispatch(new CreateBackupJob($request->option));
-        return redirect()->back()->with('message', __("Backup Data berhasil"));
+        return redirect()->back()->with('message', __("Pencadangan sendag diproses. Silahkan refresh untuk melihat hasil."));
     }
 
     public function downloadBackup(Request $request)

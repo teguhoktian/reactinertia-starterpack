@@ -8,16 +8,27 @@ import {
     Backup,
     Cancel,
     CheckCircleRounded,
+    Close,
     Delete,
     Download,
     Menu,
     Refresh,
 } from "@mui/icons-material";
+import { Alert, IconButton } from "@mui/material";
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 
-function BackupIndex({ auth, backupStatuses, disks, activeDisk, files }) {
+function BackupIndex({
+    auth,
+    backupStatuses,
+    disks,
+    activeDisk,
+    files,
+    flash,
+}) {
     const [checkedDisk, setCheckedDisk] = useState(activeDisk || "");
+    const [showMessage, setShowMessage] = useState(false);
 
     const handleChange = (value) => {
         setCheckedDisk(value);
@@ -38,6 +49,11 @@ function BackupIndex({ auth, backupStatuses, disks, activeDisk, files }) {
     const createBackup = (option) => {
         router.post(route("setting.backup.create"), option);
     };
+
+    useEffect(() => {
+        setShowMessage(flash.message !== null ? true : false);
+    }, [flash]);
+
     return (
         <>
             <AuthLayout
@@ -49,6 +65,23 @@ function BackupIndex({ auth, backupStatuses, disks, activeDisk, files }) {
                 }
             >
                 <Head title="Backup DB" />
+                {showMessage && (
+                    <Alert
+                        className="mb-4"
+                        action={
+                            <IconButton size="small">
+                                <Close
+                                    onClick={() => {
+                                        setShowMessage(false);
+                                    }}
+                                ></Close>
+                            </IconButton>
+                        }
+                        severity="success"
+                    >
+                        {flash.message}
+                    </Alert>
+                )}
                 <div className="mb-4 flex gap-2">
                     <PrimaryButton
                         className="gap-2"
