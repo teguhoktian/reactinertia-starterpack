@@ -16,7 +16,6 @@ import {
 } from "@mui/icons-material";
 import { Alert, IconButton } from "@mui/material";
 import React from "react";
-import { useEffect } from "react";
 import { useState } from "react";
 
 function BackupIndex({
@@ -29,6 +28,7 @@ function BackupIndex({
 }) {
     const [checkedDisk, setCheckedDisk] = useState(activeDisk || "");
     const [showMessage, setShowMessage] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const handleChange = (value) => {
         setCheckedDisk(value);
@@ -41,18 +41,39 @@ function BackupIndex({
                 route("setting.backup.delete", {
                     index_file: id,
                     disk: checkedDisk,
-                })
+                }),
+                {
+                    onStart: (visit) => {
+                        setLoading(true);
+                    },
+                    onSuccess: (page) => {
+                        setShowMessage(true);
+                        setLoading(false);
+
+                        setTimeout(() => {
+                            setShowMessage(false);
+                        }, 5000);
+                    },
+                }
             );
         }
     };
 
     const createBackup = (option) => {
-        router.post(route("setting.backup.create"), option);
-    };
+        router.post(route("setting.backup.create"), option, {
+            onStart: (visit) => {
+                setLoading(true);
+            },
+            onSuccess: (page) => {
+                setShowMessage(true);
+                setLoading(false);
 
-    useEffect(() => {
-        setShowMessage(flash.message !== null ? true : false);
-    }, [flash]);
+                setTimeout(() => {
+                    setShowMessage(false);
+                }, 5000);
+            },
+        });
+    };
 
     return (
         <>
@@ -84,6 +105,7 @@ function BackupIndex({
                 )}
                 <div className="mb-4 flex gap-2">
                     <PrimaryButton
+                        disabled={loading}
                         className="gap-2"
                         onClick={(e) => {
                             e.preventDefault();
@@ -180,7 +202,6 @@ function BackupIndex({
                         </table>
                     </div>
                 </Card>
-
                 <Card className="mt-4">
                     <div className="mb-2 flex items-center justify-between">
                         <div className="flex gap-2">

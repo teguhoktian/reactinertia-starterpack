@@ -132,7 +132,7 @@ class BackupController extends Controller
     public function createBackup(Request $request)
     {
         dispatch(new CreateBackupJob($request->option));
-        return redirect()->back()->with('message', __("Pencadangan sendag diproses. Silahkan refresh untuk melihat hasil."));
+        return redirect()->back()->with('message', __("Pencadangan sedang diproses. Silahkan refresh untuk melihat hasil."));
     }
 
     public function downloadBackup(Request $request)
