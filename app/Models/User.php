@@ -48,6 +48,15 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    protected static $logAttributes = [
+        'firstname',
+        'lastname',
+        'username',
+        'email',
+        'password',
+        'role.name'
+    ];
+
     public function getFullNameAttribute()
     {
         return preg_replace('/\s+/', ' ', $this->firstname . ' ' . $this->lastname);
