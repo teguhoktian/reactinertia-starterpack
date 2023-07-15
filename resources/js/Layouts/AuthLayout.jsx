@@ -40,7 +40,7 @@ function AuthLayout({ auth, header, children }) {
                     animate="animate"
                     exit="exit"
                     transition={{ duration: 0.5 }}
-                    className="mb-auto md:px-6 lg:px-8 pb-6 pt-5"
+                    className="mb-auto md:px-4 lg:px-4 pb-6 pt-5"
                 >
                     {children}
                 </motion.div>

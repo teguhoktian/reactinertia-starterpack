@@ -4,7 +4,7 @@ function Card({ header, description, children, className }) {
     return (
         <>
             <div
-                className={`flex flex-col border border-gray-300 bg-white ${className}`}
+                className={`flex flex-col border rounded-md border-gray-200 shadow-sm bg-white ${className}`}
             >
                 {/* Header */}
                 {header && (
