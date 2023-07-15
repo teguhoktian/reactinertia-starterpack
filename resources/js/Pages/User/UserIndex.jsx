@@ -59,7 +59,7 @@ function UserIndex({ auth, users, filters, flash }) {
                             }}
                             className="text-sm flex flex-row space-x-1"
                         >
-                            <Refresh sx={{ fontSize: "20px" }} />
+                            <Refresh sx={{ fontSize: "medium" }} />
                         </PrimaryButton>
                         <SecondaryButton
                             onClick={(e) => {
@@ -67,7 +67,7 @@ function UserIndex({ auth, users, filters, flash }) {
                             }}
                             className="text-sm flex flex-row space-x-1"
                         >
-                            <Add sx={{ fontSize: "20px" }} />{" "}
+                            <Add sx={{ fontSize: "medium" }} />{" "}
                             <span className="hidden md:block">Add</span>
                         </SecondaryButton>
                     </div>

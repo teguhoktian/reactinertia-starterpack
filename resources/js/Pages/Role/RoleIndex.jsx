@@ -26,12 +26,12 @@ function RoleIndex({ auth, roles }) {
                     <div className="mb-4 justify-end flex items-center flex-row space-x-1">
                         <Link href="">
                             <SecondaryButton className="text-sm flex flex-row space-x-1">
-                                <Refresh sx={{ fontSize: "20px" }} />
+                                <Refresh sx={{ fontSize: "medium" }} />
                             </SecondaryButton>
                         </Link>
                         <Link href="/master/roles-permissions/add">
                             <PrimaryButton className="text-sm flex flex-row space-x-1">
-                                <Add sx={{ fontSize: "20px" }} />
+                                <Add sx={{ fontSize: "medium" }} />
                                 <span>Add Role</span>
                             </PrimaryButton>
                         </Link>
