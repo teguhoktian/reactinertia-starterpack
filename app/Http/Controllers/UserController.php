@@ -52,7 +52,7 @@ class UserController extends Controller
     {
         $request['password'] = Hash::make('password');
         $this->services->store($request);
-        return redirect()->route('master.user.index')->with('message', __('Data saved'));
+        return redirect()->route('master.user.index')->with('message', __('Data berhasil disimpan.'));
     }
 
     /**
@@ -79,7 +79,7 @@ class UserController extends Controller
     {
         $request['password'] = $user->password;
         $this->services->update($request, $user);
-        return redirect()->route('master.user.index')->with('message', __('Data updated'));
+        return redirect()->route('master.user.index')->with('message', __('Data berhasil diupdate.'));
     }
 
     /**
@@ -88,6 +88,6 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $this->services->delete($user);
-        return redirect()->back()->with('message', __('Data deleted'));
+        return redirect()->back()->with('message', __('Data berhasil dihapus.'));
     }
 }

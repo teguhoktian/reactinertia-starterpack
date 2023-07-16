@@ -57,7 +57,9 @@ function UserAdd({ auth, roles }) {
                             roles={roles}
                         />
                         <div className="flex items-center gap-4 mt-4">
-                            <PrimaryButton>Save</PrimaryButton>
+                            <PrimaryButton disabled={processing}>
+                                {processing ? "Please Wait..." : "Save"}
+                            </PrimaryButton>
                             <Transition
                                 show={recentlySuccessful}
                                 enterFrom="opacity-0"
