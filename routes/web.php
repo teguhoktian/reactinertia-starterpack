@@ -5,6 +5,7 @@ use App\Http\Controllers\LogActivityController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\Settings\GeneralSettingController;
 use App\Http\Middleware\NonInertiaRoutes;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -52,6 +53,10 @@ Route::middleware('auth')->group(function () {
         Route::delete('/backup', [BackupController::class, 'deleteFile'])->name('backup.delete');
         Route::post('/backup', [BackupController::class, 'createBackup'])->name('backup.create');
         Route::get('/backup/download', [BackupController::class, 'downloadBackup'])->middleware(NonInertiaRoutes::class)->name('backup.download');
+
+        //General
+        Route::get('/general', [GeneralSettingController::class, 'index'])->name('general.index');
+        Route::post('/general', [GeneralSettingController::class, 'store'])->name('general.store');
     });
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
