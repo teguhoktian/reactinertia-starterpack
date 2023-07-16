@@ -15,6 +15,15 @@ function AddRole({ auth, permissions }) {
         permissions: [],
     });
 
+    const checkAllHandle = (e) => {
+        if (e.target.checked) {
+            const permissionsSelected = permissions.map((c) => c.name);
+            setData("permissions", permissionsSelected);
+        } else {
+            setData("permissions", []);
+        }
+    };
+
     const handleChecked = (e) => {
         if (e.target.checked) {
             setData("permissions", [...data.permissions, e.target.value]);
@@ -63,6 +72,17 @@ function AddRole({ auth, permissions }) {
                                     className="mt-2"
                                 />
                             </div>
+                            <div className="mb-4 flex gap-2">
+                                <InputLabel>Administratror</InputLabel>
+                                <Checkbox
+                                    checked={
+                                        permissions.length ===
+                                        data.permissions.length
+                                    }
+                                    onChange={checkAllHandle}
+                                />
+                                <span className="text-sm">Check All</span>
+                            </div>
                             <div>
                                 <div className="grid grid-cols-4 md:gap-4 gap-2">
                                     {permissions?.map((permission, index) => (
@@ -71,6 +91,9 @@ function AddRole({ auth, permissions }) {
                                                 onChange={handleChecked}
                                                 value={permission.name}
                                                 name={permission.name}
+                                                checked={data.permissions.includes(
+                                                    permission.name
+                                                )}
                                             />
                                             <span className="ml-3">
                                                 {permission.name}

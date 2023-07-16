@@ -16,6 +16,15 @@ function EditRole({ auth, permissions, role, permission_roles }) {
         permissions: permission_roles,
     });
 
+    const checkAllHandle = (e) => {
+        if (e.target.checked) {
+            const permissionsSelected = permissions.map((c) => c.name);
+            setData("permissions", permissionsSelected);
+        } else {
+            setData("permissions", []);
+        }
+    };
+
     const handleChecked = (e) => {
         if (e.target.checked) {
             setData("permissions", [...data.permissions, e.target.value]);
@@ -32,6 +41,7 @@ function EditRole({ auth, permissions, role, permission_roles }) {
 
         post(route("master.role.update", role.id));
     };
+
     return (
         <>
             <AuthLayout
@@ -64,6 +74,18 @@ function EditRole({ auth, permissions, role, permission_roles }) {
                                     className="mt-2"
                                 />
                             </div>
+
+                            <div className="mb-4 flex gap-2">
+                                <InputLabel>Administratror</InputLabel>
+                                <Checkbox
+                                    onChange={checkAllHandle}
+                                    checked={
+                                        permissions.length ===
+                                        data.permissions.length
+                                    }
+                                />
+                                <span className="text-sm">Check All</span>
+                            </div>
                             <div>
                                 <div className="grid grid-cols-4 md:gap-4 gap-2">
                                     {permissions?.map((permission, index) => (
@@ -72,6 +94,9 @@ function EditRole({ auth, permissions, role, permission_roles }) {
                                                 onChange={handleChecked}
                                                 value={permission.name}
                                                 name={permission.name}
+                                                checked={data.permissions.includes(
+                                                    permission.name
+                                                )}
                                                 defaultChecked={permission_roles.includes(
                                                     permission.name
                                                 )}

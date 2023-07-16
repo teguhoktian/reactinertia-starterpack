@@ -15,10 +15,9 @@ class Role extends \Spatie\Permission\Models\Role
      *
      * @var array
      */
-    protected $fillable = ['name'];
 
     public function getActivitylogOptions(): LogOptions
     {
-        return LogOptions::defaults()->logFillable()->logOnlyDirty()->useLogName('System');;
+        return LogOptions::defaults()->logOnlyDirty()->useLogName('System');;
     }
 }
