@@ -3,9 +3,7 @@ import React from "react";
 function Card({ header, description, children, className }) {
     return (
         <>
-            <div
-                className={`flex flex-col border rounded-md border-gray-200 shadow-sm bg-white ${className}`}
-            >
+            <div className={`flex flex-col rounded-md ${className}`}>
                 {/* Header */}
                 {header && (
                     <div
@@ -16,7 +14,7 @@ function Card({ header, description, children, className }) {
                     </div>
                 )}
                 {/* Body */}
-                <div className="p-4 md:p-8">{children}</div>
+                <div className="px-4">{children}</div>
             </div>
         </>
     );

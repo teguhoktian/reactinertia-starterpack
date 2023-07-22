@@ -21,7 +21,7 @@ function AuthLayout({ auth, header, children }) {
     }, []);
 
     return (
-        <div className="flex h-screen overflow-hidden bg-slate-50">
+        <div className="flex h-screen overflow-hidden">
             <Sidebar
                 auth={auth}
                 toggle={sidebarToggle}

@@ -6,7 +6,7 @@ import AvatarLetter from "./AvatarLetter";
 function TopNavbar({ auth, header, ...props }) {
     return (
         <>
-            <div className="text-sm sticky w-full flex items-center justify-between bg-white lg:p-8 p-4 h-16 border-b border-gray-200 space-x-2 shadow-sm">
+            <div className="text-sm w-full flex items-center justify-between lg:p-8 p-4 h-16 space-x-2 border-b border-gray-200 z-50">
                 <div className="flex flex-row items-center gap-2">
                     <span
                         className="md:hidden text-gray-500 hover:text-gray-700 cursor-pointer"

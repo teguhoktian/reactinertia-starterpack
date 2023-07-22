@@ -103,46 +103,45 @@ function BackupIndex({
                         {flash.message}
                     </Alert>
                 )}
-                <div className="mb-4 flex gap-2">
-                    <PrimaryButton
-                        disabled={loading}
-                        className="gap-2"
-                        onClick={(e) => {
-                            e.preventDefault();
-                            createBackup({ option: "" });
-                        }}
-                    >
-                        <Backup sx={{ fontSize: "medium" }}></Backup>
-                        <span>Buat Backup</span>
-                    </PrimaryButton>
-                    <Dropdown>
-                        <Dropdown.Trigger>
-                            <SecondaryButton>
-                                <Menu sx={{ fontSize: "medium" }}></Menu>
-                            </SecondaryButton>
-                        </Dropdown.Trigger>
-                        <Dropdown.Content align="left">
-                            <Dropdown.Link
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    createBackup({ option: "only-db" });
-                                }}
-                            >
-                                Create DB Backup
-                            </Dropdown.Link>
-                            <Dropdown.Link
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    createBackup({ option: "only-file" });
-                                }}
-                            >
-                                Create Files Backup
-                            </Dropdown.Link>
-                        </Dropdown.Content>
-                    </Dropdown>
-                </div>
+                <div className="mb-4 flex gap-2"></div>
                 <Card>
-                    <div className="mb-4 flex justify-end">
+                    <div className="mb-4 flex justify-end gap-2">
+                        <PrimaryButton
+                            disabled={loading}
+                            className="gap-2"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                createBackup({ option: "" });
+                            }}
+                        >
+                            <Backup sx={{ fontSize: "medium" }}></Backup>
+                            <span>Buat Backup</span>
+                        </PrimaryButton>
+                        <Dropdown>
+                            <Dropdown.Trigger>
+                                <SecondaryButton>
+                                    <Menu sx={{ fontSize: "medium" }}></Menu>
+                                </SecondaryButton>
+                            </Dropdown.Trigger>
+                            <Dropdown.Content align="right">
+                                <Dropdown.Link
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        createBackup({ option: "only-db" });
+                                    }}
+                                >
+                                    Create DB Backup
+                                </Dropdown.Link>
+                                <Dropdown.Link
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        createBackup({ option: "only-file" });
+                                    }}
+                                >
+                                    Create Files Backup
+                                </Dropdown.Link>
+                            </Dropdown.Content>
+                        </Dropdown>
                         <PrimaryButton
                             onClick={(e) => {
                                 router.visit(route("setting.backup.index"));
