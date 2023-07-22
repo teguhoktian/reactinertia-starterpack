@@ -1,4 +1,5 @@
 import AuthLayout from "@/Layouts/AuthLayout";
+import Card from "@/MyComponents/Card/Card";
 import { Head } from "@inertiajs/react";
 import React from "react";
 
@@ -14,7 +15,11 @@ function Index({ auth }) {
                 }
             >
                 <Head title="Dashboard" />
-                <div>Dashboard</div>
+                <Card>
+                    <h1 className="text-2xl mb-4">Welcome page.</h1>
+                    Hi, {auth.user.firstname}! Welcome to React-Inertia.js
+                    Starter Pack Application.
+                </Card>
             </AuthLayout>
         </>
     );
