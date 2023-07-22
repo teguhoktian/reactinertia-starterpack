@@ -1,19 +1,20 @@
-#menu li > a.active, li.active p {
-    @apply text-white font-medium;
+#menu li > a.active {
+    @apply  font-semibold bg-gray-800 text-gray-200;
 }
 
 #menu ul li > a.active {
-    @apply bg-none;
+    @apply bg-gray-800;
 }
 
 li > a > svg {
-    @apply w-6 h-6 group-hover:text-gray-400
+    @apply w-6 h-6 
 }
 
 li > a.active > svg, li.active > svg {
-    @apply text-indigo-400;
+    @apply flex;
 }
 
 #menu .link, button.link {
-    @apply flex items-center px-4 py-2 text-sm leading-6 text-gray-300 font-medium rounded-sm gap-6 cursor-pointer;
+    @apply flex items-center px-4 py-2 text-sm leading-6 font-semibold rounded-md gap-3 cursor-pointer mb-2 hover:bg-gray-700 hover:text-gray-200;
 }
+

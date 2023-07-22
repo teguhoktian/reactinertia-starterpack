@@ -15,15 +15,17 @@ function Sidebar({ auth, logout, ...props }) {
         <>
             <aside
                 id="sidebar"
-                className={`bg-slate-800 absolute flex flex-col left-0 top-0 md:static md:left-auto md:top-auto md:translate-x-0 h-screen overflow-y-scroll md:overflow-y-auto no-scrollbar w-72 shrink-0 transition-all duration-200 ease-in-out -translate-x-72 z-40 ${props.className}`}
+                className={` bg-slate-900 absolute flex flex-col left-0 top-0 md:static md:left-auto md:top-auto md:translate-x-0 h-screen overflow-y-scroll md:overflow-y-auto no-scrollbar w-72 shrink-0 transition-all duration-200 ease-in-out -translate-x-72 z-50 text-gray-400 ${props.className}`}
             >
                 <div className="flex flex-row items-center h-16 p-4 ">
                     <Link
                         href="/"
-                        className="flex items-center text-gray-200 text-2xl font-medium whitespace-nowrap self-center"
+                        className="flex items-center  text-2xl font-medium whitespace-nowrap self-center"
                     >
                         <Layers className="mr-2 text-indigo-600"></Layers>{" "}
-                        e-nventory
+                        <p className="font-semibold text-gray-100">
+                            InertiaReact
+                        </p>
                     </Link>
                     <button
                         onClick={props.toggle}
@@ -45,25 +47,26 @@ function Sidebar({ auth, logout, ...props }) {
                                     auth={auth}
                                 />
                             ) : menu.path ? (
-                                <li
-                                    key={menu.label}
-                                    className={`${
-                                        !showMenu(menu.role, auth.roles) &&
-                                        "hidden"
-                                    }`}
-                                    onClick={props.toggle}
-                                >
-                                    <Link
-                                        href={`${menu.path}`}
-                                        className={`link ${
-                                            route().current() == menu.route &&
-                                            "active"
-                                        }`}
-                                    >
-                                        {menu.icon && <menu.icon />}
-                                        <span>{menu.label}</span>
-                                    </Link>
-                                </li>
+                                <>
+                                    {showMenu(menu.role, auth.roles) && (
+                                        <li
+                                            key={menu.label}
+                                            className={`${""}`}
+                                            onClick={props.toggle}
+                                        >
+                                            <Link
+                                                href={`${menu.path}`}
+                                                className={`link ${
+                                                    route().current() ==
+                                                        menu.route && "active"
+                                                }`}
+                                            >
+                                                {menu.icon && <menu.icon />}
+                                                <span>{menu.label}</span>
+                                            </Link>
+                                        </li>
+                                    )}
+                                </>
                             ) : (
                                 <li key={menu.label} className="mt-5 mb-3">
                                     <span className="text-gray-500 font-medium uppercase text-xs mx-2">
@@ -73,23 +76,6 @@ function Sidebar({ auth, logout, ...props }) {
                             )
                         )}
                     </ul>
-                </div>
-
-                <div className="border-t border-gray-700">
-                    <div className="px-2 py-3 text-indigo-50 text-xs">
-                        <span className="text-indigo-300">PurpleRainTheme</span>{" "}
-                        by
-                        <span className="text-semibold text-cyan-400">
-                            {" "}
-                            <a
-                                href="https://twitter.com/teguhoktian"
-                                target="_blank"
-                            >
-                                TeguhOktian
-                                <Twitter />
-                            </a>
-                        </span>
-                    </div>
                 </div>
             </aside>
         </>

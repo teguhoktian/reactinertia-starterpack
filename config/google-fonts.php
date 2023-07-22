@@ -7,7 +7,7 @@ return [
      * The google-fonts:fetch command will prefetch these fonts.
      */
     'fonts' => [
-        'default' => 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap',
+        'default' => 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap',
         'Figtree' => 'https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&display=swap',
         'Poppins' => 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap',
     ],

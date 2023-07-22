@@ -28,7 +28,7 @@ function AuthLayout({ auth, header, children }) {
                 className={sidebarStatus ? "" : "mobile"}
             />
 
-            <div className="flex flex-1 flex-col overflow-x-hidden overflow-y-scroll no-scrollbar mx-auto">
+            <div className="flex flex-1 flex-col overflow-x-hidden overflow-y-scroll no-scrollbar mx-auto border-l ">
                 <TopNavbar auth={auth} header={header} toggle={sidebarToggle} />
                 <motion.div
                     variants={{
