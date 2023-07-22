@@ -9,7 +9,7 @@
 
     <!-- Fonts -->
     <!-- Load Google Font -->
-    @googlefonts("default")
+    @googlefonts("Figtree")
     <!-- Scripts -->
     @routes
     @viteReactRefresh

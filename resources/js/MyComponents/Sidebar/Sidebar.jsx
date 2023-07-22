@@ -15,9 +15,9 @@ function Sidebar({ auth, logout, ...props }) {
         <>
             <aside
                 id="sidebar"
-                className={`bg-slate-800 absolute flex flex-col left-0 top-0 md:static md:left-auto md:top-auto md:translate-x-0 h-screen overflow-y-scroll md:overflow-y-auto no-scrollbar w-64 shrink-0 transition-all duration-200 ease-in-out -translate-x-64 z-40 ${props.className}`}
+                className={`bg-slate-800 absolute flex flex-col left-0 top-0 md:static md:left-auto md:top-auto md:translate-x-0 h-screen overflow-y-scroll md:overflow-y-auto no-scrollbar w-72 shrink-0 transition-all duration-200 ease-in-out -translate-x-72 z-40 ${props.className}`}
             >
-                <div className="flex flex-row items-center h-16 p-4 border-b border-gray-700 border-s-white">
+                <div className="flex flex-row items-center h-16 p-4 ">
                     <Link
                         href="/"
                         className="flex items-center text-gray-200 text-2xl font-medium whitespace-nowrap self-center"
