@@ -14,9 +14,22 @@ import { useEffect } from "react";
 
 function UserIndex({ auth, users, filters, flash }) {
     const [showMessage, setShowMessage] = useState(false);
+    const [loading, setLoading] = useState(false);
     const handleDelete = (id) => {
         if (confirm("Are you sure?")) {
-            router.delete(route("master.user.destroy", id));
+            router.delete(route("master.user.destroy", id), {
+                onStart: (visit) => {
+                    setLoading(true);
+                },
+                onSuccess: (page) => {
+                    setShowMessage(true);
+                    setLoading(false);
+
+                    setTimeout(() => {
+                        setShowMessage(false);
+                    }, 5000);
+                },
+            });
         }
     };
 
