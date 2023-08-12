@@ -10,6 +10,7 @@ return [
         'default' => 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap',
         'Figtree' => 'https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&display=swap',
         'Poppins' => 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap',
+        'Lato' => 'https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap'
     ],
 
     /*
