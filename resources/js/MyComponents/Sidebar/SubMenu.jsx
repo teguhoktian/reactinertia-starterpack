@@ -40,9 +40,10 @@ function SubMenu({ menu, showMenu, auth, ...props }) {
                         }
                         className="flex flex-col pl-9 text-[0.7rem] h-0 overflow-hidden"
                     >
-                        {menu.submenu.map((sm) => (
-                            <li key={sm.label} onClick={props.props.toggle}>
+                        {menu.submenu.map((sm, index) => (
+                            <li key={index} onClick={props.props.toggle}>
                                 <Link
+                                    key={index}
                                     href={`${menu.path}/${sm.path}`}
                                     className={`link ${
                                         route().current().includes(sm.route) &&

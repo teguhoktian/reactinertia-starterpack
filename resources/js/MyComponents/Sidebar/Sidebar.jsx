@@ -37,20 +37,20 @@ function Sidebar({ auth, logout, ...props }) {
 
                 <div className="flex flex-col h-full p-4">
                     <ul id="menu" className="">
-                        {menus?.map((menu) =>
+                        {menus?.map((menu, index) =>
                             menu.submenu ? (
                                 <SubMenu
-                                    key={menu.label}
+                                    key={index}
                                     menu={menu}
                                     props={props}
                                     showMenu={showMenu}
                                     auth={auth}
                                 />
                             ) : menu.path ? (
-                                <>
+                                <div key={index}>
                                     {showMenu(menu.role, auth.roles) && (
                                         <li
-                                            key={menu.label}
+                                            key={index}
                                             className={`${""}`}
                                             onClick={props.toggle}
                                         >
@@ -66,9 +66,9 @@ function Sidebar({ auth, logout, ...props }) {
                                             </Link>
                                         </li>
                                     )}
-                                </>
+                                </div>
                             ) : (
-                                <li key={menu.label} className="mt-5 mb-3">
+                                <li key={index} className="mt-5 mb-3">
                                     <span className="text-gray-500 font-medium uppercase text-xs mx-2">
                                         {menu.label} {menu.role}
                                     </span>
