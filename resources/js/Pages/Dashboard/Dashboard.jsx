@@ -17,8 +17,10 @@ function Index({ auth }) {
                 <Head title="Dashboard" />
                 <Card>
                     <h1 className="text-2xl mb-4">Welcome page.</h1>
-                    Hi, {auth.user.firstname}! Welcome to React-Inertia.js
-                    Starter Pack Application.
+                    <span className="text-sm">
+                        Hi, {auth.user.firstname}! Welcome to React-Inertia.js
+                        Starter Pack Application.
+                    </span>
                 </Card>
             </AuthLayout>
         </>
