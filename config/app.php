@@ -171,6 +171,9 @@ return [
 
         //Spatie Laravel Permission
         Spatie\Permission\PermissionServiceProvider::class,
+
+        //Dropbox Storage
+        App\Providers\DropboxServiceProvider::class,
     ])->toArray(),
 
     /*
