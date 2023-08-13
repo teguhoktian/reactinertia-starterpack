@@ -1,5 +1,5 @@
 #menu li > a.active {
-    @apply  font-semibold bg-gray-800 text-gray-200;
+    @apply  font-medium bg-gray-800 text-gray-200;
 }
 
 #menu ul li > a.active {
@@ -11,10 +11,10 @@ li > a > svg {
 }
 
 li > a.active > svg, li.active > svg {
-    @apply flex;
+    @apply flex text-indigo-700;
 }
 
 #menu .link, button.link {
-    @apply flex items-center px-4 py-2 text-sm leading-6 font-semibold rounded-md gap-3 cursor-pointer mb-2 hover:bg-gray-700 hover:text-gray-200;
+    @apply flex items-center px-4 py-2 text-sm leading-6 font-medium rounded-md gap-3 cursor-pointer mb-2 hover:bg-gray-700 hover:text-gray-200;
 }
 
