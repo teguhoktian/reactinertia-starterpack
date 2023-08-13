@@ -43,7 +43,7 @@ function BackupIndex({ auth, settings }) {
                     </h2>
                 }
             >
-                <Head title="General Settings" />
+                <Head title={`General Setting - ${settings.site_name}`} />
                 {showMessage && (
                     <Alert
                         className="mb-4"

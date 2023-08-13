@@ -6,7 +6,7 @@ import { Add, Delete, Edit, Refresh } from "@mui/icons-material";
 import PrimaryButton from "@/MyComponents/Buttons/PrimaryButton.jsx";
 import SecondaryButton from "@/MyComponents/Buttons/SecondaryButton";
 
-function RoleIndex({ auth, roles }) {
+function RoleIndex({ auth, roles, settings }) {
     const handleDelete = (id) => {
         if (confirm("Anda Yakin?"))
             router.delete(route("master.role.destroy", id));
@@ -21,7 +21,7 @@ function RoleIndex({ auth, roles }) {
                     </h2>
                 }
             >
-                <Head title="Roles & Permissions" />
+                <Head title={`Role & Permission - ${settings.sitename}`} />
                 <Card>
                     <div className="mb-4 justify-end flex items-center flex-row space-x-1">
                         <Link href="">

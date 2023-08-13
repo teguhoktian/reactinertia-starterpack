@@ -6,7 +6,7 @@ import TableRow from "@/MyComponents/Datatables/TableRow";
 import { Head } from "@inertiajs/react";
 import React from "react";
 
-function LogActivityIndex({ auth, activities, filters, flash }) {
+function LogActivityIndex({ auth, activities, filters, settings }) {
     console.log(activities);
 
     const headerTable = [
@@ -45,7 +45,7 @@ function LogActivityIndex({ auth, activities, filters, flash }) {
                     </h2>
                 }
             >
-                <Head title="Logs" />
+                <Head title={`Logs - ${settings.sitename}`} />
                 <Card className="mt-4">
                     <Table
                         header={headerTable}

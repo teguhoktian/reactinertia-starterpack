@@ -8,7 +8,7 @@ import { ArrowBack } from "@mui/icons-material";
 import PrimaryButton from "@/Components/PrimaryButton";
 import { Transition } from "@headlessui/react";
 
-function UserEdit({ user, auth, roles }) {
+function UserEdit({ user, auth, roles, settings }) {
     const {
         data,
         setData,
@@ -39,7 +39,7 @@ function UserEdit({ user, auth, roles }) {
                     </h2>
                 }
             >
-                <Head title="Edit Pengguna" />
+                <Head title={`Edit Pengguna - ${settings.sitename}`} />
                 <Card>
                     <SecondaryButton
                         className="mb-4"

@@ -12,7 +12,7 @@ import TableRow from "@/MyComponents/Datatables/TableRow.jsx";
 import { Alert, IconButton } from "@mui/material";
 import { useEffect } from "react";
 
-function UserIndex({ auth, users, filters, flash }) {
+function UserIndex({ auth, users, filters, flash, settings }) {
     const [showMessage, setShowMessage] = useState(false);
     const [loading, setLoading] = useState(false);
     const handleDelete = (id) => {
@@ -47,7 +47,7 @@ function UserIndex({ auth, users, filters, flash }) {
                     </h2>
                 }
             >
-                <Head title="Pengguna" />
+                <Head title={`Pengguna - ${settings.sitename}`} />
                 {showMessage && (
                     <Alert
                         action={

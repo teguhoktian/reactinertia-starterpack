@@ -25,6 +25,7 @@ function BackupIndex({
     activeDisk,
     files,
     flash,
+    settings,
 }) {
     const [checkedDisk, setCheckedDisk] = useState(activeDisk || "");
     const [showMessage, setShowMessage] = useState(false);
@@ -85,7 +86,7 @@ function BackupIndex({
                     </h2>
                 }
             >
-                <Head title="Backup DB" />
+                <Head title={`Backup DB - ${settings.sitename}`} />
                 {showMessage && (
                     <Alert
                         className="mb-4"

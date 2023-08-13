@@ -9,7 +9,7 @@ import Card from "@/MyComponents/Card/Card";
 import { Head, useForm } from "@inertiajs/react";
 import React from "react";
 
-function EditRole({ auth, permissions, role, permission_roles }) {
+function EditRole({ auth, permissions, role, permission_roles, settings }) {
     const { data, setData, post, processing, errors, reset } = useForm({
         _method: "PATCH",
         name: role.name,
@@ -52,7 +52,7 @@ function EditRole({ auth, permissions, role, permission_roles }) {
                     </h2>
                 }
             >
-                <Head title="Edit Role" />
+                <Head title={`Edit Role - ${settings.sitename}`} />
                 <Card>
                     <form onSubmit={submit}>
                         <div className="w-full">

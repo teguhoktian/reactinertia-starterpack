@@ -8,7 +8,7 @@ import UserForm from "./UserForm";
 import { ArrowBack } from "@mui/icons-material";
 import SecondaryButton from "@/Components/SecondaryButton";
 
-function UserAdd({ auth, roles }) {
+function UserAdd({ auth, roles, settings }) {
     const {
         data,
         setData,
@@ -39,7 +39,7 @@ function UserAdd({ auth, roles }) {
                     </h2>
                 }
             >
-                <Head title="Tambah Pengguna" />
+                <Head title={`Tambah Pengguna - ${settings.sitename}`} />
                 <Card>
                     <SecondaryButton
                         className="mb-4"

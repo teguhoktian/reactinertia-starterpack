@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Settings\GeneralSettings;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 use Tightenco\Ziggy\Ziggy;
@@ -34,6 +35,9 @@ class HandleInertiaRequests extends Middleware
         return array_merge(parent::share($request), [
             'flash' => [
                 'message' => fn () => $request->session()->get('message')
+            ],
+            'settings' => [
+                'sitename' => app(GeneralSettings::class)->site_name
             ],
             'auth' => [
                 'user' => $user ? $user->only(['id', 'name', 'email', 'firstname', 'lastname']) : null,

@@ -9,7 +9,7 @@ import Card from "@/MyComponents/Card/Card";
 import { Head, useForm } from "@inertiajs/react";
 import React from "react";
 
-function AddRole({ auth, permissions }) {
+function AddRole({ auth, permissions, settings }) {
     const { data, setData, post, processing, errors, reset } = useForm({
         name: "",
         permissions: [],
@@ -51,7 +51,7 @@ function AddRole({ auth, permissions }) {
                     </h2>
                 }
             >
-                <Head title="Add Role" />
+                <Head title={`Add Role - ${settings.sitename}`} />
                 <Card>
                     <form onSubmit={submit}>
                         <div className="w-full">
