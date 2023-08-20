@@ -63,7 +63,7 @@ function Table({ collections, filters, header, children } = {}) {
                     <label>Show </label>
                     <select
                         aria-controls="example"
-                        className="border-gray-200 text-gray-700 text-sm shadow-sm rounded-lg"
+                        className="border-gray-200 text-gray-700 text-sm shadow-sm rounded-sm"
                         onChange={handlePerpage}
                         value={perpage}
                     >
@@ -79,7 +79,7 @@ function Table({ collections, filters, header, children } = {}) {
                     <SearchControl
                         search={search}
                         onHandleChange={onHandleChange}
-                        className="mt-1 block w-full text-xs"
+                        className="mt-1 block w-full text-sm"
                     />
                 </div>
             </div>

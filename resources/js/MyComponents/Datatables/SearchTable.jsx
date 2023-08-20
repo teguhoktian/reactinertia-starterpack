@@ -1,4 +1,4 @@
-import TextInput from "@/Components/TextInput";
+import TextInput from "@/MyComponents/Form/TextInput";
 import React from "react";
 
 function SearchTable(props) {

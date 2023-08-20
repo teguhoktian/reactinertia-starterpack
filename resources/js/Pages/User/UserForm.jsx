@@ -1,15 +1,19 @@
 import React from "react";
 import InputError from "@/Components/InputError";
-import InputLabel from "@/Components/InputLabel";
 import InputSelect from "@/MyComponents/Form/InputSelect";
-import TextInput from "@/Components/TextInput";
+import TextInput from "@/MyComponents/Form/TextInput";
+import InputLabel from "@/MyComponents/Form/InputLabel";
 
 function UserForm({ data, setData, errors, roles }) {
     return (
         <>
             <div className="grid grid-cols-2 gap-4">
                 <div>
-                    <InputLabel htmlFor="firstname" value="First Name" />
+                    <InputLabel
+                        className="mb-2"
+                        htmlFor="firstname"
+                        value="First Name"
+                    />
                     <TextInput
                         id="firstname"
                         className="mt-1 block w-full"
@@ -24,7 +28,11 @@ function UserForm({ data, setData, errors, roles }) {
                 </div>
 
                 <div className="">
-                    <InputLabel htmlFor="lastname" value="Last Name" />
+                    <InputLabel
+                        className="mb-2"
+                        htmlFor="lastname"
+                        value="Last Name"
+                    />
                     <TextInput
                         id="lastname"
                         className="mt-1 block w-full"
@@ -40,7 +48,7 @@ function UserForm({ data, setData, errors, roles }) {
             </div>
 
             <div className="mt-4">
-                <InputLabel htmlFor="email" value="Email" />
+                <InputLabel className="mb-2" htmlFor="email" value="Email" />
                 <TextInput
                     id="email"
                     type="email"
@@ -56,7 +64,11 @@ function UserForm({ data, setData, errors, roles }) {
             </div>
 
             <div className="mt-4">
-                <InputLabel htmlFor="username" value="Username" />
+                <InputLabel
+                    className="mb-2"
+                    htmlFor="username"
+                    value="Username"
+                />
                 <TextInput
                     id="username"
                     className="mt-1 block w-full"
@@ -71,7 +83,7 @@ function UserForm({ data, setData, errors, roles }) {
             </div>
 
             <div className="mt-4">
-                <InputLabel htmlFor="role" value="Role" />
+                <InputLabel className="mb-2" htmlFor="role" value="Role" />
                 <InputSelect
                     placeholder="--Pilih--"
                     defaultValue={data.role[0]}

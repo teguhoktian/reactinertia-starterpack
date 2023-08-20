@@ -1,5 +1,5 @@
 import { Link } from "@inertiajs/react";
-import { ArrowBack, Copyright, Layers, Twitter } from "@mui/icons-material";
+import { ArrowBack, Layers } from "@mui/icons-material";
 import React from "react";
 import "./Sidebar.css";
 import SubMenu from "./SubMenu";
@@ -31,7 +31,7 @@ function Sidebar({ auth, logout, ...props }) {
                         onClick={props.toggle}
                         className="absolute right-4 top-5 md:hidden"
                     >
-                        <ArrowBack className="w-8 h-8 rounded-lg bg-white border"></ArrowBack>
+                        <ArrowBack className="w-12 h-12"></ArrowBack>
                     </button>
                 </div>
 

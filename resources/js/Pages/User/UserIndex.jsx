@@ -4,7 +4,14 @@ import React, { useState } from "react";
 import Table from "@/MyComponents/Datatables/Table";
 import TableCell from "@/MyComponents/Datatables/TableCell";
 import Card from "@/MyComponents/Card/Card";
-import { Add, Close, Delete, Edit, Refresh } from "@mui/icons-material";
+import {
+    Add,
+    Close,
+    Delete,
+    Edit,
+    Refresh,
+    RefreshSharp,
+} from "@mui/icons-material";
 import headerTable from "./headerTable.js";
 import PrimaryButton from "@/MyComponents/Buttons/PrimaryButton.jsx";
 import SecondaryButton from "@/MyComponents/Buttons/SecondaryButton.jsx";
@@ -70,18 +77,15 @@ function UserIndex({ auth, users, filters, flash, settings }) {
                             onClick={(e) => {
                                 router.visit(route("master.user.index"));
                             }}
-                            className="text-sm flex flex-row space-x-1"
                         >
-                            <Refresh sx={{ fontSize: "medium" }} />
+                            <Refresh />
                         </PrimaryButton>
                         <SecondaryButton
                             onClick={(e) => {
                                 router.visit(route("master.user.create"));
                             }}
-                            className="text-sm flex flex-row space-x-1"
                         >
-                            <Add sx={{ fontSize: "medium" }} />{" "}
-                            <span className="hidden md:block">Add</span>
+                            <Add /> <span className="hidden md:block">Add</span>
                         </SecondaryButton>
                     </div>
                     <Table

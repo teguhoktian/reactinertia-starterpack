@@ -1,11 +1,11 @@
-import Checkbox from "@/Components/Checkbox";
 import InputError from "@/Components/InputError";
-import InputLabel from "@/Components/InputLabel";
-import PrimaryButton from "@/Components/PrimaryButton";
-import SecondaryButton from "@/Components/SecondaryButton";
-import TextInput from "@/Components/TextInput";
 import AuthLayout from "@/Layouts/AuthLayout";
+import PrimaryButton from "@/MyComponents/Buttons/PrimaryButton";
+import SecondaryButton from "@/MyComponents/Buttons/SecondaryButton";
 import Card from "@/MyComponents/Card/Card";
+import Checkbox from "@/MyComponents/Form/Checkbox";
+import InputLabel from "@/MyComponents/Form/InputLabel";
+import TextInput from "@/MyComponents/Form/TextInput";
 import { Head, useForm } from "@inertiajs/react";
 import React from "react";
 

@@ -15,6 +15,6 @@ li > a.active > svg, li.active > svg {
 }
 
 #menu .link, button.link {
-    @apply flex items-center px-4 py-2 text-sm leading-6 font-medium rounded-md gap-3 cursor-pointer mb-2 hover:bg-gray-700 hover:text-gray-200;
+    @apply flex items-center px-4 py-2 text-base leading-6 font-medium rounded-sm gap-3 cursor-pointer mb-2 hover:bg-gray-700 hover:text-gray-200;
 }
 

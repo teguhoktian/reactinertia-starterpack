@@ -1,12 +1,12 @@
-import SecondaryButton from "@/Components/SecondaryButton";
 import AuthLayout from "@/Layouts/AuthLayout";
 import Card from "@/MyComponents/Card/Card";
 import { Head, router, useForm } from "@inertiajs/react";
 import React from "react";
 import UserForm from "./UserForm";
 import { ArrowBack } from "@mui/icons-material";
-import PrimaryButton from "@/Components/PrimaryButton";
 import { Transition } from "@headlessui/react";
+import SecondaryButton from "@/MyComponents/Buttons/SecondaryButton";
+import PrimaryButton from "@/MyComponents/Buttons/PrimaryButton";
 
 function UserEdit({ user, auth, roles, settings }) {
     const {

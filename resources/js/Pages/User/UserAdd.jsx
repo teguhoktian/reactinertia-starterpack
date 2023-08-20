@@ -1,4 +1,3 @@
-import PrimaryButton from "@/Components/PrimaryButton";
 import AuthLayout from "@/Layouts/AuthLayout";
 import Card from "@/MyComponents/Card/Card";
 import { Transition } from "@headlessui/react";
@@ -6,7 +5,8 @@ import { Head, router, useForm } from "@inertiajs/react";
 import React from "react";
 import UserForm from "./UserForm";
 import { ArrowBack } from "@mui/icons-material";
-import SecondaryButton from "@/Components/SecondaryButton";
+import SecondaryButton from "@/MyComponents/Buttons/SecondaryButton";
+import PrimaryButton from "@/MyComponents/Buttons/PrimaryButton";
 
 function UserAdd({ auth, roles, settings }) {
     const {

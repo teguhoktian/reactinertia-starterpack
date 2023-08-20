@@ -115,13 +115,13 @@ function BackupIndex({
                                 createBackup({ option: "" });
                             }}
                         >
-                            <Backup sx={{ fontSize: "medium" }}></Backup>
+                            <Backup></Backup>
                             <span>Buat Backup</span>
                         </PrimaryButton>
                         <Dropdown>
                             <Dropdown.Trigger>
                                 <SecondaryButton>
-                                    <Menu sx={{ fontSize: "medium" }}></Menu>
+                                    <Menu></Menu>
                                 </SecondaryButton>
                             </Dropdown.Trigger>
                             <Dropdown.Content align="right">
@@ -148,26 +148,26 @@ function BackupIndex({
                                 router.visit(route("setting.backup.index"));
                             }}
                         >
-                            <Refresh sx={{ fontSize: "medium" }}></Refresh>
+                            <Refresh></Refresh>
                         </PrimaryButton>
                     </div>
                     <div className="w-full overflow-x-auto">
-                        <table className="table w-full text-sm text-left">
+                        <table className="table w-full text-medium text-left">
                             <thead className="bg-slate-100 table-header-group text-gray-600 border boder-gray-400">
                                 <tr>
-                                    <th className="py-3 px-4 table-cell font-semibold text-xs uppercase">
+                                    <th className="py-3 px-4 table-cell font-semibold text-sm uppercase">
                                         Disk
                                     </th>
-                                    <th className="py-3 px-4 table-cell font-semibold text-xs uppercase">
+                                    <th className="py-3 px-4 table-cell font-semibold text-sm uppercase">
                                         Healty
                                     </th>
-                                    <th className="py-3 px-4 table-cell font-semibold text-xs uppercase">
+                                    <th className="py-3 px-4 table-cell font-semibold text-sm uppercase">
                                         Amount of Backups
                                     </th>
-                                    <th className="py-3 px-4 table-cell font-semibold text-xs uppercase">
+                                    <th className="py-3 px-4 table-cell font-semibold text-sm uppercase">
                                         Last backup
                                     </th>
-                                    <th className="py-3 px-4 table-cell font-semibold text-xs uppercase">
+                                    <th className="py-3 px-4 table-cell font-semibold text-sm uppercase">
                                         Used Storage
                                     </th>
                                 </tr>
@@ -227,24 +227,24 @@ function BackupIndex({
                                     handleChange(checkedDisk);
                                 }}
                             >
-                                <Refresh sx={{ fontSize: "medium" }}></Refresh>
+                                <Refresh></Refresh>
                             </PrimaryButton>
                         </div>
                     </div>
                     <div className="w-full overflow-x-auto">
-                        <table className="table w-full text-sm text-left">
+                        <table className="table w-full text-medium text-left">
                             <thead className="bg-slate-100 table-header-group text-gray-600 border boder-gray-400">
                                 <tr>
-                                    <th className="py-3 px-4 table-cell font-semibold text-xs uppercase">
+                                    <th className="py-3 px-4 table-cell font-semibold text-sm uppercase">
                                         Path
                                     </th>
-                                    <th className="py-3 px-4 table-cell font-semibold text-xs uppercase">
+                                    <th className="py-3 px-4 table-cell font-semibold text-sm uppercase">
                                         Created At
                                     </th>
-                                    <th className="py-3 px-4 table-cell font-semibold text-xs uppercase">
+                                    <th className="py-3 px-4 table-cell font-semibold text-sm uppercase">
                                         Size
                                     </th>
-                                    <th className="py-3 px-4 table-cell font-semibold text-xs uppercase"></th>
+                                    <th className="py-3 px-4 table-cell font-semibold text-sm uppercase"></th>
                                 </tr>
                             </thead>
                             <tbody className="table-row-group">
