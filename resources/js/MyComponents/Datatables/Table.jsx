@@ -63,7 +63,7 @@ function Table({ collections, filters, header, children } = {}) {
                     <label>Show </label>
                     <select
                         aria-controls="example"
-                        className="border-gray-200 text-gray-700 text-sm shadow-sm rounded-sm"
+                        className="border-gray-200 text-gray-500 text-sm shadow-sm rounded-sm"
                         onChange={handlePerpage}
                         value={perpage}
                     >
