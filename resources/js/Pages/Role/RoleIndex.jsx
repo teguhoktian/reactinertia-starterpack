@@ -2,7 +2,12 @@ import AuthLayout from "@/Layouts/AuthLayout";
 import { Head, Link, router } from "@inertiajs/react";
 import React from "react";
 import Card from "@/MyComponents/Card/Card";
-import { Add, Delete, Edit, Refresh } from "@mui/icons-material";
+import {
+    PlusIcon,
+    PencilIcon,
+    TrashIcon,
+    ArrowPathIcon,
+} from "@heroicons/react/24/solid";
 import PrimaryButton from "@/MyComponents/Buttons/PrimaryButton";
 import SecondaryButton from "@/MyComponents/Buttons/SecondaryButton";
 
@@ -26,12 +31,12 @@ function RoleIndex({ auth, roles, settings }) {
                     <div className="mb-4 justify-end flex items-center flex-row space-x-1">
                         <Link href="">
                             <SecondaryButton className="flex flex-row space-x-1">
-                                <Refresh />
+                                <ArrowPathIcon className="w-6 h-6" />
                             </SecondaryButton>
                         </Link>
                         <Link href="/master/roles-permissions/add">
                             <PrimaryButton className="flex flex-row space-x-1">
-                                <Add />
+                                <PlusIcon className="h-6 w-6" />
                                 <span>Add Role</span>
                             </PrimaryButton>
                         </Link>
@@ -66,7 +71,7 @@ function RoleIndex({ auth, roles, settings }) {
                                                 href={`/master/roles-permissions/${role.id}/edit`}
                                                 className="text-blue-600 font-medium"
                                             >
-                                                <Edit fontSize="small" />
+                                                <PencilIcon className="h-4 w-4" />
                                             </Link>
                                             <Link
                                                 onClick={(e) => {
@@ -75,7 +80,7 @@ function RoleIndex({ auth, roles, settings }) {
                                                 }}
                                                 className="text-red-600 font-medium"
                                             >
-                                                <Delete fontSize="small" />
+                                                <TrashIcon className="h-4 w-4" />
                                             </Link>
                                         </div>
                                     </td>

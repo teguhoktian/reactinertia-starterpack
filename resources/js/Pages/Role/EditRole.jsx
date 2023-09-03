@@ -97,9 +97,9 @@ function EditRole({ auth, permissions, role, permission_roles, settings }) {
                                                 checked={data.permissions.includes(
                                                     permission.name
                                                 )}
-                                                defaultChecked={permission_roles.includes(
-                                                    permission.name
-                                                )}
+                                                // defaultChecked={permission_roles.includes(
+                                                //     permission.name
+                                                // )}
                                             />
                                             <span className="ml-3">
                                                 {permission.name}{" "}

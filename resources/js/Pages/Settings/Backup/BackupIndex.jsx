@@ -3,17 +3,17 @@ import SecondaryButton from "@/Components/SecondaryButton";
 import AuthLayout from "@/Layouts/AuthLayout";
 import PrimaryButton from "@/MyComponents/Buttons/PrimaryButton";
 import Card from "@/MyComponents/Card/Card";
-import { Head, Link, router } from "@inertiajs/react";
 import {
-    Backup,
-    Cancel,
-    CheckCircleRounded,
-    Close,
-    Delete,
-    Download,
-    Menu,
-    Refresh,
-} from "@mui/icons-material";
+    ArrowDownTrayIcon,
+    ArrowPathIcon,
+    TrashIcon,
+    XCircleIcon,
+    InboxStackIcon,
+    Bars3Icon,
+    XMarkIcon,
+    CheckCircleIcon,
+} from "@heroicons/react/24/solid";
+import { Head, Link, router } from "@inertiajs/react";
 import { Alert, IconButton } from "@mui/material";
 import React from "react";
 import { useState } from "react";
@@ -92,11 +92,12 @@ function BackupIndex({
                         className="mb-4"
                         action={
                             <IconButton size="small">
-                                <Close
+                                <XMarkIcon
+                                    className="h-6 w-6"
                                     onClick={() => {
                                         setShowMessage(false);
                                     }}
-                                ></Close>
+                                />
                             </IconButton>
                         }
                         severity="success"
@@ -115,13 +116,13 @@ function BackupIndex({
                                 createBackup({ option: "" });
                             }}
                         >
-                            <Backup></Backup>
+                            <InboxStackIcon className="h-6 w-6"></InboxStackIcon>
                             <span>Buat Backup</span>
                         </PrimaryButton>
                         <Dropdown>
                             <Dropdown.Trigger>
                                 <SecondaryButton>
-                                    <Menu></Menu>
+                                    <Bars3Icon className="h-6 w-6"></Bars3Icon>
                                 </SecondaryButton>
                             </Dropdown.Trigger>
                             <Dropdown.Content align="right">
@@ -148,7 +149,7 @@ function BackupIndex({
                                 router.visit(route("setting.backup.index"));
                             }}
                         >
-                            <Refresh></Refresh>
+                            <ArrowPathIcon className="w-6 h-6"></ArrowPathIcon>
                         </PrimaryButton>
                     </div>
                     <div className="w-full overflow-x-auto">
@@ -180,11 +181,9 @@ function BackupIndex({
                                         </td>
                                         <td className="border-b text-left table-cell whitespace-nowrap text-slate-800 first:pl-4 last:pr-4 px-3 py-2">
                                             {backupStatus.healthy ? (
-                                                <CheckCircleRounded
-                                                    sx={{ color: "green" }}
-                                                />
+                                                <CheckCircleIcon className="h-5 w-5 text-green-600" />
                                             ) : (
-                                                <Cancel sx={{ color: "red" }} />
+                                                <XCircleIcon className="h-5 w-5 text-red-600" />
                                             )}
                                         </td>
                                         <td className="border-b text-left table-cell whitespace-nowrap text-slate-800 first:pl-4 last:pr-4 px-3 py-2">
@@ -227,7 +226,7 @@ function BackupIndex({
                                     handleChange(checkedDisk);
                                 }}
                             >
-                                <Refresh></Refresh>
+                                <ArrowPathIcon className="w-6 h-6"></ArrowPathIcon>
                             </PrimaryButton>
                         </div>
                     </div>
@@ -268,11 +267,7 @@ function BackupIndex({
                                                     }}
                                                     className={`text-red-700 inline-flex py-2 px-2 rounded text-xs border border-red-500`}
                                                 >
-                                                    <Delete
-                                                        sx={{
-                                                            fontSize: "medium",
-                                                        }}
-                                                    />
+                                                    <TrashIcon className="w-5 h-5" />
                                                 </Link>
                                                 <a
                                                     href={route(
@@ -284,11 +279,7 @@ function BackupIndex({
                                                     )}
                                                     className={`text-blue-700 inline-flex py-2 px-2 rounded text-xs border border-sky-500`}
                                                 >
-                                                    <Download
-                                                        sx={{
-                                                            fontSize: "medium",
-                                                        }}
-                                                    />
+                                                    <ArrowDownTrayIcon className="h-5 w-5" />
                                                 </a>
                                             </span>
                                         </td>

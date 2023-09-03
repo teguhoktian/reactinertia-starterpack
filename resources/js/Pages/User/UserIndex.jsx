@@ -4,20 +4,19 @@ import React, { useState } from "react";
 import Table from "@/MyComponents/Datatables/Table";
 import TableCell from "@/MyComponents/Datatables/TableCell";
 import Card from "@/MyComponents/Card/Card";
-import {
-    Add,
-    Close,
-    Delete,
-    Edit,
-    Refresh,
-    RefreshSharp,
-} from "@mui/icons-material";
 import headerTable from "./headerTable.js";
 import PrimaryButton from "@/MyComponents/Buttons/PrimaryButton.jsx";
 import SecondaryButton from "@/MyComponents/Buttons/SecondaryButton.jsx";
 import TableRow from "@/MyComponents/Datatables/TableRow.jsx";
 import { Alert, IconButton } from "@mui/material";
 import { useEffect } from "react";
+import {
+    ArrowPathIcon,
+    PencilIcon,
+    PlusCircleIcon,
+    TrashIcon,
+    XMarkIcon,
+} from "@heroicons/react/24/solid";
 
 function UserIndex({ auth, users, filters, flash, settings }) {
     const [showMessage, setShowMessage] = useState(false);
@@ -59,11 +58,12 @@ function UserIndex({ auth, users, filters, flash, settings }) {
                     <Alert
                         action={
                             <IconButton size="small">
-                                <Close
+                                <XMarkIcon
+                                    className="w-6 h-6"
                                     onClick={() => {
                                         setShowMessage(false);
                                     }}
-                                ></Close>
+                                />
                             </IconButton>
                         }
                         severity="success"
@@ -78,14 +78,15 @@ function UserIndex({ auth, users, filters, flash, settings }) {
                                 router.visit(route("master.user.index"));
                             }}
                         >
-                            <Refresh />
+                            <ArrowPathIcon className="w-6 h-6" />
                         </PrimaryButton>
                         <SecondaryButton
                             onClick={(e) => {
                                 router.visit(route("master.user.create"));
                             }}
                         >
-                            <Add /> <span className="hidden md:block">Add</span>
+                            <PlusCircleIcon className="h-6 w-6" />{" "}
+                            <span className="hidden md:block">Add</span>
                         </SecondaryButton>
                     </div>
                     <Table
@@ -145,7 +146,7 @@ function UserIndex({ auth, users, filters, flash, settings }) {
                                             )}
                                             className={`text-sky-700 inline-flex py-2 px-2 rounded text-xs`}
                                         >
-                                            <Edit fontSize="small" />
+                                            <PencilIcon className="w-5 h-5" />
                                         </Link>
                                         <Link
                                             onClick={(e) => {
@@ -154,7 +155,7 @@ function UserIndex({ auth, users, filters, flash, settings }) {
                                             }}
                                             className={`text-red-700 inline-flex py-2 px-2 rounded text-xs`}
                                         >
-                                            <Delete fontSize="small" />
+                                            <TrashIcon className="h-5 w-5" />
                                         </Link>
                                     </span>
                                 </TableCell>

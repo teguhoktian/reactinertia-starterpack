@@ -1,14 +1,14 @@
-import { DashboardOutlined, ReceiptLong, Storage, Tune } from "@mui/icons-material";
+import { CircleStackIcon, Cog6ToothIcon, CogIcon, HomeIcon } from "@heroicons/react/24/solid";
 const menus = [
     {
         label: "Dashboard",
-        icon: DashboardOutlined,
+        icon: HomeIcon,
         path: "/dashboard",
         route: 'dashboard'
     },
     {
         label: "Master Data",
-        icon: Storage,
+        icon: CircleStackIcon,
         path: "/master",
         route: "master",
         role: ['Admin'],
@@ -27,7 +27,7 @@ const menus = [
     },
     {
         label: "Settings",
-        icon: Tune,
+        icon: CogIcon,
         path: "/setting",
         route: "setting",
         role: ["Admin"],
@@ -46,7 +46,7 @@ const menus = [
     },
     {
         label: "Logs Activity",
-        icon: ReceiptLong,
+        icon: Cog6ToothIcon,
         path: "/log-activity",
         route: "log.activity",
         role: ["Admin"]

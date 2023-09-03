@@ -1,4 +1,4 @@
-import { ExpandLess, ExpandMore } from "@mui/icons-material";
+import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/solid";
 import React from "react";
 
 function HeaderSort({ tkey, label, field, direction, handleSort }) {
@@ -12,12 +12,12 @@ function HeaderSort({ tkey, label, field, direction, handleSort }) {
 
                 {/* DESC Icon */}
                 {field === tkey && direction === "desc" && (
-                    <ExpandMore fontSize="small" />
+                    <ChevronDownIcon className="w-4 h-4" />
                 )}
 
                 {/* ASC Icon */}
                 {field === tkey && direction === "asc" && (
-                    <ExpandLess fontSize="small" />
+                    <ChevronUpIcon className="w-4 h-4" />
                 )}
             </div>
         </>

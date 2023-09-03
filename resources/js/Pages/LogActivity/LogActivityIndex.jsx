@@ -7,7 +7,7 @@ import { Head } from "@inertiajs/react";
 import React from "react";
 
 function LogActivityIndex({ auth, activities, filters, settings }) {
-    console.log(activities);
+    // console.log(activities);
 
     const headerTable = [
         {

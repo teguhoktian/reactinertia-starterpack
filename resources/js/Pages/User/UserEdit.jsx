@@ -3,10 +3,10 @@ import Card from "@/MyComponents/Card/Card";
 import { Head, router, useForm } from "@inertiajs/react";
 import React from "react";
 import UserForm from "./UserForm";
-import { ArrowBack } from "@mui/icons-material";
 import { Transition } from "@headlessui/react";
 import SecondaryButton from "@/MyComponents/Buttons/SecondaryButton";
 import PrimaryButton from "@/MyComponents/Buttons/PrimaryButton";
+import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 
 function UserEdit({ user, auth, roles, settings }) {
     const {
@@ -47,7 +47,7 @@ function UserEdit({ user, auth, roles, settings }) {
                             router.visit(route("master.user.index"));
                         }}
                     >
-                        <ArrowBack fontSize="small" />
+                        <ArrowLeftIcon className="h-6 w-6" />
                     </SecondaryButton>
                     <form onSubmit={submit}>
                         <UserForm

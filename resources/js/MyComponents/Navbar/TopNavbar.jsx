@@ -1,7 +1,11 @@
 import Dropdown from "@/Components/Dropdown";
-import { ExpandMore, Menu, WebAsset } from "@mui/icons-material";
 import React from "react";
 import AvatarLetter from "./AvatarLetter";
+import {
+    Bars3Icon,
+    ChevronDownIcon,
+    ComputerDesktopIcon,
+} from "@heroicons/react/24/solid";
 
 function TopNavbar({ auth, header, ...props }) {
     return (
@@ -12,9 +16,10 @@ function TopNavbar({ auth, header, ...props }) {
                         className="md:hidden text-gray-500 hover:text-gray-700 cursor-pointer"
                         onClick={props.toggle}
                     >
-                        <Menu />
+                        <Bars3Icon className="w-6 h-6" />
                     </span>
-                    <WebAsset /> {header && <span>{header}</span>}
+                    <ComputerDesktopIcon className="w-6 h-6" />{" "}
+                    {header && <span>{header}</span>}
                 </div>
                 <div>
                     <Dropdown>
@@ -32,7 +37,7 @@ function TopNavbar({ auth, header, ...props }) {
                                     className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
                                 >
                                     Hi, {auth.user.firstname}
-                                    <ExpandMore />
+                                    <ChevronDownIcon className="w-4 h-4 ml-2" />
                                 </button>
                             </span>
                         </Dropdown.Trigger>

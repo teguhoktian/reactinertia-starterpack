@@ -4,9 +4,9 @@ import { Transition } from "@headlessui/react";
 import { Head, router, useForm } from "@inertiajs/react";
 import React from "react";
 import UserForm from "./UserForm";
-import { ArrowBack } from "@mui/icons-material";
 import SecondaryButton from "@/MyComponents/Buttons/SecondaryButton";
 import PrimaryButton from "@/MyComponents/Buttons/PrimaryButton";
+import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 
 function UserAdd({ auth, roles, settings }) {
     const {
@@ -47,7 +47,7 @@ function UserAdd({ auth, roles, settings }) {
                             router.visit(route("master.user.index"));
                         }}
                     >
-                        <ArrowBack fontSize="small" />
+                        <ArrowLeftIcon className="w-6 h-6" />
                     </SecondaryButton>
                     <form onSubmit={submit}>
                         <UserForm

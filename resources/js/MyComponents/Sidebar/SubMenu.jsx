@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { ExpandMore } from "@mui/icons-material";
 import { Link } from "@inertiajs/react";
+import { ChevronDownIcon } from "@heroicons/react/24/solid";
 
 function SubMenu({ menu, showMenu, auth, ...props }) {
     const [subMenuOpen, setSubMenuOpen] = useState(
@@ -20,12 +20,12 @@ function SubMenu({ menu, showMenu, auth, ...props }) {
                         } `}
                         onClick={() => setSubMenuOpen(!subMenuOpen)}
                     >
-                        {menu.icon && <menu.icon />}
+                        {menu.icon && <menu.icon className="w-6 h-6" />}
                         <p className="flex-1">{menu.label}</p>
-                        <ExpandMore
+                        <ChevronDownIcon
                             className={`${
                                 subMenuOpen && "rotate-180"
-                            } duration-200`}
+                            } duration-200 w-5 h-5`}
                         />
                     </li>
                     <motion.ul

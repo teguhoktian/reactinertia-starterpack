@@ -1,10 +1,10 @@
 import { Link } from "@inertiajs/react";
-import { ArrowBack, Layers } from "@mui/icons-material";
 import React from "react";
 import "./Sidebar.css";
 import SubMenu from "./SubMenu";
 import menus from "./menu.js";
 import { hasRole } from "@/utils/permissions";
+import { Square3Stack3DIcon, XMarkIcon } from "@heroicons/react/24/solid";
 
 function Sidebar({ auth, logout, ...props }) {
     const showMenu = (menuRoles, userRoles) => {
@@ -22,7 +22,7 @@ function Sidebar({ auth, logout, ...props }) {
                         href="/"
                         className="flex items-center  text-2xl font-medium whitespace-nowrap self-center"
                     >
-                        <Layers className="mr-2 text-indigo-600"></Layers>{" "}
+                        <Square3Stack3DIcon className="mr-2 w-8 h-8 text-indigo-600"></Square3Stack3DIcon>{" "}
                         <p className="font-semibold text-gray-100">
                             InertiaReact
                         </p>
@@ -31,7 +31,7 @@ function Sidebar({ auth, logout, ...props }) {
                         onClick={props.toggle}
                         className="absolute right-4 top-5 md:hidden"
                     >
-                        <ArrowBack className="w-12 h-12"></ArrowBack>
+                        <XMarkIcon className="w-8 h-8"></XMarkIcon>
                     </button>
                 </div>
 
@@ -61,7 +61,9 @@ function Sidebar({ auth, logout, ...props }) {
                                                         menu.route && "active"
                                                 }`}
                                             >
-                                                {menu.icon && <menu.icon />}
+                                                {menu.icon && (
+                                                    <menu.icon className="w-6 h-6" />
+                                                )}
                                                 <span>{menu.label}</span>
                                             </Link>
                                         </li>
