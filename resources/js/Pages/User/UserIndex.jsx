@@ -8,15 +8,14 @@ import headerTable from "./headerTable.js";
 import PrimaryButton from "@/MyComponents/Buttons/PrimaryButton.jsx";
 import SecondaryButton from "@/MyComponents/Buttons/SecondaryButton.jsx";
 import TableRow from "@/MyComponents/Datatables/TableRow.jsx";
-import { Alert, IconButton } from "@mui/material";
 import { useEffect } from "react";
 import {
     ArrowPathIcon,
     PencilIcon,
     PlusCircleIcon,
     TrashIcon,
-    XMarkIcon,
 } from "@heroicons/react/24/solid";
+import AlertSuccess from "@/MyComponents/Alert/AlertSuccess.jsx";
 
 function UserIndex({ auth, users, filters, flash, settings }) {
     const [showMessage, setShowMessage] = useState(false);
@@ -26,14 +25,11 @@ function UserIndex({ auth, users, filters, flash, settings }) {
             router.delete(route("master.user.destroy", id), {
                 onStart: (visit) => {
                     setLoading(true);
+                    setShowMessage(false);
                 },
                 onSuccess: (page) => {
                     setShowMessage(true);
                     setLoading(false);
-
-                    setTimeout(() => {
-                        setShowMessage(false);
-                    }, 5000);
                 },
             });
         }
@@ -55,21 +51,9 @@ function UserIndex({ auth, users, filters, flash, settings }) {
             >
                 <Head title={`Pengguna - ${settings.sitename}`} />
                 {showMessage && (
-                    <Alert
-                        action={
-                            <IconButton size="small">
-                                <XMarkIcon
-                                    className="w-6 h-6"
-                                    onClick={() => {
-                                        setShowMessage(false);
-                                    }}
-                                />
-                            </IconButton>
-                        }
-                        severity="success"
-                    >
+                    <AlertSuccess delay="5000" show={showMessage}>
                         {flash.message}
-                    </Alert>
+                    </AlertSuccess>
                 )}
                 <Card className="mt-4">
                     <div className="mb-4 justify-start flex items-center flex-row space-x-1">

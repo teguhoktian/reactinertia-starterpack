@@ -1,6 +1,7 @@
 import Dropdown from "@/Components/Dropdown";
 import SecondaryButton from "@/Components/SecondaryButton";
 import AuthLayout from "@/Layouts/AuthLayout";
+import AlertSuccess from "@/MyComponents/Alert/AlertSuccess";
 import PrimaryButton from "@/MyComponents/Buttons/PrimaryButton";
 import Card from "@/MyComponents/Card/Card";
 import {
@@ -10,11 +11,9 @@ import {
     XCircleIcon,
     InboxStackIcon,
     Bars3Icon,
-    XMarkIcon,
     CheckCircleIcon,
 } from "@heroicons/react/24/solid";
 import { Head, Link, router } from "@inertiajs/react";
-import { Alert, IconButton } from "@mui/material";
 import React from "react";
 import { useState } from "react";
 
@@ -46,14 +45,11 @@ function BackupIndex({
                 {
                     onStart: (visit) => {
                         setLoading(true);
+                        setShowMessage(false);
                     },
                     onSuccess: (page) => {
                         setShowMessage(true);
                         setLoading(false);
-
-                        setTimeout(() => {
-                            setShowMessage(false);
-                        }, 5000);
                     },
                 }
             );
@@ -64,14 +60,11 @@ function BackupIndex({
         router.post(route("setting.backup.create"), option, {
             onStart: (visit) => {
                 setLoading(true);
+                setShowMessage(false);
             },
             onSuccess: (page) => {
                 setShowMessage(true);
                 setLoading(false);
-
-                setTimeout(() => {
-                    setShowMessage(false);
-                }, 5000);
             },
         });
     };
@@ -88,22 +81,9 @@ function BackupIndex({
             >
                 <Head title={`Backup DB - ${settings.sitename}`} />
                 {showMessage && (
-                    <Alert
-                        className="mb-4"
-                        action={
-                            <IconButton size="small">
-                                <XMarkIcon
-                                    className="h-6 w-6"
-                                    onClick={() => {
-                                        setShowMessage(false);
-                                    }}
-                                />
-                            </IconButton>
-                        }
-                        severity="success"
-                    >
+                    <AlertSuccess delay="5000" show={showMessage}>
                         {flash.message}
-                    </Alert>
+                    </AlertSuccess>
                 )}
                 <div className="mb-4 flex gap-2"></div>
                 <Card>
