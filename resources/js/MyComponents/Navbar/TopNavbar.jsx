@@ -10,7 +10,7 @@ import {
 function TopNavbar({ auth, header, ...props }) {
     return (
         <>
-            <div className="text-sm w-full flex items-center justify-between lg:p-8 p-4 h-16 space-x-2 border-b border-gray-200 z-40">
+            <div className="text-sm bg-white absolute w-full flex items-center justify-between lg:p-8 p-4 h-16 space-x-2 border-b border-gray-200 z-40">
                 <div className="flex flex-row items-center gap-2">
                     <span
                         className="md:hidden text-gray-500 hover:text-gray-700 cursor-pointer"

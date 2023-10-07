@@ -28,7 +28,7 @@ function AuthLayout({ auth, header, children }) {
                 className={sidebarStatus ? "" : "mobile"}
             />
 
-            <div className="flex flex-1 flex-col overflow-x-hidden overflow-y-scroll no-scrollbar mx-auto border-l ">
+            <div className="relative flex flex-1 flex-col overflow-x-hidden overflow-y-scroll no-scrollbar mx-auto border-l">
                 <TopNavbar auth={auth} header={header} toggle={sidebarToggle} />
                 <motion.div
                     variants={{
@@ -40,9 +40,9 @@ function AuthLayout({ auth, header, children }) {
                     animate="animate"
                     exit="exit"
                     transition={{ duration: 0.5 }}
-                    className="mb-auto md:px-4 lg:px-4 pb-6 pt-5"
+                    className="overflow-x-hidden overflow-y-scroll h-screen mb-auto md:px-4 lg:px-4 pb-6 pt-5"
                 >
-                    {children}
+                    <div className=" mt-20">{children}</div>
                 </motion.div>
                 <Footer />
             </div>
