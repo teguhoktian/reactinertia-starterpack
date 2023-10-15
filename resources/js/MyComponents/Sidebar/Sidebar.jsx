@@ -13,6 +13,11 @@ function Sidebar({ auth, logout, ...props }) {
 
     return (
         <>
+            <div
+                id="sidebarShadow"
+                className="absolute inset-0 bg-gray-500/75 z-50 hidden"
+                onClick={props.toggle}
+            />
             <aside
                 id="sidebar"
                 className={` bg-slate-900 absolute flex flex-col left-0 top-0 md:static md:left-auto md:top-auto md:translate-x-0 h-screen overflow-y-scroll md:overflow-y-auto no-scrollbar w-72 shrink-0 transition-all duration-200 ease-in-out -translate-x-72 z-50 text-gray-400 ${props.className}`}
