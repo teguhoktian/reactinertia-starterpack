@@ -65,6 +65,7 @@ function UserIndex({ auth, users, filters, flash, settings }) {
                             <ArrowPathIcon className="w-6 h-6" />
                         </PrimaryButton>
                         <SecondaryButton
+                            className="lg:pl-2 gap-1"
                             onClick={(e) => {
                                 router.visit(route("master.user.create"));
                             }}

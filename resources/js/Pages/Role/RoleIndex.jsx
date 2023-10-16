@@ -35,7 +35,7 @@ function RoleIndex({ auth, roles, settings }) {
                             </SecondaryButton>
                         </Link>
                         <Link href="/master/roles-permissions/add">
-                            <PrimaryButton className="flex flex-row space-x-1">
+                            <PrimaryButton className="pl-2 gap-1">
                                 <PlusIcon className="h-6 w-6" />
                                 <span>Add Role</span>
                             </PrimaryButton>

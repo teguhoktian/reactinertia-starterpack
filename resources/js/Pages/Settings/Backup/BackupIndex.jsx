@@ -90,7 +90,7 @@ function BackupIndex({
                     <div className="mb-4 flex justify-end gap-2">
                         <PrimaryButton
                             disabled={loading}
-                            className="gap-2"
+                            className="gap-1 pl-2"
                             onClick={(e) => {
                                 e.preventDefault();
                                 createBackup({ option: "" });
