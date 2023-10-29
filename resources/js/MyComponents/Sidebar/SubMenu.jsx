@@ -25,7 +25,7 @@ function SubMenu({ menu, showMenu, auth, ...props }) {
                         <ChevronDownIcon
                             className={`${
                                 subMenuOpen && "rotate-180"
-                            } duration-200 w-5 h-5`}
+                            } duration-200 w-4 h-4`}
                         />
                     </li>
                     <motion.ul
