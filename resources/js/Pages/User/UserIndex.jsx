@@ -16,6 +16,7 @@ import {
     TrashIcon,
 } from "@heroicons/react/24/solid";
 import AlertSuccess from "@/MyComponents/Alert/AlertSuccess.jsx";
+import AvatarLetter from "@/MyComponents/Navbar/AvatarLetter.jsx";
 
 function UserIndex({ auth, users, filters, flash, settings }) {
     const [showMessage, setShowMessage] = useState(false);
@@ -81,6 +82,22 @@ function UserIndex({ auth, users, filters, flash, settings }) {
                     >
                         {users.data?.map((user) => (
                             <TableRow key={user.id}>
+                                <TableCell>
+                                    {user.profile_image ? (
+                                        <img
+                                            src={`/storage/${user.profile_image}`}
+                                            className="w-10 h-10 rounded-full object-cover"
+                                        />
+                                    ) : (
+                                        <AvatarLetter
+                                            name={
+                                                user.firstname +
+                                                " " +
+                                                user.lastname
+                                            }
+                                        />
+                                    )}
+                                </TableCell>
                                 <TableCell
                                     dataLabel="First Name"
                                     showLabel={true}

@@ -27,6 +27,7 @@ class User extends ResourceCollection
                     'email' => $user->email,
                     'username' => $user->username,
                     'roles' => $user->roles,
+                    'profile_image' => $user->profile_image,
                 ];
             }),
             'filters' => request()->all(['search', 'perpage', 'field', 'direction'])

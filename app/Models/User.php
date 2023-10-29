@@ -26,6 +26,7 @@ class User extends Authenticatable
         'username',
         'email',
         'password',
+        'profile_image'
     ];
 
     /**
@@ -54,7 +55,8 @@ class User extends Authenticatable
         'username',
         'email',
         'password',
-        'role.name'
+        'role.name',
+        'profile_image'
     ];
 
     public function getFullNameAttribute()

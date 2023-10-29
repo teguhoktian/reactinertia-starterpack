@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Traits\UploadFile;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -13,6 +14,7 @@ use Inertia\Response;
 
 class ProfileController extends Controller
 {
+    use UploadFile;
     /**
      * Display the user's profile form.
      */
@@ -29,6 +31,16 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
+        // return $request->hasFile('profile_image');
+        if ($request->hasFile('image') || !is_null($request->file('image'))) {
+
+            if (!is_null($request->user()->profile_image)) $this->deleteFile($request->user()->profile_image);
+
+            $request->user()->profile_image = $this->uploadFile($request->file('image'), 'Profile');
+        }
+
+        if ($request->remove_image == "true") $request->user()->profile_image = null;
+
         $request->user()->fill($request->validated());
 
         if ($request->user()->isDirty('email')) {
@@ -37,7 +49,7 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit');
+        return Redirect::route('profile.edit')->with('message', $request->file('profile_image'));
     }
 
     /**

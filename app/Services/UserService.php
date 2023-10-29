@@ -13,7 +13,7 @@ class UserService
 {
     public function getAllData()
     {
-        $users = User::with(['roles'])->select(['id', 'firstname', 'lastname', 'email', 'username']);
+        $users = User::with(['roles'])->select(['id', 'firstname', 'lastname', 'email', 'username', 'profile_image']);
         if (request()->search) $users = $users->where('firstname', 'LIKE', '%' . request()->search . '%')->orWhere('lastname', 'LIKE', '%' . request()->search . '%');
         if (request()->has(['field', 'direction'])) {
             $users->orderBy(request('field'), request('direction'));

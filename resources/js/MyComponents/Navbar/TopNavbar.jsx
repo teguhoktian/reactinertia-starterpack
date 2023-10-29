@@ -25,13 +25,20 @@ function TopNavbar({ auth, header, ...props }) {
                     <Dropdown>
                         <Dropdown.Trigger>
                             <span className="inline-flex rounded-md">
-                                <AvatarLetter
-                                    name={
-                                        auth.user.firstname +
-                                        " " +
-                                        auth.user.lastname
-                                    }
-                                />
+                                {auth.user.profile_image ? (
+                                    <img
+                                        src={`/storage/${auth.user.profile_image}`}
+                                        className="hover:cursor-pointer w-10 h-10 rounded-full object-cover border border-gray-200 shadow-md"
+                                    />
+                                ) : (
+                                    <AvatarLetter
+                                        name={
+                                            auth.user.firstname +
+                                            " " +
+                                            auth.user.lastname
+                                        }
+                                    />
+                                )}
                                 <button
                                     type="button"
                                     className="hidden md:inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"

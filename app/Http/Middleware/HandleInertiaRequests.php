@@ -40,7 +40,7 @@ class HandleInertiaRequests extends Middleware
                 'sitename' => app(GeneralSettings::class)->site_name
             ],
             'auth' => [
-                'user' => $user ? $user->only(['id', 'name', 'email', 'firstname', 'lastname']) : null,
+                'user' => $user ? $user->only(['id', 'name', 'email', 'firstname', 'lastname', 'profile_image']) : null,
                 'roles' => $user ? $user->roles->pluck('name') : [],
                 'permissions' => $user ? $user->getPermissionsViaRoles()->pluck('name') : [],
             ],

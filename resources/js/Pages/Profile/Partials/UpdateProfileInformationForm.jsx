@@ -4,6 +4,10 @@ import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
 import { Link, useForm, usePage } from "@inertiajs/react";
 import { Transition } from "@headlessui/react";
+import AvatarLetter from "@/MyComponents/Navbar/AvatarLetter";
+import { useState } from "react";
+import DangerButton from "@/Components/DangerButton";
+import { useRef } from "react";
 
 export default function UpdateProfileInformation({
     mustVerifyEmail,
@@ -11,20 +15,37 @@ export default function UpdateProfileInformation({
     className = "",
 }) {
     const user = usePage().props.auth.user;
+    const imageProfile = useRef(null);
 
-    const { data, setData, patch, errors, processing, recentlySuccessful } =
+    const { data, setData, post, errors, processing, recentlySuccessful } =
         useForm({
             firstname: user.firstname,
             lastname: user.lastname,
             email: user.email,
+            image: null,
+            preview: user.profile_image || null,
+            remove_image: false,
+            _method: "PATCH", // Inertia File tidak support PUT
         });
+
+    const [selectedImage, setSelectedImage] = useState(null);
+
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            setSelectedImage(URL.createObjectURL(file));
+            setData("image", file);
+        }
+    };
 
     const submit = (e) => {
         e.preventDefault();
 
-        patch(route("profile.update"));
+        // patch(route("profile.update")); Inertia File not Supported PUT
+        setData("image", null);
+        post(route("profile.update"));
     };
-
+    console.log(data);
     return (
         <section className={className}>
             <header>
@@ -37,7 +58,76 @@ export default function UpdateProfileInformation({
                 </p>
             </header>
 
-            <form onSubmit={submit} className="mt-6 space-y-6">
+            <form
+                onSubmit={submit}
+                className="mt-6 space-y-6"
+                encType="multipart/form-data"
+            >
+                <div className="grid gap-4 grid-cols-1 justify-between w-full">
+                    <div>
+                        <InputLabel
+                            htmlFor="profile_image"
+                            value="Profile Image"
+                        />
+                        {!data.preview && !selectedImage ? (
+                            <AvatarLetter
+                                className="w-20 h-20 text-2xl"
+                                name={user.firstname + " " + user.lastname}
+                            />
+                        ) : (
+                            <span className="h-12 w-12 rounded-full overflow-hidden bg-gray-100">
+                                {selectedImage ? (
+                                    <img
+                                        src={selectedImage}
+                                        className="w-20 h-20 rounded-full object-cover"
+                                    />
+                                ) : (
+                                    <img
+                                        src={`/storage/${data.preview}`}
+                                        className="w-20 h-20 rounded-full object-cover"
+                                    />
+                                )}
+                            </span>
+                        )}
+                        <div className="flex gap-2 mt-2">
+                            <TextInput
+                                type="file"
+                                id="profilePhoto"
+                                accept="image/*"
+                                ref={imageProfile}
+                                className="hidden"
+                                onChange={handleImageChange}
+                            />
+                            <PrimaryButton
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    imageProfile.current.click();
+                                }}
+                            >
+                                Browse Image
+                            </PrimaryButton>
+                            {(data.preview || selectedImage) && (
+                                <DangerButton
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        // setData("remove_image", true);
+                                        // setData("preview", null);
+                                        setData((prevState) => ({
+                                            ...prevState,
+                                            preview: null,
+                                            remove_image: true,
+                                        }));
+
+                                        setSelectedImage(null);
+                                        imageProfile.current.value = "";
+                                    }}
+                                >
+                                    Remove Image
+                                </DangerButton>
+                            )}
+                        </div>
+                    </div>
+                </div>
                 <div className="grid md:grid-cols-2 gap-4 grid-cols-1 justify-between w-full">
                     <div>
                         <InputLabel htmlFor="firstname" value="First Name" />
