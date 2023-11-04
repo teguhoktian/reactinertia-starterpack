@@ -30,13 +30,14 @@ function RoleIndex({ auth, roles, settings }) {
                 <Card>
                     <div className="mb-4 justify-end flex items-center flex-row space-x-1">
                         <Link href="">
-                            <SecondaryButton className="flex flex-row space-x-1">
-                                <ArrowPathIcon className="w-6 h-6" />
+                            <SecondaryButton className="lg:pl-2 gap-1">
+                                <ArrowPathIcon className="w-4 h-4" />
+                                <span>Reload</span>
                             </SecondaryButton>
                         </Link>
                         <Link href="/master/roles-permissions/add">
-                            <PrimaryButton className="pl-2 gap-1">
-                                <PlusIcon className="h-6 w-6" />
+                            <PrimaryButton className="lg:pl-2 gap-1">
+                                <PlusIcon className="h-4 w-4" />
                                 <span>Add Role</span>
                             </PrimaryButton>
                         </Link>

@@ -12,7 +12,7 @@ import { useEffect } from "react";
 import {
     ArrowPathIcon,
     PencilIcon,
-    PlusCircleIcon,
+    PlusIcon,
     TrashIcon,
 } from "@heroicons/react/24/solid";
 import AlertSuccess from "@/MyComponents/Alert/AlertSuccess.jsx";
@@ -59,11 +59,13 @@ function UserIndex({ auth, users, filters, flash, settings }) {
                 <Card className="mt-4">
                     <div className="mb-4 justify-start flex items-center flex-row space-x-1">
                         <PrimaryButton
+                            className="lg:pl-2 gap-1"
                             onClick={(e) => {
                                 router.visit(route("master.user.index"));
                             }}
                         >
-                            <ArrowPathIcon className="w-6 h-6" />
+                            <ArrowPathIcon className="w-4 h-4" />
+                            <span className="hidden md:block">Reload</span>
                         </PrimaryButton>
                         <SecondaryButton
                             className="lg:pl-2 gap-1"
@@ -71,7 +73,7 @@ function UserIndex({ auth, users, filters, flash, settings }) {
                                 router.visit(route("master.user.create"));
                             }}
                         >
-                            <PlusCircleIcon className="h-6 w-6" />{" "}
+                            <PlusIcon className="h-4 w-4" />{" "}
                             <span className="hidden md:block">Add</span>
                         </SecondaryButton>
                     </div>

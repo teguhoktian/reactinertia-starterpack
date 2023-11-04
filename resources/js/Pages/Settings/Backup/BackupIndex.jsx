@@ -1,5 +1,5 @@
 import Dropdown from "@/Components/Dropdown";
-import SecondaryButton from "@/Components/SecondaryButton";
+import SecondaryButton from "@/MyComponents/Buttons/SecondaryButton";
 import AuthLayout from "@/Layouts/AuthLayout";
 import AlertSuccess from "@/MyComponents/Alert/AlertSuccess";
 import PrimaryButton from "@/MyComponents/Buttons/PrimaryButton";
@@ -90,18 +90,18 @@ function BackupIndex({
                     <div className="mb-4 flex justify-end gap-2">
                         <PrimaryButton
                             disabled={loading}
-                            className="gap-1 pl-2"
+                            className="lg:pl-2 gap-1"
                             onClick={(e) => {
                                 e.preventDefault();
                                 createBackup({ option: "" });
                             }}
                         >
-                            <InboxStackIcon className="h-6 w-6"></InboxStackIcon>
+                            <InboxStackIcon className="h-4 w-4"></InboxStackIcon>
                             <span>Buat Backup</span>
                         </PrimaryButton>
                         <Dropdown>
                             <Dropdown.Trigger>
-                                <SecondaryButton>
+                                <SecondaryButton className="">
                                     <Bars3Icon className="h-6 w-6"></Bars3Icon>
                                 </SecondaryButton>
                             </Dropdown.Trigger>
@@ -133,7 +133,7 @@ function BackupIndex({
                         </PrimaryButton>
                     </div>
                     <div className="w-full overflow-x-auto">
-                        <table className="table w-full text-medium text-left">
+                        <table className="table w-full text-sm text-left">
                             <thead className="bg-slate-100 table-header-group text-gray-600 border boder-gray-400">
                                 <tr>
                                     <th className="py-3 px-4 table-cell font-semibold text-sm uppercase">
@@ -211,7 +211,7 @@ function BackupIndex({
                         </div>
                     </div>
                     <div className="w-full overflow-x-auto">
-                        <table className="table w-full text-medium text-left">
+                        <table className="table w-full text-sm text-left">
                             <thead className="bg-slate-100 table-header-group text-gray-600 border boder-gray-400">
                                 <tr>
                                     <th className="py-3 px-4 table-cell font-semibold text-sm uppercase">
@@ -247,7 +247,7 @@ function BackupIndex({
                                                     }}
                                                     className={`text-red-700 inline-flex py-2 px-2 rounded text-xs border border-red-500`}
                                                 >
-                                                    <TrashIcon className="w-5 h-5" />
+                                                    <TrashIcon className="w-4 h-4" />
                                                 </Link>
                                                 <a
                                                     href={route(
@@ -259,7 +259,7 @@ function BackupIndex({
                                                     )}
                                                     className={`text-blue-700 inline-flex py-2 px-2 rounded text-xs border border-sky-500`}
                                                 >
-                                                    <ArrowDownTrayIcon className="h-5 w-5" />
+                                                    <ArrowDownTrayIcon className="h-4 w-4" />
                                                 </a>
                                             </span>
                                         </td>
