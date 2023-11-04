@@ -20,15 +20,15 @@ function Sidebar({ auth, logout, ...props }) {
             />
             <aside
                 id="sidebar"
-                className={` bg-slate-900 absolute flex flex-col left-0 top-0 md:static md:left-auto md:top-auto md:translate-x-0 h-screen overflow-y-scroll md:overflow-y-auto no-scrollbar w-60 shrink-0 transition-all duration-200 ease-in-out -translate-x-72 z-50 text-gray-400 ${props.className}`}
+                className={` bg-slate-900 absolute flex flex-col left-0 top-0 md:static md:left-auto md:top-auto md:translate-x-0 h-screen overflow-y-scroll md:overflow-y-auto no-scrollbar w-72 shrink-0 transition-all duration-200 ease-in-out -translate-x-72 z-50 text-gray-400 ${props.className}`}
             >
-                <div className="flex flex-row items-center h-16 p-4 ">
+                <div className="flex flex-row items-center h-16 py-4 mb-4 px-6 ">
                     <Link
                         href="/"
                         className="flex items-center text-xl font-medium whitespace-nowrap self-center"
                     >
-                        <Square3Stack3DIcon className="mr-2 w-8 h-8 text-indigo-600"></Square3Stack3DIcon>{" "}
-                        <p className="font-semibold text-gray-100">
+                        <Square3Stack3DIcon className="mr-2 w-6 h-6 text-indigo-600"></Square3Stack3DIcon>{" "}
+                        <p className="font-semibold text-gray-100 px-1">
                             InertiaReact
                         </p>
                     </Link>
