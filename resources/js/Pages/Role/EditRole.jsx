@@ -84,12 +84,12 @@ function EditRole({ auth, permissions, role, permission_roles, settings }) {
                                         data.permissions.length
                                     }
                                 />
-                                <span className="text-md">Check All</span>
+                                <span className="text-sm">Check All</span>
                             </div>
                             <div>
                                 <div className="grid grid-cols-4 md:gap-4 gap-2">
                                     {permissions?.map((permission, index) => (
-                                        <div key={index} className="text-md">
+                                        <div key={index} className="text-sm">
                                             <Checkbox
                                                 onChange={handleChecked}
                                                 value={permission.name}
