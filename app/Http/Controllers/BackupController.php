@@ -25,9 +25,14 @@ class BackupController extends Controller
     public $disks = [];
     public $files = [];
     public $deletingFile = null;
+
     /**
-     * Handle the incoming request.
+     * Show Backup Status
+     *
+     * @param Request $request
+     * @return void
      */
+
     public function index(Request $request)
     {
         $this->backupStatuses = Cache::remember('backup-statuses', now()->addSeconds(4), function () {
@@ -68,6 +73,13 @@ class BackupController extends Controller
             'files' => $this->files
         ]);
     }
+
+    /**
+     * Get Files Function
+     *
+     * @param string $disk
+     * @return void
+     */
 
     public function getFiles($disk = null)
     {

@@ -8,6 +8,16 @@ use Illuminate\Support\Facades\Storage;
 
 trait UploadFile
 {
+    /**
+     * Upload File Method
+     *
+     * @param UploadedFile $file
+     * @param string $folder
+     * @param string $disk
+     * @param string $filename
+     * @return void
+     */
+
     public function uploadFile(UploadedFile $file, $folder = null, $disk = 'public', $filename = null)
     {
         $FileName = !is_null($filename) ? $filename : Str::random(10);
@@ -18,6 +28,13 @@ trait UploadFile
         );
     }
 
+    /**
+     * Delete File Method
+     *
+     * @param string $path
+     * @param string $disk
+     * @return void
+     */
 
     public function deleteFile($path, $disk = 'public')
     {

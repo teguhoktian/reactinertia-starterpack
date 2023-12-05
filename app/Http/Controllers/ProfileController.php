@@ -27,8 +27,12 @@ class ProfileController extends Controller
     }
 
     /**
-     * Update the user's profile information.
+     * Update Profile Information
+     *
+     * @param ProfileUpdateRequest $request
+     * @return RedirectResponse
      */
+
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
         // return $request->hasFile('profile_image');
@@ -53,8 +57,12 @@ class ProfileController extends Controller
     }
 
     /**
-     * Delete the user's account.
+     * Delete Profile
+     *
+     * @param Request $request
+     * @return RedirectResponse
      */
+
     public function destroy(Request $request): RedirectResponse
     {
         $request->validate([
