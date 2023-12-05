@@ -5,13 +5,8 @@ const headerTable = [
         sort: false,
     },
     {
-        key: "firstname",
-        label: "First Name",
-        sort: true,
-    },
-    {
-        key: "lastname",
-        label: "Last Name",
+        key: "name",
+        label: "Name",
         sort: true,
     },
     {

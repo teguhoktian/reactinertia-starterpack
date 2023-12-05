@@ -18,8 +18,7 @@ function UserEdit({ user, auth, roles, settings }) {
         reset,
         recentlySuccessful,
     } = useForm({
-        firstname: user.firstname,
-        lastname: user.lastname,
+        name: user.name,
         username: user.username,
         email: user.email,
         role: user.role,

@@ -91,29 +91,15 @@ function UserIndex({ auth, users, filters, flash, settings }) {
                                             className="w-10 h-10 rounded-full object-cover"
                                         />
                                     ) : (
-                                        <AvatarLetter
-                                            name={
-                                                user.firstname +
-                                                " " +
-                                                user.lastname
-                                            }
-                                        />
+                                        <AvatarLetter name={user.name} />
                                     )}
-                                </TableCell>
-                                <TableCell
-                                    dataLabel="First Name"
-                                    showLabel={true}
-                                >
-                                    <span className="text-sm text-gray-900">
-                                        {user.firstname}
-                                    </span>
                                 </TableCell>
                                 <TableCell
                                     dataLabel="Last Name"
                                     showLabel={true}
                                 >
                                     <span className="text-sm text-gray-900">
-                                        {user.lastname}
+                                        {user.name}
                                     </span>
                                 </TableCell>
                                 <TableCell dataLabel="Email" showLabel={true}>

@@ -21,8 +21,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'firstname',
-        'lastname',
+        'name',
         'username',
         'email',
         'password',
@@ -50,19 +49,13 @@ class User extends Authenticatable
     ];
 
     protected static $logAttributes = [
-        'firstname',
-        'lastname',
+        'name',
         'username',
         'email',
         'password',
         'role.name',
         'profile_image'
     ];
-
-    public function getFullNameAttribute()
-    {
-        return preg_replace('/\s+/', ' ', $this->firstname . ' ' . $this->lastname);
-    }
 
     public function getActivitylogOptions(): LogOptions
     {

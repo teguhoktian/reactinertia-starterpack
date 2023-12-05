@@ -19,8 +19,7 @@ export default function UpdateProfileInformation({
 
     const { data, setData, post, errors, processing, recentlySuccessful } =
         useForm({
-            firstname: user.firstname,
-            lastname: user.lastname,
+            name: user.name,
             email: user.email,
             image: null,
             preview: user.profile_image || null,
@@ -72,7 +71,7 @@ export default function UpdateProfileInformation({
                         {!data.preview && !selectedImage ? (
                             <AvatarLetter
                                 className="w-20 h-20 text-2xl"
-                                name={user.firstname + " " + user.lastname}
+                                name={user.name}
                             />
                         ) : (
                             <span className="h-12 w-12 rounded-full overflow-hidden bg-gray-100">
@@ -128,47 +127,20 @@ export default function UpdateProfileInformation({
                         </div>
                     </div>
                 </div>
-                <div className="grid md:grid-cols-2 gap-4 grid-cols-1 justify-between w-full">
-                    <div>
-                        <InputLabel htmlFor="firstname" value="First Name" />
 
-                        <TextInput
-                            id="firstname"
-                            className="mt-1 block w-full"
-                            value={data.firstname}
-                            onChange={(e) =>
-                                setData("firstname", e.target.value)
-                            }
-                            required
-                            isFocused
-                            autoComplete="firstname"
-                        />
+                <div>
+                    <InputLabel htmlFor="name" value="Name" />
 
-                        <InputError
-                            className="mt-2"
-                            message={errors.firstname}
-                        />
-                    </div>
-                    <div>
-                        <InputLabel htmlFor="lastname" value="Last Name" />
+                    <TextInput
+                        id="name"
+                        className="mt-1 block w-full"
+                        value={data.name}
+                        onChange={(e) => setData("name", e.target.value)}
+                        required
+                        autoComplete="name"
+                    />
 
-                        <TextInput
-                            id="lastname"
-                            className="mt-1 block w-full"
-                            value={data.lastname}
-                            onChange={(e) =>
-                                setData("lastname", e.target.value)
-                            }
-                            required
-                            isFocused
-                            autoComplete="lastname"
-                        />
-
-                        <InputError
-                            className="mt-2"
-                            message={errors.lastname}
-                        />
-                    </div>
+                    <InputError className="mt-2" message={errors.name} />
                 </div>
 
                 <div>

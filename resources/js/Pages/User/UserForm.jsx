@@ -7,44 +7,19 @@ import InputLabel from "@/MyComponents/Form/InputLabel";
 function UserForm({ data, setData, errors, roles }) {
     return (
         <>
-            <div className="grid grid-cols-2 gap-4">
-                <div>
-                    <InputLabel
-                        className="mb-2"
-                        htmlFor="firstname"
-                        value="First Name"
-                    />
-                    <TextInput
-                        id="firstname"
-                        className="mt-1 block w-full"
-                        value={data.firstname}
-                        onChange={(e) => setData("firstname", e.target.value)}
-                        required
-                        isFocused
-                        autoComplete="firstname"
-                    />
+            <div className="">
+                <InputLabel className="mb-2" htmlFor="name" value="Name" />
+                <TextInput
+                    id="name"
+                    className="mt-1 block w-full"
+                    value={data.name}
+                    onChange={(e) => setData("name", e.target.value)}
+                    required
+                    isFocused
+                    autoComplete="name"
+                />
 
-                    <InputError className="mt-2" message={errors.firstname} />
-                </div>
-
-                <div className="">
-                    <InputLabel
-                        className="mb-2"
-                        htmlFor="lastname"
-                        value="Last Name"
-                    />
-                    <TextInput
-                        id="lastname"
-                        className="mt-1 block w-full"
-                        value={data.lastname}
-                        onChange={(e) => setData("lastname", e.target.value)}
-                        required
-                        isFocused
-                        autoComplete="lastname"
-                    />
-
-                    <InputError className="mt-2" message={errors.lastname} />
-                </div>
+                <InputError className="mt-2" message={errors.name} />
             </div>
 
             <div className="mt-4">

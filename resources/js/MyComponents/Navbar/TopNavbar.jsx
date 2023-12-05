@@ -31,19 +31,13 @@ function TopNavbar({ auth, header, ...props }) {
                                         className="hover:cursor-pointer w-10 h-10 rounded-full object-cover border border-gray-200 shadow-md"
                                     />
                                 ) : (
-                                    <AvatarLetter
-                                        name={
-                                            auth.user.firstname +
-                                            " " +
-                                            auth.user.lastname
-                                        }
-                                    />
+                                    <AvatarLetter name={auth.user.name} />
                                 )}
                                 <button
                                     type="button"
                                     className="hidden md:inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
                                 >
-                                    Hi, {auth.user.firstname}
+                                    Hi, {auth.user.name.split(" ")[0]}
                                     <ChevronDownIcon className="w-4 h-4 ml-2" />
                                 </button>
                             </span>

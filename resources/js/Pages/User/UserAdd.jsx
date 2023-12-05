@@ -18,8 +18,7 @@ function UserAdd({ auth, roles, settings }) {
         reset,
         recentlySuccessful,
     } = useForm({
-        firstname: "",
-        lastname: "",
+        name: "",
         username: "",
         email: "",
         role: "",

@@ -13,8 +13,8 @@ class UserService
 {
     public function getAllData()
     {
-        $users = User::with(['roles'])->select(['id', 'firstname', 'lastname', 'email', 'username', 'profile_image']);
-        if (request()->search) $users = $users->where('firstname', 'LIKE', '%' . request()->search . '%')->orWhere('lastname', 'LIKE', '%' . request()->search . '%');
+        $users = User::with(['roles'])->select(['id', 'name', 'email', 'username', 'profile_image']);
+        if (request()->search) $users = $users->where('name', 'LIKE', '%' . request()->search . '%');
         if (request()->has(['field', 'direction'])) {
             $users->orderBy(request('field'), request('direction'));
         }
@@ -25,7 +25,7 @@ class UserService
 
     public function store($request)
     {
-        $user = User::create($request->only('username', 'firstname', 'lastname', 'email', 'password'));
+        $user = User::create($request->only('username', 'name', 'email', 'password'));
         $user->assignRole($request->role);
         return $user;
     }
@@ -33,7 +33,7 @@ class UserService
     public function update($request, $user)
     {
         $user->syncRoles($request->role);
-        return $user->update($request->only('username', 'firstname', 'lastname', 'email', 'password'));
+        return $user->update($request->only('username', 'name', 'email', 'password'));
     }
 
     public function delete($user)
