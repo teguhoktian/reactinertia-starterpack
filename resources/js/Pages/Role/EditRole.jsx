@@ -47,7 +47,7 @@ function EditRole({ auth, permissions, role, permission_roles, settings }) {
             <AuthLayout
                 auth={auth}
                 header={
-                    <h2 className="font-semibold text-xl text-gray-800 leading-tight">
+                    <h2 className="font-semibold text-base text-gray-800 leading-tight">
                         Edit Role
                     </h2>
                 }

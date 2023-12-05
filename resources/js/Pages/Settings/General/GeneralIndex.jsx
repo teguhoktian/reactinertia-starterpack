@@ -38,7 +38,7 @@ function BackupIndex({ auth, settings }) {
             <AuthLayout
                 auth={auth}
                 header={
-                    <h2 className="font-semibold text-xl text-gray-800 leading-tight">
+                    <h2 className="font-semibold text-base text-gray-800 leading-tight">
                         General Settings
                     </h2>
                 }
