@@ -1,4 +1,4 @@
-import { CircleStackIcon, Cog6ToothIcon, CogIcon, HomeIcon } from "@heroicons/react/24/solid";
+import { CircleStackIcon, Cog6ToothIcon, CogIcon, HomeIcon } from "@heroicons/react/24/outline";
 const menus = [
     {
         label: "Dashboard",
