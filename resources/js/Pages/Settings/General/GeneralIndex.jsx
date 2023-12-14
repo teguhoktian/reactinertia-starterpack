@@ -1,31 +1,20 @@
 import ActionSection from "@/Components/ActionSection";
 import InputError from "@/Components/InputError";
-import TextInput from "@/MyComponents/Form/TextInput";
+import TextInput from "@/Components/TextInput";
 import AuthLayout from "@/Layouts/AuthLayout";
 import PrimaryButton from "@/MyComponents/Buttons/PrimaryButton";
-import Card from "@/MyComponents/Card/Card";
 import { Transition } from "@headlessui/react";
 import { Head, useForm } from "@inertiajs/react";
 import React from "react";
-import { useState } from "react";
 
 function BackupIndex({ auth, settings }) {
-    const {
-        data,
-        setData,
-        post,
-        processing,
-        errors,
-        reset,
-        recentlySuccessful,
-    } = useForm({
-        site_name: settings.site_name,
-        timezone: settings.timezone,
-        locale: settings.locale,
-        asset_url: settings.asset_url,
-    });
-
-    const [showMessage, setShowMessage] = useState(false);
+    const { data, setData, post, processing, errors, recentlySuccessful } =
+        useForm({
+            site_name: settings.site_name,
+            timezone: settings.timezone,
+            locale: settings.locale,
+            asset_url: settings.asset_url,
+        });
 
     const submit = (e) => {
         e.preventDefault();
@@ -35,34 +24,10 @@ function BackupIndex({ auth, settings }) {
 
     return (
         <>
-            <AuthLayout
-                auth={auth}
-                header={
-                    <h2 className="font-semibold text-base text-gray-800 leading-tight">
-                        General Settings
-                    </h2>
-                }
-            >
+            <AuthLayout auth={auth}>
                 <Head title={`General Setting - ${settings.site_name}`} />
-                {showMessage && (
-                    <Alert
-                        className="mb-4"
-                        action={
-                            <IconButton size="small">
-                                <Close
-                                    onClick={() => {
-                                        setShowMessage(false);
-                                    }}
-                                ></Close>
-                            </IconButton>
-                        }
-                        severity="success"
-                    >
-                        {flash.message}
-                    </Alert>
-                )}
                 <form onSubmit={submit}>
-                    <Card>
+                    <div className="py-4 px-6 bg-white rounded-md border-gray-200 border">
                         <ActionSection
                             title="Site Name"
                             description="Your site name"
@@ -151,12 +116,12 @@ function BackupIndex({ auth, settings }) {
                                 leaveTo="opacity-0"
                                 className="transition ease-in-out"
                             >
-                                <p className="text-sm text-gray-600">
+                                <p className="text-sm text-emerald-600">
                                     Data Saved.
                                 </p>
                             </Transition>
                         </div>
-                    </Card>
+                    </div>
                 </form>
             </AuthLayout>
         </>

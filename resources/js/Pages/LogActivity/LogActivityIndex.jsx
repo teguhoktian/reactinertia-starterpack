@@ -37,16 +37,9 @@ function LogActivityIndex({ auth, activities, filters, settings }) {
     ];
     return (
         <>
-            <AuthLayout
-                auth={auth}
-                header={
-                    <h2 className="font-semibold text-base text-gray-800 leading-tight">
-                        Logs
-                    </h2>
-                }
-            >
+            <AuthLayout auth={auth}>
                 <Head title={`Logs - ${settings.sitename}`} />
-                <Card className="mt-4">
+                <div className="py-4 px-6 bg-white rounded-md border border-gray-200">
                     <Table
                         header={headerTable}
                         collections={activities}
@@ -55,7 +48,7 @@ function LogActivityIndex({ auth, activities, filters, settings }) {
                         {activities.data?.map((activity) => (
                             <TableRow key={activity.id}>
                                 <TableCell dataLabel="ID" showLabel={true}>
-                                    <span className="text-sm text-gray-900">
+                                    <span className="text-sm text-gray-500">
                                         {activity.id}
                                     </span>
                                 </TableCell>
@@ -63,7 +56,7 @@ function LogActivityIndex({ auth, activities, filters, settings }) {
                                     dataLabel="Log Name"
                                     showLabel={true}
                                 >
-                                    <span className="text-sm text-gray-900">
+                                    <span className="text-sm text-gray-500">
                                         {activity.log_name}
                                     </span>
                                 </TableCell>
@@ -71,7 +64,7 @@ function LogActivityIndex({ auth, activities, filters, settings }) {
                                     dataLabel="Deskripsi"
                                     showLabel={true}
                                 >
-                                    <span className="text-sm text-gray-900">
+                                    <span className="text-sm text-gray-500">
                                         {activity.description}
                                     </span>
                                 </TableCell>
@@ -79,7 +72,7 @@ function LogActivityIndex({ auth, activities, filters, settings }) {
                                     dataLabel="Subject Type"
                                     showLabel={true}
                                 >
-                                    <span className="text-sm text-gray-900">
+                                    <span className="text-sm text-gray-500">
                                         {activity.subject_type}
                                     </span>
                                 </TableCell>
@@ -87,7 +80,7 @@ function LogActivityIndex({ auth, activities, filters, settings }) {
                                     dataLabel="Subject ID"
                                     showLabel={true}
                                 >
-                                    <span className="text-sm text-gray-900">
+                                    <span className="text-sm text-gray-500">
                                         {activity.subject_id}
                                     </span>
                                 </TableCell>
@@ -95,14 +88,14 @@ function LogActivityIndex({ auth, activities, filters, settings }) {
                                     dataLabel="Causer ID"
                                     showLabel={true}
                                 >
-                                    <span className="text-sm text-gray-900">
+                                    <span className="text-sm text-gray-500">
                                         {activity.causer_id}
                                     </span>
                                 </TableCell>
                             </TableRow>
                         ))}
                     </Table>
-                </Card>
+                </div>
             </AuthLayout>
         </>
     );

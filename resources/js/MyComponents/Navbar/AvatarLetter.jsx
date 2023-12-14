@@ -30,12 +30,12 @@ function stringAvatar(name) {
     };
 }
 
-function AvatarLetter({ name, className = "w-10 h-10 font-medium" }) {
+function AvatarLetter({ name, className = "w-9 h-9 font-medium" }) {
     return (
         <>
             <div
                 className={
-                    `relative inline-flex items-center justify-center overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600 ` +
+                    `relative inline-flex items-center justify-center overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600 border-gray-300 border cursor-pointer ` +
                     className
                 }
             >

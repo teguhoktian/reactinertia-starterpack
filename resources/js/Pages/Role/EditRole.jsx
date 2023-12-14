@@ -2,10 +2,9 @@ import InputError from "@/Components/InputError";
 import AuthLayout from "@/Layouts/AuthLayout";
 import PrimaryButton from "@/MyComponents/Buttons/PrimaryButton";
 import SecondaryButton from "@/MyComponents/Buttons/SecondaryButton";
-import Card from "@/MyComponents/Card/Card";
-import Checkbox from "@/MyComponents/Form/Checkbox";
-import InputLabel from "@/MyComponents/Form/InputLabel";
-import TextInput from "@/MyComponents/Form/TextInput";
+import Checkbox from "@/Components/Checkbox";
+import InputLabel from "@/Components/InputLabel";
+import TextInput from "@/Components/TextInput";
 import { Head, useForm } from "@inertiajs/react";
 import React from "react";
 
@@ -44,16 +43,9 @@ function EditRole({ auth, permissions, role, permission_roles, settings }) {
 
     return (
         <>
-            <AuthLayout
-                auth={auth}
-                header={
-                    <h2 className="font-semibold text-base text-gray-800 leading-tight">
-                        Edit Role
-                    </h2>
-                }
-            >
+            <AuthLayout auth={auth}>
                 <Head title={`Edit Role - ${settings.sitename}`} />
-                <Card>
+                <div className="py-4 px-6 bg-white rounded-md border-gray-200 border">
                     <form onSubmit={submit}>
                         <div className="w-full">
                             <div className="mb-4 space-y-2">
@@ -122,7 +114,7 @@ function EditRole({ auth, permissions, role, permission_roles, settings }) {
                             </PrimaryButton>
                         </div>
                     </form>
-                </Card>
+                </div>
             </AuthLayout>
         </>
     );

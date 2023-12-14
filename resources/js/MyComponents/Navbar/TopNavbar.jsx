@@ -10,7 +10,7 @@ import {
 function TopNavbar({ auth, header, ...props }) {
     return (
         <>
-            <div className="text-sm bg-white absolute w-full flex items-center justify-between lg:p-6 p-3 h-14 space-x-2 border-b border-gray-200 z-40 shadow">
+            <div className="text-sm bg-white absolute w-full flex items-center justify-between lg:p-6 p-3 h-14 space-x-2 border-b border-gray-200 z-40">
                 <div className="flex flex-row items-center gap-2">
                     <span
                         className="md:hidden text-gray-500 hover:text-gray-700 cursor-pointer ml-2"
@@ -18,8 +18,6 @@ function TopNavbar({ auth, header, ...props }) {
                     >
                         <Bars3Icon className="w-6 h-6" />
                     </span>
-                    <ComputerDesktopIcon className="w-4 h-4" />{" "}
-                    {header && <span>{header}</span>}
                 </div>
                 <div>
                     <Dropdown>
@@ -33,13 +31,6 @@ function TopNavbar({ auth, header, ...props }) {
                                 ) : (
                                     <AvatarLetter name={auth.user.name} />
                                 )}
-                                <button
-                                    type="button"
-                                    className="hidden md:inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
-                                >
-                                    Hi, {auth.user.name.split(" ")[0]}
-                                    <ChevronDownIcon className="w-4 h-4 ml-2" />
-                                </button>
                             </span>
                         </Dropdown.Trigger>
 

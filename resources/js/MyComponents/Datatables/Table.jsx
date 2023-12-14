@@ -63,7 +63,7 @@ function Table({ collections, filters, header, children } = {}) {
                     <label>Show </label>
                     <select
                         aria-controls="example"
-                        className="border-gray-200 text-gray-500 text-sm shadow-sm rounded-sm"
+                        className="border-gray-200 text-gray-500 text-sm shadow-sm rounded-md"
                         onChange={handlePerpage}
                         value={perpage}
                     >
@@ -84,7 +84,7 @@ function Table({ collections, filters, header, children } = {}) {
                 </div>
             </div>
 
-            <div className="overflow-x-auto  border md:border-none p-4 md:p-0">
+            <div className="overflow-x-auto table-scrollbar border md:border-none p-4 md:p-0">
                 <table
                     className={`block md:table w-full text-sm text-left text-gray-500`}
                 >
@@ -102,7 +102,10 @@ function Table({ collections, filters, header, children } = {}) {
 
             {/* Paging */}
 
-            <Paginate collections={collections} className="space-y-6 pt-4" />
+            <Paginate
+                collections={collections}
+                className="space-y-6 pt-4 text-gray-500 "
+            />
         </div>
     );
 }

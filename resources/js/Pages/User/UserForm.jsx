@@ -1,8 +1,8 @@
 import React from "react";
 import InputError from "@/Components/InputError";
 import InputSelect from "@/MyComponents/Form/InputSelect";
-import TextInput from "@/MyComponents/Form/TextInput";
-import InputLabel from "@/MyComponents/Form/InputLabel";
+import TextInput from "@/Components/TextInput";
+import InputLabel from "@/Components/InputLabel";
 
 function UserForm({ data, setData, errors, roles }) {
     return (

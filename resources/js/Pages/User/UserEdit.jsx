@@ -30,16 +30,9 @@ function UserEdit({ user, auth, roles, settings }) {
     };
     return (
         <>
-            <AuthLayout
-                auth={auth}
-                header={
-                    <h2 className="font-semibold text-base text-gray-800 leading-tight">
-                        Edit Pengguna
-                    </h2>
-                }
-            >
+            <AuthLayout auth={auth}>
                 <Head title={`Edit Pengguna - ${settings.sitename}`} />
-                <Card>
+                <div className="py-4 px-6 bg-white rounded-md border-gray-200 border">
                     <SecondaryButton
                         className="mb-4"
                         onClick={(e) => {
@@ -71,7 +64,7 @@ function UserEdit({ user, auth, roles, settings }) {
                             </Transition>
                         </div>
                     </form>
-                </Card>
+                </div>
             </AuthLayout>
         </>
     );

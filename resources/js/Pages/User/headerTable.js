@@ -1,12 +1,8 @@
 const headerTable = [
-    {
-        key: "image",
-        label: "",
-        sort: false,
-    },
+    
     {
         key: "name",
-        label: "Name",
+        label: "User Name",
         sort: true,
     },
     {

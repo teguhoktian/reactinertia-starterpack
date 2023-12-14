@@ -1,5 +1,4 @@
 import AuthLayout from "@/Layouts/AuthLayout";
-import Card from "@/MyComponents/Card/Card";
 import { Transition } from "@headlessui/react";
 import { Head, router, useForm } from "@inertiajs/react";
 import React from "react";
@@ -30,16 +29,9 @@ function UserAdd({ auth, roles, settings }) {
     };
     return (
         <>
-            <AuthLayout
-                auth={auth}
-                header={
-                    <h2 className="font-semibold text-base text-gray-800 leading-tight">
-                        Tambah Pengguna
-                    </h2>
-                }
-            >
+            <AuthLayout auth={auth}>
                 <Head title={`Tambah Pengguna - ${settings.sitename}`} />
-                <Card>
+                <div className="py-4 px-6 bg-white rounded-md border-gray-200 border">
                     <SecondaryButton
                         className="mb-4"
                         onClick={(e) => {
@@ -69,7 +61,7 @@ function UserAdd({ auth, roles, settings }) {
                             </Transition>
                         </div>
                     </form>
-                </Card>
+                </div>
             </AuthLayout>
         </>
     );

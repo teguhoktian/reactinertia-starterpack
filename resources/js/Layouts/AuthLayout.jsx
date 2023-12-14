@@ -21,7 +21,7 @@ function AuthLayout({ auth, header, children }) {
     }, []);
 
     return (
-        <div className="flex h-screen overflow-hidden">
+        <div className="flex h-screen overflow-hidden bg-gray-100">
             <Sidebar
                 auth={auth}
                 toggle={sidebarToggle}
@@ -30,21 +30,25 @@ function AuthLayout({ auth, header, children }) {
 
             <div className="relative flex flex-1 flex-col overflow-x-hidden overflow-y-scroll no-scrollbar mx-auto border-l">
                 <TopNavbar auth={auth} header={header} toggle={sidebarToggle} />
-                <motion.div
-                    variants={{
-                        initial: { opacity: 0 },
-                        animate: { opacity: 1 },
-                        exit: { opacity: 0 },
-                    }}
-                    initial="initial"
-                    animate="animate"
-                    exit="exit"
-                    transition={{ duration: 0.5 }}
-                    className="overflow-x-hidden overflow-y-auto h-screen mb-auto md:px-3 lg:px-3 pb-6 pt-3"
-                >
-                    <div className=" mt-20">{children}</div>
-                </motion.div>
-                <Footer />
+                <div className="overflow-y-auto overflow-x-hidden">
+                    <motion.div
+                        variants={{
+                            initial: { opacity: 0 },
+                            animate: { opacity: 1 },
+                            exit: { opacity: 0 },
+                        }}
+                        initial="initial"
+                        animate="animate"
+                        exit="exit"
+                        transition={{ duration: 0.3 }}
+                        className=" md:px-3 lg:px-3 pb-6 pt-3"
+                    >
+                        <div className="min-h-[calc(100vh-145px)] mt-16">
+                            {children}
+                        </div>
+                    </motion.div>
+                    <Footer />
+                </div>
             </div>
         </div>
     );

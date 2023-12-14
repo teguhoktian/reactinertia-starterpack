@@ -1,13 +1,12 @@
 import AuthLayout from "@/Layouts/AuthLayout";
 import { Head, Link, router } from "@inertiajs/react";
 import React from "react";
-import Card from "@/MyComponents/Card/Card";
 import {
     PlusIcon,
     PencilIcon,
     TrashIcon,
     ArrowPathIcon,
-} from "@heroicons/react/24/solid";
+} from "@heroicons/react/24/outline";
 import PrimaryButton from "@/MyComponents/Buttons/PrimaryButton";
 import SecondaryButton from "@/MyComponents/Buttons/SecondaryButton";
 
@@ -18,16 +17,9 @@ function RoleIndex({ auth, roles, settings }) {
     };
     return (
         <>
-            <AuthLayout
-                auth={auth}
-                header={
-                    <h2 className="font-semibold text-base text-gray-800 leading-tight">
-                        Roles & Permission
-                    </h2>
-                }
-            >
+            <AuthLayout auth={auth}>
                 <Head title={`Role & Permission - ${settings.sitename}`} />
-                <Card>
+                <div className="py-4 px-6 bg-white rounded-md border-gray-200 border">
                     <div className="mb-4 justify-end flex items-center flex-row space-x-1">
                         <Link href="">
                             <SecondaryButton className="lg:pl-2 gap-1">
@@ -60,13 +52,13 @@ function RoleIndex({ auth, roles, settings }) {
                         <tbody className="table-row-group text-sm">
                             {roles?.map((role, index) => (
                                 <tr key={index}>
-                                    <td className="border-b text-left table-cell whitespace-nowrap text-slate-800 first:pl-4 last:pr-4 px-3 py-2">
+                                    <td className="border-b text-left table-cell whitespace-nowrap text-gray-500 first:pl-4 last:pr-4 px-3 py-2">
                                         {role.name}
                                     </td>
-                                    <td className="border-b text-left table-cell whitespace-nowrap text-slate-800 first:pl-4 last:pr-4 px-3 py-2">
+                                    <td className="border-b text-left table-cell whitespace-nowrap text-gray-500 first:pl-4 last:pr-4 px-3 py-2">
                                         {role.guard_name}
                                     </td>
-                                    <td className="border-b text-left table-cell whitespace-nowrap text-slate-800 first:pl-4 last:pr-4 px-3 py-2">
+                                    <td className="border-b text-left table-cell whitespace-nowrap text-gray-500 first:pl-4 last:pr-4 px-3 py-2">
                                         <div className="flex flex-row space-x-2">
                                             <Link
                                                 href={`/master/roles-permissions/${role.id}/edit`}
@@ -89,7 +81,7 @@ function RoleIndex({ auth, roles, settings }) {
                             ))}
                         </tbody>
                     </table>
-                </Card>
+                </div>
             </AuthLayout>
         </>
     );

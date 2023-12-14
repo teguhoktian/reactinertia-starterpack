@@ -2,13 +2,10 @@
     @apply  font-medium text-gray-200;
 }
 
-li > a > svg {
-    @apply w-6 h-6
+li > a > svg, li.link > svg, li.active > svg {
+    @apply w-5 h-5
 }
 
-li > a.active > svg, li.active > svg {
-    @apply flex text-indigo-700;
-}
 
 li > a.active, li.active {
     @apply text-gray-200;
@@ -19,6 +16,6 @@ li.active {
 }
 
 #menu .link, button.link {
-    @apply flex items-center px-[.75rem] py-2 text-base leading-6 font-normal rounded-sm gap-3 cursor-pointer mb-2  hover:text-gray-200;
+    @apply flex items-center px-[.75rem] py-3 text-sm font-medium leading-4 rounded-md gap-3 cursor-pointer mb-2  hover:text-gray-200;
 }
 

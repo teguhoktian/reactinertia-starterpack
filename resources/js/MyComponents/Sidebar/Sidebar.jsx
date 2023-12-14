@@ -67,7 +67,7 @@ function Sidebar({ auth, logout, ...props }) {
                                                 }`}
                                             >
                                                 {menu.icon && (
-                                                    <menu.icon className="w-6 h-6" />
+                                                    <menu.icon className="" />
                                                 )}
                                                 <span>{menu.label}</span>
                                             </Link>

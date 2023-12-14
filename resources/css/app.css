@@ -6,3 +6,11 @@
 .no-scrollbar::-webkit-scrollbar {
     display: none;
 }
+
+/* width */
+::-webkit-scrollbar {
+    height: 5px;
+    width: 2px;
+    background-color: rgba(0,0,0,.1);
+}
+ 

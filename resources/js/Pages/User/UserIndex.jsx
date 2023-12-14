@@ -3,7 +3,6 @@ import { Head, Link, router } from "@inertiajs/react";
 import React, { useState } from "react";
 import Table from "@/MyComponents/Datatables/Table";
 import TableCell from "@/MyComponents/Datatables/TableCell";
-import Card from "@/MyComponents/Card/Card";
 import headerTable from "./headerTable.js";
 import PrimaryButton from "@/MyComponents/Buttons/PrimaryButton.jsx";
 import SecondaryButton from "@/MyComponents/Buttons/SecondaryButton.jsx";
@@ -14,7 +13,7 @@ import {
     PencilIcon,
     PlusIcon,
     TrashIcon,
-} from "@heroicons/react/24/solid";
+} from "@heroicons/react/24/outline";
 import AlertSuccess from "@/MyComponents/Alert/AlertSuccess.jsx";
 import AvatarLetter from "@/MyComponents/Navbar/AvatarLetter.jsx";
 
@@ -42,21 +41,19 @@ function UserIndex({ auth, users, filters, flash, settings }) {
 
     return (
         <>
-            <AuthLayout
-                auth={auth}
-                header={
-                    <h2 className="font-semibold text-base text-gray-800 leading-tight">
-                        Pengguna
-                    </h2>
-                }
-            >
+            <AuthLayout auth={auth}>
+                {/* Head */}
                 <Head title={`Pengguna - ${settings.sitename}`} />
+
+                {/* Message Flash */}
                 {showMessage && (
                     <AlertSuccess delay="5000" show={showMessage}>
                         {flash.message}
                     </AlertSuccess>
                 )}
-                <Card className="mt-4">
+
+                {/* Content */}
+                <div className="py-4 px-6 bg-white rounded-md border-gray-200 border">
                     <div className="mb-4 justify-start flex items-center flex-row space-x-1">
                         <PrimaryButton
                             className="lg:pl-2 gap-1"
@@ -93,17 +90,12 @@ function UserIndex({ auth, users, filters, flash, settings }) {
                                     ) : (
                                         <AvatarLetter name={user.name} />
                                     )}
-                                </TableCell>
-                                <TableCell
-                                    dataLabel="Last Name"
-                                    showLabel={true}
-                                >
-                                    <span className="text-sm text-gray-900">
+                                    <span className="ml-4 text-sm text-gray-900">
                                         {user.name}
                                     </span>
                                 </TableCell>
                                 <TableCell dataLabel="Email" showLabel={true}>
-                                    <span className="text-sm text-gray-900">
+                                    <span className="text-sm text-gray-600">
                                         {user.email}
                                     </span>
                                 </TableCell>
@@ -111,15 +103,15 @@ function UserIndex({ auth, users, filters, flash, settings }) {
                                     dataLabel="Username"
                                     showLabel={true}
                                 >
-                                    <span className="text-sm text-gray-900">
+                                    <span className="text-sm text-gray-600">
                                         {user.username}
                                     </span>
                                 </TableCell>
                                 <TableCell dataLabel="Role" showLabel={true}>
-                                    <span className="text-sm text-gray-900">
+                                    <span className="text-gray-600">
                                         {user.roles?.map((role, index) => (
                                             <span
-                                                className="rounded-full py-1 px-3 text-xs font-semibold bg-emerald-200 text-green-900"
+                                                className="rounded-md py-1 px-2 text-xs font-medium bg-emerald-200 text-green-900"
                                                 key={index}
                                             >
                                                 {role.name}
@@ -128,7 +120,7 @@ function UserIndex({ auth, users, filters, flash, settings }) {
                                     </span>
                                 </TableCell>
                                 <TableCell showLabel={true}>
-                                    <span className="text-sm text-gray-900">
+                                    <span className="text-sm text-gray-600">
                                         <Link
                                             href={route(
                                                 "master.user.edit",
@@ -152,7 +144,7 @@ function UserIndex({ auth, users, filters, flash, settings }) {
                             </TableRow>
                         ))}
                     </Table>
-                </Card>
+                </div>
             </AuthLayout>
         </>
     );

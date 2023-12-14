@@ -3,7 +3,6 @@ import SecondaryButton from "@/MyComponents/Buttons/SecondaryButton";
 import AuthLayout from "@/Layouts/AuthLayout";
 import AlertSuccess from "@/MyComponents/Alert/AlertSuccess";
 import PrimaryButton from "@/MyComponents/Buttons/PrimaryButton";
-import Card from "@/MyComponents/Card/Card";
 import {
     ArrowDownTrayIcon,
     ArrowPathIcon,
@@ -12,7 +11,7 @@ import {
     InboxStackIcon,
     Bars3Icon,
     CheckCircleIcon,
-} from "@heroicons/react/24/solid";
+} from "@heroicons/react/24/outline";
 import { Head, Link, router } from "@inertiajs/react";
 import React from "react";
 import { useState } from "react";
@@ -71,14 +70,7 @@ function BackupIndex({
 
     return (
         <>
-            <AuthLayout
-                auth={auth}
-                header={
-                    <h2 className="font-semibold text-base text-gray-800 leading-tight">
-                        Backup DB
-                    </h2>
-                }
-            >
+            <AuthLayout auth={auth}>
                 <Head title={`Backup DB - ${settings.sitename}`} />
                 {showMessage && (
                     <AlertSuccess delay="5000" show={showMessage}>
@@ -86,7 +78,7 @@ function BackupIndex({
                     </AlertSuccess>
                 )}
                 <div className="mb-4 flex gap-2"></div>
-                <Card>
+                <div className="py-4 px-6 bg-white rounded-md border-gray-200 border">
                     <div className="mb-4 flex justify-end gap-2">
                         <PrimaryButton
                             disabled={loading}
@@ -97,7 +89,7 @@ function BackupIndex({
                             }}
                         >
                             <InboxStackIcon className="h-4 w-4"></InboxStackIcon>
-                            <span>Buat Backup</span>
+                            <span>Cadangkan</span>
                         </PrimaryButton>
                         <Dropdown>
                             <Dropdown.Trigger>
@@ -156,23 +148,23 @@ function BackupIndex({
                             <tbody className="table-row-group">
                                 {backupStatuses?.map((backupStatus, index) => (
                                     <tr key={index}>
-                                        <td className="border-b text-left table-cell whitespace-nowrap text-slate-800 first:pl-4 last:pr-4 px-3 py-2">
+                                        <td className="border-b text-left table-cell whitespace-nowrap text-gray-500 first:pl-4 last:pr-4 px-3 py-2">
                                             {backupStatus.disk}
                                         </td>
-                                        <td className="border-b text-left table-cell whitespace-nowrap text-slate-800 first:pl-4 last:pr-4 px-3 py-2">
+                                        <td className="border-b text-left table-cell whitespace-nowrap text-gray-500 first:pl-4 last:pr-4 px-3 py-2">
                                             {backupStatus.healthy ? (
                                                 <CheckCircleIcon className="h-5 w-5 text-green-600" />
                                             ) : (
                                                 <XCircleIcon className="h-5 w-5 text-red-600" />
                                             )}
                                         </td>
-                                        <td className="border-b text-left table-cell whitespace-nowrap text-slate-800 first:pl-4 last:pr-4 px-3 py-2">
+                                        <td className="border-b text-left table-cell whitespace-nowrap text-gray-500 first:pl-4 last:pr-4 px-3 py-2">
                                             {backupStatus.amount}
                                         </td>
-                                        <td className="border-b text-left table-cell whitespace-nowrap text-slate-800 first:pl-4 last:pr-4 px-3 py-2">
+                                        <td className="border-b text-left table-cell whitespace-nowrap text-gray-500 first:pl-4 last:pr-4 px-3 py-2">
                                             {backupStatus.newest}
                                         </td>
-                                        <td className="border-b text-left table-cell whitespace-nowrap text-slate-800 first:pl-4 last:pr-4 px-3 py-2">
+                                        <td className="border-b text-left table-cell whitespace-nowrap text-gray-500 first:pl-4 last:pr-4 px-3 py-2">
                                             {backupStatus.usedStorage}
                                         </td>
                                     </tr>
@@ -180,8 +172,8 @@ function BackupIndex({
                             </tbody>
                         </table>
                     </div>
-                </Card>
-                <Card className="mt-4">
+                </div>
+                <div className="py-4 mt-4 px-6 bg-white rounded-md border-gray-200 border">
                     <div className="mb-2 flex items-center justify-between">
                         <div className="flex gap-2">
                             {disks?.map((disk, index) => (
@@ -229,16 +221,16 @@ function BackupIndex({
                             <tbody className="table-row-group">
                                 {files?.map((file, index) => (
                                     <tr key={index}>
-                                        <td className="border-b text-left table-cell whitespace-nowrap text-slate-800 first:pl-4 last:pr-4 px-3 py-2">
+                                        <td className="border-b text-left table-cell whitespace-nowrap text-gray-500 first:pl-4 last:pr-4 px-3 py-2">
                                             {file.path}
                                         </td>
-                                        <td className="border-b text-left table-cell whitespace-nowrap text-slate-800 first:pl-4 last:pr-4 px-3 py-2">
+                                        <td className="border-b text-left table-cell whitespace-nowrap text-gray-500 first:pl-4 last:pr-4 px-3 py-2">
                                             {file.date}
                                         </td>
-                                        <td className="border-b text-left table-cell whitespace-nowrap text-slate-800 first:pl-4 last:pr-4 px-3 py-2">
+                                        <td className="border-b text-left table-cell whitespace-nowrap text-gray-500 first:pl-4 last:pr-4 px-3 py-2">
                                             {file.size}
                                         </td>
-                                        <td className="border-b text-right table-cell whitespace-nowrap text-slate-800 first:pl-4 last:pr-4 px-3 py-2">
+                                        <td className="border-b text-right table-cell whitespace-nowrap text-gray-500 first:pl-4 last:pr-4 px-3 py-2">
                                             <span className="text-gray-500 flex gap-2">
                                                 <Link
                                                     onClick={(e) => {
@@ -268,7 +260,7 @@ function BackupIndex({
                             </tbody>
                         </table>
                     </div>
-                </Card>
+                </div>
             </AuthLayout>
         </>
     );
