@@ -11,7 +11,7 @@ function UserForm({ data, setData, errors, roles }) {
                 <InputLabel className="mb-2" htmlFor="name" value="Name" />
                 <TextInput
                     id="name"
-                    className="mt-1 block w-full"
+                    className="mt-1 block w-full text-sm"
                     value={data.name}
                     onChange={(e) => setData("name", e.target.value)}
                     required
@@ -27,7 +27,7 @@ function UserForm({ data, setData, errors, roles }) {
                 <TextInput
                     id="email"
                     type="email"
-                    className="mt-1 block w-full"
+                    className="mt-1 block w-full text-sm"
                     value={data.email}
                     onChange={(e) => setData("email", e.target.value)}
                     required
@@ -46,7 +46,7 @@ function UserForm({ data, setData, errors, roles }) {
                 />
                 <TextInput
                     id="username"
-                    className="mt-1 block w-full"
+                    className="mt-1 block w-full text-sm"
                     value={data.username}
                     onChange={(e) => setData("username", e.target.value)}
                     required
@@ -60,6 +60,7 @@ function UserForm({ data, setData, errors, roles }) {
             <div className="mt-4">
                 <InputLabel className="mb-2" htmlFor="role" value="Role" />
                 <InputSelect
+                    className="text-sm"
                     placeholder="--Pilih--"
                     defaultValue={data.role[0]}
                     onChange={(e) => setData("role", e.target.value)}

@@ -73,7 +73,7 @@ function BackupIndex({
             <AuthLayout auth={auth}>
                 <Head title={`Backup DB - ${settings.sitename}`} />
                 {showMessage && (
-                    <AlertSuccess delay="5000" show={showMessage}>
+                    <AlertSuccess delay="700" show={showMessage}>
                         {flash.message}
                     </AlertSuccess>
                 )}

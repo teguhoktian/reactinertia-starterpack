@@ -1,5 +1,4 @@
 import AuthLayout from "@/Layouts/AuthLayout";
-import Card from "@/MyComponents/Card/Card";
 import { Head, router, useForm } from "@inertiajs/react";
 import React from "react";
 import UserForm from "./UserForm";

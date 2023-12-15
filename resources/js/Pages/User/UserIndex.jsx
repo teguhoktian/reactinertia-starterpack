@@ -47,7 +47,7 @@ function UserIndex({ auth, users, filters, flash, settings }) {
 
                 {/* Message Flash */}
                 {showMessage && (
-                    <AlertSuccess delay="5000" show={showMessage}>
+                    <AlertSuccess delay="1000" show={showMessage}>
                         {flash.message}
                     </AlertSuccess>
                 )}
@@ -81,7 +81,10 @@ function UserIndex({ auth, users, filters, flash, settings }) {
                     >
                         {users.data?.map((user) => (
                             <TableRow key={user.id}>
-                                <TableCell>
+                                <TableCell
+                                    dataLabel="User Name"
+                                    showLabel={true}
+                                >
                                     {user.profile_image ? (
                                         <img
                                             src={`/storage/${user.profile_image}`}
@@ -90,7 +93,7 @@ function UserIndex({ auth, users, filters, flash, settings }) {
                                     ) : (
                                         <AvatarLetter name={user.name} />
                                     )}
-                                    <span className="ml-4 text-sm text-gray-900">
+                                    <span className="ml-2 text-sm text-gray-900">
                                         {user.name}
                                     </span>
                                 </TableCell>

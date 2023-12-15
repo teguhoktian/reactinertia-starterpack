@@ -115,10 +115,7 @@ return [
             /*
              * The disk names on which the backups will be stored.
              */
-            'disks' => [
-                'local',
-                'dropbox'
-            ],
+            'disks' => explode(",", env('BACKUP_DISKS', 'local')),
         ],
 
         /*

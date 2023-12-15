@@ -34,7 +34,7 @@ function BackupIndex({ auth, settings }) {
                         >
                             <TextInput
                                 id="site_name"
-                                className="mt-1 block w-full"
+                                className="mt-1 block w-full text-sm"
                                 value={data.site_name}
                                 onChange={(e) =>
                                     setData("site_name", e.target.value)
@@ -53,7 +53,7 @@ function BackupIndex({ auth, settings }) {
                         <ActionSection title="Asset URL">
                             <TextInput
                                 id="asset_url"
-                                className="mt-1 block w-full"
+                                className="mt-1 block w-full text-sm"
                                 value={data.asset_url}
                                 onChange={(e) =>
                                     setData("asset_url", e.target.value)
@@ -72,7 +72,7 @@ function BackupIndex({ auth, settings }) {
                         <ActionSection title="Time Zone">
                             <TextInput
                                 id="timezone"
-                                className="mt-1 block w-full"
+                                className="mt-1 block w-full text-sm"
                                 value={data.timezone}
                                 onChange={(e) =>
                                     setData("timezone", e.target.value)
@@ -91,7 +91,7 @@ function BackupIndex({ auth, settings }) {
                         <ActionSection title="Locale">
                             <TextInput
                                 id="locale"
-                                className="mt-1 block w-full"
+                                className="mt-1 block w-full text-sm"
                                 value={data.locale}
                                 onChange={(e) =>
                                     setData("locale", e.target.value)
