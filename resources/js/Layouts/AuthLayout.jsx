@@ -30,7 +30,7 @@ function AuthLayout({ auth, header, children }) {
 
             <div className="relative flex flex-1 flex-col overflow-x-hidden overflow-y-scroll no-scrollbar mx-auto border-l">
                 <TopNavbar auth={auth} header={header} toggle={sidebarToggle} />
-                <div className="overflow-y-auto overflow-x-hidden">
+                <div className="md:pl-72">
                     <motion.div
                         variants={{
                             initial: { opacity: 0 },
