@@ -23,15 +23,15 @@ function Sidebar({ auth, logout, ...props }) {
                 className="md:flex w-72 flex-col fixed inset-y-0 z-50 transition md:translate-x-0 -translate-x-full ease-in"
             >
                 <aside
-                    className={` pb-4 h-screen px-6 bg-slate-900 overflow-y-auto gap-y-5 flex-col flex ${props.className}`}
+                    className={` pb-4 h-screen px-6 bg-indigo-600 overflow-y-auto gap-y-5 flex-col flex ${props.className}`}
                 >
                     <div className="flex flex-row h-16 py-4 mb-4 px-2">
                         <Link
                             href="/"
                             className="flex text-xl font-medium whitespace-nowrap self-center"
                         >
-                            <Square3Stack3DIcon className="mr-2 w-6 h-6 text-indigo-600"></Square3Stack3DIcon>{" "}
-                            <p className="font-semibold text-gray-100 px-1 text-2xl">
+                            <Square3Stack3DIcon className="mr-2 w-6 h-6 text-white"></Square3Stack3DIcon>{" "}
+                            <p className="font-semibold text-white px-1 text-2xl">
                                 InertiaReact
                             </p>
                         </Link>
@@ -39,12 +39,12 @@ function Sidebar({ auth, logout, ...props }) {
                             onClick={props.toggle}
                             className="absolute right-3 top-4 md:hidden"
                         >
-                            <XMarkIcon className="w-8 h-8"></XMarkIcon>
+                            <XMarkIcon className="w-8 h-8 text-white"></XMarkIcon>
                         </button>
                     </div>
 
-                    <div className="flex flex-col h-full">
-                        <ul id="menu" className="text-gray-400">
+                    <div className="flex flex-1 flex-col">
+                        <ul id="menu" className="text-gray-400 space-y-2">
                             {menus?.map((menu, index) =>
                                 menu.submenu ? (
                                     <SubMenu
@@ -64,10 +64,11 @@ function Sidebar({ auth, logout, ...props }) {
                                             >
                                                 <Link
                                                     href={`${menu.path}`}
-                                                    className={`link ${
+                                                    className={`leading-6 font-semibold text-sm p-2 rounded-md gap-x-3 flex hover:bg-indigo-700 hover:text-white ${
                                                         route().current() ==
-                                                            menu.route &&
-                                                        "active"
+                                                        menu.route
+                                                            ? " text-white"
+                                                            : "text-indigo-200"
                                                     }`}
                                                 >
                                                     {menu.icon && (

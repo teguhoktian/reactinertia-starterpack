@@ -13,19 +13,19 @@ function SubMenu({ menu, showMenu, auth, ...props }) {
                 <div key={menu.label}>
                     <li
                         key={menu.label}
-                        className={`link ${
+                        className={` cursor-pointer leading-6 font-semibold text-sm p-2 rounded-md gap-x-3 flex hover:bg-indigo-700 hover:text-white ${
                             route().current().startsWith(menu.route)
-                                ? "active"
-                                : ""
+                                ? "bg-indigo-700 text-white"
+                                : "text-indigo-200"
                         } `}
                         onClick={() => setSubMenuOpen(!subMenuOpen)}
                     >
-                        {menu.icon && <menu.icon className="w-4 h-4" />}
+                        {menu.icon && <menu.icon className="w-5 h-5" />}
                         <p className="flex-1">{menu.label}</p>
                         <ChevronDownIcon
                             className={`${
                                 subMenuOpen && "rotate-180"
-                            } duration-200 w-4 h-4`}
+                            } duration-200 w-5 h-5`}
                         />
                     </li>
                     <motion.ul
@@ -38,16 +38,17 @@ function SubMenu({ menu, showMenu, auth, ...props }) {
                                       height: 0,
                                   }
                         }
-                        className="flex flex-col pl-9 text-[0.7rem] h-0 overflow-hidden"
+                        className="flex flex-col pl-9 text-[0.7rem] h-0 overflow-hidden space-y-2"
                     >
                         {menu.submenu.map((sm, index) => (
                             <li key={index} onClick={props.props.toggle}>
                                 <Link
                                     key={index}
                                     href={`${menu.path}/${sm.path}`}
-                                    className={`link ${
-                                        route().current().includes(sm.route) &&
-                                        "active"
+                                    className={` leading-6 font-semibold text-sm p-2 rounded-md gap-x-3 flex  hover:text-white ${
+                                        route().current().includes(sm.route)
+                                            ? " text-white"
+                                            : "text-indigo-200"
                                     }`}
                                 >
                                     {sm.label}
