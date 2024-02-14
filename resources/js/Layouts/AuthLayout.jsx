@@ -21,16 +21,16 @@ function AuthLayout({ auth, header, children }) {
     }, []);
 
     return (
-        <div className="flex h-screen overflow-hidden bg-gray-100">
+        <div className="bg-gray-100 min-h-screen">
             <Sidebar
                 auth={auth}
                 toggle={sidebarToggle}
                 className={sidebarStatus ? "" : "mobile"}
             />
 
-            <div className="relative flex flex-1 flex-col overflow-x-hidden overflow-y-scroll no-scrollbar mx-auto border-l">
+            <div className="md:pl-72">
                 <TopNavbar auth={auth} header={header} toggle={sidebarToggle} />
-                <div className="md:pl-72">
+                <div className="py-12">
                     <motion.div
                         variants={{
                             initial: { opacity: 0 },
@@ -43,11 +43,10 @@ function AuthLayout({ auth, header, children }) {
                         transition={{ duration: 0.3 }}
                         className=" md:px-3 lg:px-3 pb-6 pt-3"
                     >
-                        <div className="min-h-[calc(100vh-145px)] mt-16">
+                        <div className="max-w-7xl mx-auto sm:px-6">
                             {children}
                         </div>
                     </motion.div>
-                    <Footer />
                 </div>
             </div>
         </div>
