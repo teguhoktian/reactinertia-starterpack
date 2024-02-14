@@ -3,7 +3,7 @@ import SectionTitle from "./SectionTitle";
 
 function ActionSection({ children, title, description, aside }) {
     return (
-        <div className="md:grid md:grid-cols-3 md:gap-6 mb-4">
+        <div className="md:grid md:grid-cols-3 md:gap-6 mb-4 text-sm">
             <SectionTitle
                 title={title}
                 description={description}
