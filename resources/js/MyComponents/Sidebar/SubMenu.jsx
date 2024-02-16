@@ -38,7 +38,7 @@ function SubMenu({ menu, showMenu, auth, ...props }) {
                                       height: 0,
                                   }
                         }
-                        className="flex flex-col pl-9 text-[0.7rem] h-0 overflow-hidden space-y-2"
+                        className="flex flex-col pl-9 text-[0.7rem] h-0 overflow-hidden"
                     >
                         {menu.submenu.map((sm, index) => (
                             <li key={index} onClick={props.props.toggle}>
