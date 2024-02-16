@@ -6,9 +6,12 @@ import { useEffect } from "react";
 function AlertSuccess({ children, ...props }) {
     const [visible, setVisible] = useState(props.show);
     useEffect(() => {
-        setTimeout(() => {
-            setVisible(false);
-        }, props.delay);
+        setTimeout(
+            () => {
+                setVisible(false);
+            },
+            props.delay ? props.delay : 3000
+        );
     }, [props.showMessage]);
 
     if (visible)
