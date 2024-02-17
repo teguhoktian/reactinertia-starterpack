@@ -1,12 +1,7 @@
 import AuthLayout from "@/Layouts/AuthLayout";
 import { Head, Link, router } from "@inertiajs/react";
 import React from "react";
-import {
-    PlusIcon,
-    PencilIcon,
-    TrashIcon,
-    ArrowPathIcon,
-} from "@heroicons/react/24/outline";
+import { PencilIcon, TrashIcon } from "@heroicons/react/24/outline";
 import PrimaryButton from "@/MyComponents/Buttons/PrimaryButton";
 import SecondaryButton from "@/MyComponents/Buttons/SecondaryButton";
 
@@ -22,14 +17,12 @@ function RoleIndex({ auth, roles, settings }) {
                 <div className="py-4 px-6 bg-white rounded-md border-gray-200 border">
                     <div className="mb-4 justify-end flex items-center flex-row space-x-1">
                         <Link href="">
-                            <SecondaryButton className="lg:pl-2 gap-1">
-                                <ArrowPathIcon className="w-4 h-4" />
+                            <SecondaryButton className="">
                                 <span>Reload</span>
                             </SecondaryButton>
                         </Link>
                         <Link href="/master/roles-permissions/add">
-                            <PrimaryButton className="lg:pl-2 gap-1">
-                                <PlusIcon className="h-4 w-4" />
+                            <PrimaryButton className="">
                                 <span>Add Role</span>
                             </PrimaryButton>
                         </Link>

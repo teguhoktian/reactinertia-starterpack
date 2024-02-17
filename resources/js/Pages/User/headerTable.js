@@ -6,11 +6,6 @@ const headerTable = [
         sort: true,
     },
     {
-        key: "email",
-        label: "E-Mail",
-        sort: true,
-    },
-    {
         key: "username",
         label: "Username",
         sort: true,

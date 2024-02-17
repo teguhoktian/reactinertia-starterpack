@@ -30,16 +30,16 @@ function stringAvatar(name) {
     };
 }
 
-function AvatarLetter({ name, className = "w-9 h-9 font-medium" }) {
+function AvatarLetter({ name, className = "w-10 h-10 font-medium" }) {
     return (
         <>
             <div
                 className={
-                    `relative inline-flex items-center justify-center overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600 border-gray-300 border cursor-pointer ` +
+                    `relative inline-flex items-center justify-center overflow-hidden bg-indigo-50 rounded-full  border-gray-300 border cursor-pointer ` +
                     className
                 }
             >
-                <span className=" text-gray-600 dark:text-gray-300 cursor-pointer">
+                <span className=" text-gray-600 dark:text-indigo-300 text-base cursor-pointer">
                     {`${name.split(" ")[0][0]}${name.split(" ")[1][0]}`}
                 </span>
             </div>

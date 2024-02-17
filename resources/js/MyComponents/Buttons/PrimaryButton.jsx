@@ -5,7 +5,7 @@ function PrimaryButton({ className = "", disabled, children, ...props }) {
         <button
             {...props}
             className={
-                `flex items-center gap-2 rounded bg-blue-600 py-2 px-4 font-medium text-white text-sm hover:bg-opacity-80 ${
+                `flex rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline items-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ${
                     disabled && "opacity-25"
                 } ` + className
             }

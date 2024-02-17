@@ -8,12 +8,7 @@ import PrimaryButton from "@/MyComponents/Buttons/PrimaryButton.jsx";
 import SecondaryButton from "@/MyComponents/Buttons/SecondaryButton.jsx";
 import TableRow from "@/MyComponents/Datatables/TableRow.jsx";
 import { useEffect } from "react";
-import {
-    ArrowPathIcon,
-    PencilIcon,
-    PlusIcon,
-    TrashIcon,
-} from "@heroicons/react/24/outline";
+import { PencilIcon, TrashIcon } from "@heroicons/react/24/outline";
 import AlertSuccess from "@/MyComponents/Alert/AlertSuccess.jsx";
 import AvatarLetter from "@/MyComponents/Navbar/AvatarLetter.jsx";
 
@@ -56,22 +51,20 @@ function UserIndex({ auth, users, filters, flash, settings }) {
                 <div className="py-4 px-6 bg-white rounded-md border-gray-200 border">
                     <div className="mb-4 justify-start flex items-center flex-row space-x-1">
                         <PrimaryButton
-                            className="lg:pl-2 gap-1"
+                            className=""
                             onClick={(e) => {
                                 router.visit(route("master.user.index"));
                             }}
                         >
-                            <ArrowPathIcon className="w-4 h-4" />
-                            <span className="hidden md:block">Reload</span>
+                            <span>Reload</span>
                         </PrimaryButton>
                         <SecondaryButton
-                            className="lg:pl-2 gap-1"
+                            className=""
                             onClick={(e) => {
                                 router.visit(route("master.user.create"));
                             }}
                         >
-                            <PlusIcon className="h-4 w-4" />{" "}
-                            <span className="hidden md:block">Add</span>
+                            <span>Add</span>
                         </SecondaryButton>
                     </div>
                     <Table
@@ -85,22 +78,24 @@ function UserIndex({ auth, users, filters, flash, settings }) {
                                     dataLabel="User Name"
                                     showLabel={true}
                                 >
-                                    {user.profile_image ? (
-                                        <img
-                                            src={`/storage/${user.profile_image}`}
-                                            className="w-10 h-10 rounded-full object-cover"
-                                        />
-                                    ) : (
-                                        <AvatarLetter name={user.name} />
-                                    )}
-                                    <span className="ml-2 text-sm text-gray-900">
-                                        {user.name}
-                                    </span>
-                                </TableCell>
-                                <TableCell dataLabel="Email" showLabel={true}>
-                                    <span className="text-sm text-gray-600">
-                                        {user.email}
-                                    </span>
+                                    <div className="flex gap-4">
+                                        {user.profile_image ? (
+                                            <img
+                                                src={`/storage/${user.profile_image}`}
+                                                className="w-10 h-10 rounded-full object-cover"
+                                            />
+                                        ) : (
+                                            <AvatarLetter name={user.name} />
+                                        )}
+                                        <div className="flex flex-col">
+                                            <span className="font-semibold">
+                                                {user.name}
+                                            </span>
+                                            <span className="text-gray-400">
+                                                {user.email}
+                                            </span>
+                                        </div>
+                                    </div>
                                 </TableCell>
                                 <TableCell
                                     dataLabel="Username"

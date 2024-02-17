@@ -5,7 +5,7 @@ function SecondaryButton({ className = "", disabled, children, ...props }) {
         <button
             {...props}
             className={
-                `flex items-center gap-2 rounded text-gray-700 bg-gray-50 py-2 px-4 text-sm font-medium hover:bg-opacity-80 border border-gray-200 ${
+                `flex rounded-md bg-white px-3 py-1.5 text-sm font-semibold leading-6 border border-gray-300  text-gray-700  shadow-sm hover:border-blue-300 focus-visible:outline items-center focus-visible:outline-2 focus-visible:outline-offset-2   ${
                     disabled && "opacity-25"
                 } ` + className
             }

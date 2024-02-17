@@ -31,14 +31,14 @@ function UserAdd({ auth, roles, settings }) {
         <>
             <AuthLayout auth={auth}>
                 <Head title={`Tambah Pengguna - ${settings.sitename}`} />
-                <div className="py-4 px-6 bg-white rounded-md border-gray-200 border">
+                <div className="py-4 px-6 bg-white rounded-md border-gray-200 border space-y-4">
                     <SecondaryButton
-                        className="mb-4"
+                        className=""
                         onClick={(e) => {
                             router.visit(route("master.user.index"));
                         }}
                     >
-                        <ArrowLeftIcon className="w-6 h-6" />
+                        <ArrowLeftIcon className="w-5 h-5" />
                     </SecondaryButton>
                     <form onSubmit={submit}>
                         <UserForm

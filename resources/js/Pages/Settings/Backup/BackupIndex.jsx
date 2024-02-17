@@ -113,13 +113,12 @@ function BackupIndex({
                     <div className="mb-4 flex justify-end gap-2">
                         <PrimaryButton
                             disabled={loading}
-                            className="lg:pl-2 gap-1"
+                            className=""
                             onClick={(e) => {
                                 e.preventDefault();
                                 createBackup({ option: "" });
                             }}
                         >
-                            <InboxStackIcon className="h-4 w-4"></InboxStackIcon>
                             <span>Cadangkan</span>
                         </PrimaryButton>
                         <Dropdown>
