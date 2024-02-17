@@ -30,7 +30,7 @@ function Sidebar({ auth, logout, ...props }) {
                             href="/"
                             className="flex text-xl font-medium whitespace-nowrap self-center"
                         >
-                            <Square3Stack3DIcon className="mr-2 w-6 h-6 text-white"></Square3Stack3DIcon>{" "}
+                            <Square3Stack3DIcon className="mr-2 w-7 h-7 text-white"></Square3Stack3DIcon>{" "}
                             <p className="font-semibold text-white px-1 text-2xl">
                                 InertiaReact
                             </p>
