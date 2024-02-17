@@ -13,25 +13,54 @@ import {
     CheckCircleIcon,
 } from "@heroicons/react/24/outline";
 import { Head, Link, router } from "@inertiajs/react";
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
+import axios from "axios";
 
 function BackupIndex({
     auth,
-    backupStatuses,
+    // backupStatuses,
     disks,
     activeDisk,
-    files,
+    // files,
     flash,
     settings,
 }) {
     const [checkedDisk, setCheckedDisk] = useState(activeDisk || "");
     const [showMessage, setShowMessage] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [backupStatuses, setBackupStatuses] = useState([]);
+    const [files, setFiles] = useState([]);
+
+    useEffect(() => {
+        getBackupStatuses();
+        getBackupFiles();
+    }, [checkedDisk]);
+
+    const getBackupStatuses = async () => {
+        try {
+            const responses = await axios.get(
+                route("setting.backup.backupStatuses")
+            );
+            setBackupStatuses(responses.data);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    const getBackupFiles = async () => {
+        try {
+            const responses = await axios.get(
+                route("setting.backup.getFiles", { disk: checkedDisk })
+            );
+            setFiles(responses.data);
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
     const handleChange = (value) => {
         setCheckedDisk(value);
-        router.get(route("setting.backup.index", { disk: value }));
     };
 
     const handleDelete = (id) => {
@@ -47,6 +76,8 @@ function BackupIndex({
                         setShowMessage(false);
                     },
                     onSuccess: (page) => {
+                        getBackupStatuses();
+                        getBackupFiles();
                         setShowMessage(true);
                         setLoading(false);
                     },
@@ -118,7 +149,7 @@ function BackupIndex({
                         </Dropdown>
                         <PrimaryButton
                             onClick={(e) => {
-                                router.visit(route("setting.backup.index"));
+                                getBackupStatuses();
                             }}
                         >
                             <ArrowPathIcon className="w-6 h-6"></ArrowPathIcon>
@@ -128,19 +159,19 @@ function BackupIndex({
                         <table className="table w-full text-sm text-left">
                             <thead className="bg-slate-100 table-header-group text-gray-600 border boder-gray-400">
                                 <tr>
-                                    <th className="py-3 px-4 table-cell font-semibold text-sm uppercase">
+                                    <th className="py-3 px-4 table-cell font-semibold text-sm">
                                         Disk
                                     </th>
-                                    <th className="py-3 px-4 table-cell font-semibold text-sm uppercase">
+                                    <th className="py-3 px-4 table-cell font-semibold text-sm">
                                         Healty
                                     </th>
-                                    <th className="py-3 px-4 table-cell font-semibold text-sm uppercase">
+                                    <th className="py-3 px-4 table-cell font-semibold text-sm">
                                         Amount of Backups
                                     </th>
-                                    <th className="py-3 px-4 table-cell font-semibold text-sm uppercase">
+                                    <th className="py-3 px-4 table-cell font-semibold text-sm">
                                         Last backup
                                     </th>
-                                    <th className="py-3 px-4 table-cell font-semibold text-sm uppercase">
+                                    <th className="py-3 px-4 table-cell font-semibold text-sm">
                                         Used Storage
                                     </th>
                                 </tr>
@@ -195,7 +226,7 @@ function BackupIndex({
                         <div>
                             <PrimaryButton
                                 onClick={() => {
-                                    handleChange(checkedDisk);
+                                    getBackupFiles();
                                 }}
                             >
                                 <ArrowPathIcon className="w-6 h-6"></ArrowPathIcon>
@@ -206,16 +237,16 @@ function BackupIndex({
                         <table className="table w-full text-sm text-left">
                             <thead className="bg-slate-100 table-header-group text-gray-600 border boder-gray-400">
                                 <tr>
-                                    <th className="py-3 px-4 table-cell font-semibold text-sm uppercase">
+                                    <th className="py-3 px-4 table-cell font-semibold text-sm">
                                         Path
                                     </th>
-                                    <th className="py-3 px-4 table-cell font-semibold text-sm uppercase">
+                                    <th className="py-3 px-4 table-cell font-semibold text-sm">
                                         Created At
                                     </th>
-                                    <th className="py-3 px-4 table-cell font-semibold text-sm uppercase">
+                                    <th className="py-3 px-4 table-cell font-semibold text-sm">
                                         Size
                                     </th>
-                                    <th className="py-3 px-4 table-cell font-semibold text-sm uppercase"></th>
+                                    <th className="py-3 px-4 table-cell font-semibold text-sm"></th>
                                 </tr>
                             </thead>
                             <tbody className="table-row-group">

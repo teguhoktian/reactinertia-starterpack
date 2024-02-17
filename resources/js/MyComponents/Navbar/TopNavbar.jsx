@@ -25,13 +25,13 @@ function TopNavbar({ auth, header, ...props }) {
                             type="text"
                             placeholder="Search..."
                             name="search_global"
-                            autocomplete="off"
-                            class="placeholder:text-gray-400 border-none text-gray-700 focus:ring-0 text-sm focus:border-primary-500 block w-full pl-10 p-2"
+                            autoComplete="off"
+                            className="placeholder:text-gray-400 border-none text-gray-700 focus:ring-0 text-sm focus:border-primary-500 block w-full pl-10 p-2"
                         />
                     </div>
                 </div>
 
-                <div class="lg:bg-gray-200 hidden lg:block lg:w-[1px] lg:h-6"></div>
+                <div className="lg:bg-gray-200 hidden lg:block lg:w-[1px] lg:h-6"></div>
 
                 <div>
                     <Dropdown>
@@ -46,9 +46,9 @@ function TopNavbar({ auth, header, ...props }) {
                                     <AvatarLetter name={auth.user.name} />
                                 )}
 
-                                <div class="md:flex md:flex-col hidden">
-                                    <div class="">{auth.user.name}</div>
-                                    <div class="text-xs text-gray-400">
+                                <div className="md:flex md:flex-col hidden">
+                                    <div className="">{auth.user.name}</div>
+                                    <div className="text-xs text-gray-400">
                                         {auth.user.email}
                                     </div>
                                 </div>

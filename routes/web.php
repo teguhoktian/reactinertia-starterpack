@@ -53,6 +53,8 @@ Route::middleware('auth')->group(function () {
         Route::delete('/backup', [BackupController::class, 'deleteFile'])->name('backup.delete');
         Route::post('/backup', [BackupController::class, 'createBackup'])->name('backup.create');
         Route::get('/backup/download', [BackupController::class, 'downloadBackup'])->middleware(NonInertiaRoutes::class)->name('backup.download');
+        Route::get('/backup/getBackupStatuses', [BackupController::class, 'backupStatuses'])->name('backup.backupStatuses');
+        Route::get('/backup/getBackupFiles', [BackupController::class, 'getFiles'])->name('backup.getFiles');
 
         //General
         Route::get('/general', [GeneralSettingController::class, 'index'])->name('general.index');

@@ -20,8 +20,8 @@ use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class BackupController extends Controller
 {
-    public $backupStatuses = [];
-    public $activeDisk = null;
+
+    public $activeDisk = '';
     public $disks = [];
     public $files = [];
     public $deletingFile = null;
@@ -35,7 +35,28 @@ class BackupController extends Controller
 
     public function index(Request $request)
     {
-        $this->backupStatuses = Cache::remember('backup-statuses', now()->addSeconds(4), function () {
+        if (!$this->activeDisk and count($this->backupStatuses())) {
+            $this->activeDisk = $this->backupStatuses()[0]['disk'];
+        }
+
+        $this->disks = collect($this->backupStatuses())
+            ->map(function ($backupStatus) {
+                return $backupStatus['disk'];
+            })
+            ->values()
+            ->all();
+
+        return Inertia::render('Settings/Backup/BackupIndex', [
+            // 'backupStatuses' => [],
+            'disks' => $this->disks,
+            'activeDisk' => $request->disk ?: $this->activeDisk,
+            // 'files' => $this->files
+        ]);
+    }
+
+    function backupStatuses()
+    {
+        return Cache::remember('backup-statuses', now()->addSeconds(4), function () {
             return BackupDestinationStatusFactory::createForMonitorConfig(config('backup.monitor_backups'))->map(function (BackupDestinationStatus $backupDestinationStatus) {
                 return [
                     'name' => $backupDestinationStatus->backupDestination()->backupName(),
@@ -52,26 +73,6 @@ class BackupController extends Controller
                 ->values()
                 ->toArray();
         });
-
-        if (!$this->activeDisk and count($this->backupStatuses)) {
-            $this->activeDisk = $this->backupStatuses[0]['disk'];
-        }
-
-        $this->disks = collect($this->backupStatuses)
-            ->map(function ($backupStatus) {
-                return $backupStatus['disk'];
-            })
-            ->values()
-            ->all();
-
-        $this->files = $this->getFiles($request->disk);
-
-        return Inertia::render('Settings/Backup/BackupIndex', [
-            'backupStatuses' => $this->backupStatuses,
-            'disks' => $this->disks,
-            'activeDisk' => $request->disk ?: $this->activeDisk,
-            'files' => $this->files
-        ]);
     }
 
     /**
@@ -81,10 +82,11 @@ class BackupController extends Controller
      * @return void
      */
 
-    public function getFiles($disk = null)
+    public function getFiles(Request $request)
     {
-        if ($disk) {
-            $this->activeDisk = $disk;
+
+        if ($request->disk) {
+            $this->activeDisk = $request->disk;
         }
 
         $backupDestination = BackupDestination::create($this->activeDisk, config('backup.backup.name'));
@@ -105,7 +107,7 @@ class BackupController extends Controller
 
     public function deleteFile(Request $request)
     {
-        $this->files = $this->getFiles($request->disk);
+        $this->files = $this->getFiles($request);
 
         $deletingFile = $this->files[$request->index_file];;
 
