@@ -12,6 +12,7 @@
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",
+        "masbug/flysystem-google-drive-ext": "^2.3",
         "spatie/flysystem-dropbox": "^3.0",
         "spatie/laravel-activitylog": "^4.7",
         "spatie/laravel-backup": "^8.1",
