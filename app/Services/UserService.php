@@ -18,7 +18,7 @@ class UserService
         if (request()->has(['field', 'direction'])) {
             $users->orderBy(request('field'), request('direction'));
         }
-        $users = $users->paginate(request()->perpage ?: 10);
+        $users = $users->paginate(request()->perpage ?: 10)->OnEachSide(1);
 
         return new ResourcesUser($users);
     }

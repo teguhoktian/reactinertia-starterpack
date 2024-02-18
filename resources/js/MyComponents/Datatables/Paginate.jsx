@@ -1,6 +1,5 @@
 import { Link } from "@inertiajs/react";
 import React from "react";
-import SecondaryButton from "../Buttons/SecondaryButton";
 
 function Paginate({ collections, className }) {
     const getClassName = (active) => {
@@ -22,7 +21,7 @@ function Paginate({ collections, className }) {
                     <div className="flex items-center justify-center">
                         <div className="inline-flex flex-wrap rounded-lg lg:hidden justify-between w-full">
                             {collections.links.prev && (
-                                <SecondaryButton>
+                                <div className="px-3 py-2 text-sm leading-4 text-gray-500 border border-primary rounded-lg">
                                     <Link
                                         className=""
                                         href={collections.links.prev}
@@ -31,10 +30,10 @@ function Paginate({ collections, className }) {
                                     >
                                         Previous
                                     </Link>
-                                </SecondaryButton>
+                                </div>
                             )}
                             {collections.links.next && (
-                                <SecondaryButton>
+                                <div className="px-3 py-2 text-sm leading-4 text-gray-500 border border-primary rounded-lg">
                                     <Link
                                         className=""
                                         href={collections.links.next}
@@ -43,7 +42,7 @@ function Paginate({ collections, className }) {
                                     >
                                         Next
                                     </Link>
-                                </SecondaryButton>
+                                </div>
                             )}
                         </div>
                         <div className="lg:inline-flex flex-wrap rounded-lg border hidden">

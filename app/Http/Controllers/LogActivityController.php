@@ -28,7 +28,7 @@ class LogActivityController extends Controller
         } else {
             $activities->orderBy('id', 'DESC');
         }
-        $activities = $activities->paginate(request()->perpage ?: 10);
+        $activities = $activities->paginate(request()->perpage ?: 10)->OnEachSide(1);
 
         return new LogActivity($activities);
     }
