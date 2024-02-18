@@ -30,7 +30,7 @@ function stringAvatar(name) {
     };
 }
 
-function AvatarLetter({ name, className = "w-10 h-10 font-medium" }) {
+function AvatarLetter({ name, className = "w-10 h-10 font-medium text-base" }) {
     return (
         <>
             <div
@@ -39,7 +39,7 @@ function AvatarLetter({ name, className = "w-10 h-10 font-medium" }) {
                     className
                 }
             >
-                <span className=" text-gray-700 dark:text-indigo-400 text-base cursor-pointer">
+                <span className=" text-gray-700 dark:text-indigo-400 cursor-pointer">
                     {`${name.split(" ")[0][0]}${name.split(" ")[1][0]}`}
                 </span>
             </div>

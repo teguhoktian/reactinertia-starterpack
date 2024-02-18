@@ -70,7 +70,7 @@ export default function UpdateProfileInformation({
                         />
                         {!data.preview && !selectedImage ? (
                             <AvatarLetter
-                                className="w-20 h-20 text-2xl"
+                                className="text-4xl w-20 h-20"
                                 name={user.name}
                             />
                         ) : (

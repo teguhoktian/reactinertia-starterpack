@@ -4,6 +4,7 @@ import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Link } from "@inertiajs/react";
 import { Square3Stack3DIcon } from "@heroicons/react/24/solid";
+import AvatarLetter from "@/MyComponents/Navbar/AvatarLetter";
 
 export default function Authenticated({ user, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
@@ -35,27 +36,27 @@ export default function Authenticated({ user, header, children }) {
                             <div className="ml-3 relative">
                                 <Dropdown>
                                     <Dropdown.Trigger>
-                                        <span className="inline-flex rounded-md">
-                                            <button
-                                                type="button"
-                                                className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
-                                            >
-                                                {user.firstname}
+                                        <div className="flex items-center gap-x-3 text-right pr-2 hover:cursor-pointer text-sm">
+                                            {user.profile_image ? (
+                                                <img
+                                                    src={`/storage/${user.profile_image}`}
+                                                    className="w-10 h-10 rounded-full object-cover border border-gray-200 shadow-md"
+                                                />
+                                            ) : (
+                                                <AvatarLetter
+                                                    name={user.name}
+                                                />
+                                            )}
 
-                                                <svg
-                                                    className="ml-2 -mr-0.5 h-4 w-4"
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    viewBox="0 0 20 20"
-                                                    fill="currentColor"
-                                                >
-                                                    <path
-                                                        fillRule="evenodd"
-                                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                        clipRule="evenodd"
-                                                    />
-                                                </svg>
-                                            </button>
-                                        </span>
+                                            <div className="md:flex md:flex-col hidden">
+                                                <div className="">
+                                                    {user.name}
+                                                </div>
+                                                <div className="text-xs text-gray-400">
+                                                    {user.email}
+                                                </div>
+                                            </div>
+                                        </div>
                                     </Dropdown.Trigger>
 
                                     <Dropdown.Content>
