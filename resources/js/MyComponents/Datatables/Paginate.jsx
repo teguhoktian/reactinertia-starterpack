@@ -1,6 +1,6 @@
-import SecondaryButton from "@/Components/SecondaryButton";
 import { Link } from "@inertiajs/react";
 import React from "react";
+import SecondaryButton from "../Buttons/SecondaryButton";
 
 function Paginate({ collections, className }) {
     const getClassName = (active) => {
@@ -12,7 +12,7 @@ function Paginate({ collections, className }) {
     return (
         <div className={`${className}`}>
             {collections.meta.links.length > 0 && (
-                <div className="text-center md:text-start block md:flex md:justify-between md:items-center text-sm">
+                <div className="text-center lg:text-start block lg:flex lg:justify-between lg:items-center text-sm">
                     {collections.meta.total > 0 && (
                         <div className="flex-1 leading-5 md:mb-0 mb-2">
                             Showing data: {collections.meta.from} to{" "}
@@ -20,7 +20,33 @@ function Paginate({ collections, className }) {
                         </div>
                     )}
                     <div className="flex items-center justify-center">
-                        <div className="inline-flex flex-wrap rounded-lg border">
+                        <div className="inline-flex flex-wrap rounded-lg lg:hidden justify-between w-full">
+                            {collections.links.prev && (
+                                <SecondaryButton>
+                                    <Link
+                                        className=""
+                                        href={collections.links.prev}
+                                        key={""}
+                                        charSet="utf-8"
+                                    >
+                                        Previous
+                                    </Link>
+                                </SecondaryButton>
+                            )}
+                            {collections.links.next && (
+                                <SecondaryButton>
+                                    <Link
+                                        className=""
+                                        href={collections.links.next}
+                                        key={""}
+                                        charSet="utf-8"
+                                    >
+                                        Next
+                                    </Link>
+                                </SecondaryButton>
+                            )}
+                        </div>
+                        <div className="lg:inline-flex flex-wrap rounded-lg border hidden">
                             {collections.meta.links.map((link, key) =>
                                 link.url === null ? (
                                     <div
