@@ -13,7 +13,7 @@ function SubMenu({ menu, showMenu, auth, ...props }) {
                 <div key={menu.label}>
                     <li
                         key={menu.label}
-                        className={` cursor-pointer leading-6 font-semibold text-sm p-2 rounded-md gap-x-3 flex hover:bg-indigo-700 hover:text-white ${
+                        className={` cursor-pointer leading-6 font-semibold text-sm p-2 rounded-md gap-x-3 flex hover:bg-indigo-700 hover:text-white items-center ${
                             route().current().startsWith(menu.route)
                                 ? "bg-indigo-700 text-white"
                                 : "text-indigo-200"
@@ -25,7 +25,7 @@ function SubMenu({ menu, showMenu, auth, ...props }) {
                         <ChevronDownIcon
                             className={`${
                                 subMenuOpen && "rotate-180"
-                            } duration-200 w-6 h-6`}
+                            } duration-200 w-4 h-4`}
                         />
                     </li>
                     <motion.ul
